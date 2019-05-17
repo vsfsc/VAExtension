@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82CD5BC5-F0B6-4099-BBDA-9BA5A30B4026}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ContestDll</RootNamespace>
+    <AssemblyName>ContestDll</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\inetpub\wwwroot\wss\VirtualDirectories\80\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ContestDll.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\VAExtension\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\VAExtension\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.Client.ServerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminPage.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Area.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\Course.cs" />
+    <Compile Include="BLL\Pager.cs" />
+    <Compile Include="BLL\Period.cs" />
+    <Compile Include="BLL\User.cs" />
+    <Compile Include="BLL\Works.cs" />
+    <Compile Include="BLL\WorksScoring.cs" />
+    <Compile Include="BLL\WorksType.cs" />
+    <Compile Include="Career.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="College.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContestDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContestDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContestDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContestDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContestDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Contests.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSExpertWorksTypeDetail.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSFinalsExpertGroup.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSFinalsExpertWillScore.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSMyWorks.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSPeriodScoreStandard.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSPeriodsCourse.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSPeriodsWorksType.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSSchoolWorksNum.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSUserWithSchoolAndRole.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSUserWorks.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSVUserSocre.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSVWorksForMe.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSWorksExpertUser.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSWorksPartition.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSWorksPublic.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSWorksToEvaluate.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSWorksTypeScoreStandard.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSWorksWorksType.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ADHelper.cs" />
+    <Compile Include="DAL\Common.cs" />
+    <Compile Include="DAL\Course.cs" />
+    <Compile Include="DAL\Periods.cs" />
+    <Compile Include="DAL\Standard.cs" />
+    <Compile Include="DAL\User.cs" />
+    <Compile Include="DAL\Works.cs" />
+    <Compile Include="DAL\WorksType.cs" />
+    <Compile Include="Degree.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpertGroupType.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpertWorksType.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FileType.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinalsScoreStandard.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateCheckCode.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyPeriods.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyWorks.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineEnroll.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnshowWorksSubmit.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Periods.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PeriodStandard.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PreliminaryEvaluate.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PubContest.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RatingDetails.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPassword.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="School.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Score.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScoreStandard.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScoreStandard.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Specialty.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentScores.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserState.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserWorks.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Works.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksComments.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksExpert.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksFile.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorksPartition.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorksType.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksTypeScoreStandard.cs">
+      <DependentUpon>ContestDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ContestDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ContestDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ContestDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContestDB.edmx</DependentUpon>
+      <LastGenOutput>ContestDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ContestDB.edmx.diagram">
+      <DependentUpon>ContestDB.edmx</DependentUpon>
+    </None>
+    <None Include="ContestDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContestDB.edmx</DependentUpon>
+      <LastGenOutput>ContestDB.cs</LastGenOutput>
+    </None>
+    <None Include="ContestDll.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ActiveDs">
+      <Guid>{97D25DB0-0363-11CF-ABC4-02608C9E7553}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

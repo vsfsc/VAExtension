@@ -1,0 +1,2245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="AreaLevel" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="CareerID" />
+          </Key>
+          <Property Name="CareerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Degree">
+          <Key>
+            <PropertyRef Name="DegreeID" />
+          </Key>
+          <Property Name="DegreeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeID" />
+          </Key>
+          <Property Name="FileTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="10" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Proj_Comments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="bigint" Nullable="false" />
+          <Property Name="ItemID" Type="bigint" />
+          <Property Name="Stars" Type="int" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CType" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Proj_ExpertProjects">
+          <Key>
+            <PropertyRef Name="ProExpertID" />
+          </Key>
+          <Property Name="ProExpertID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="bigint" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="200" />
+          <Property Name="CommentDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Proj_Match">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="MatchID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="bigint" />
+          <Property Name="MatchSender" Type="bigint" />
+          <Property Name="EnterpriseName" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="SendTime" Type="datetime" />
+          <Property Name="IsAccepted" Type="int" />
+          <Property Name="AcceptedTime" Type="datetime" />
+          <Property Name="MatchPercent" Type="float" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Proj_Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="ApplyInTime" Type="datetime" />
+          <Property Name="ApprovedInTime" Type="nchar" MaxLength="10" />
+          <Property Name="ApprovedInBy" Type="bigint" />
+          <Property Name="ApplyOutTime" Type="datetime" />
+          <Property Name="OutReason" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovedOutTime" Type="datetime" />
+          <Property Name="ApprovedOutBy" Type="bigint" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Proj_Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="PCode" Type="varchar" MaxLength="50" />
+          <Property Name="Budget" Type="money" />
+          <Property Name="Sponsor" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="TypeID" Type="bigint" />
+          <Property Name="SubjectID" Type="bigint" />
+          <Property Name="Introduce" Type="varchar" MaxLength="2000" />
+          <Property Name="Background" Type="varchar" MaxLength="2000" />
+          <Property Name="Implementation" Type="varchar" MaxLength="2000" />
+          <Property Name="ExpectedGoal" Type="varchar" MaxLength="500" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="IsMatch" Type="int" />
+          <Property Name="PScore" Type="float" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Proj_ProjectApprove">
+          <Key>
+            <PropertyRef Name="ApproveID" />
+          </Key>
+          <Property Name="ApproveID" Type="bigint" Nullable="false" />
+          <Property Name="ProjectID" Type="bigint" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="ApprovedTime" Type="datetime" />
+          <Property Name="Result" Type="int" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="proj_ProjectFile">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectID" Type="bigint" />
+          <Property Name="FileTypeID" Type="int" />
+          <Property Name="FilePurpose" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="FileNameInDocLib" Type="varchar" MaxLength="300" />
+          <Property Name="FilePath" Type="varchar" MaxLength="1000" />
+          <Property Name="FileSize" Type="varchar" MaxLength="10" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Proj_State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="Descripition" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="SystemID" Type="int" />
+          <Property Name="RoleLevel" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolCode" Type="varchar" MaxLength="10" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="AreaID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="bigint" Nullable="false" />
+          <Property Name="SubjectCode" Type="varchar" MaxLength="50" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="200" />
+          <Property Name="ParentID" Type="bigint" />
+          <Property Name="SubjectLevel" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="18" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Duty" Type="varchar" MaxLength="100" />
+          <Property Name="ProfessionalTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="DegreeID" Type="int" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="ContestID" Type="bigint" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_CountProjMember”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_CountProjMember">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="MemberCount" Type="int" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="200" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="PCode" Type="varchar" MaxLength="50" />
+          <Property Name="Budget" Type="money" />
+          <Property Name="Sponsor" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="TypeID" Type="bigint" />
+          <Property Name="SubjectID" Type="bigint" />
+          <Property Name="Introduce" Type="varchar" MaxLength="2000" />
+          <Property Name="Background" Type="varchar" MaxLength="2000" />
+          <Property Name="Implementation" Type="varchar" MaxLength="2000" />
+          <Property Name="ExpectedGoal" Type="varchar" MaxLength="500" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="IsMatch" Type="int" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="ModifiedBy" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_MatchResult”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_MatchResult">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="IsAccepted" Type="int" />
+          <Property Name="AcceptedTime" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="MatchSender" Type="bigint" />
+          <Property Name="MatchID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_ProjectsCreatedByUser”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_ProjectsCreatedByUser">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="200" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="Sponsor" Type="bigint" />
+          <Property Name="IsMatch" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_ProjectsIAmINorOut”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_ProjectsIAmINorOut">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="200" />
+          <Property Name="ApplyInTime" Type="datetime" />
+          <Property Name="ApprovedInTime" Type="nchar" MaxLength="10" />
+          <Property Name="ApprovedInBy" Type="bigint" />
+          <Property Name="ApplyOutTime" Type="datetime" />
+          <Property Name="OutReason" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovedOutTime" Type="datetime" />
+          <Property Name="ApprovedOutBy" Type="bigint" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="ProjFlag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_ProjectState”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_ProjectState">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="SubjectName" Type="varchar" MaxLength="200" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="PCode" Type="varchar" MaxLength="50" />
+          <Property Name="Budget" Type="money" />
+          <Property Name="Sponsor" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="TypeID" Type="bigint" />
+          <Property Name="SubjectID" Type="bigint" />
+          <Property Name="Introduce" Type="varchar" MaxLength="2000" />
+          <Property Name="Background" Type="varchar" MaxLength="2000" />
+          <Property Name="Implementation" Type="varchar" MaxLength="2000" />
+          <Property Name="ExpectedGoal" Type="varchar" MaxLength="500" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="IsMatch" Type="int" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_ToExpertProj”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_ToExpertProj">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="200" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="Sponsor" Type="bigint" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="200" />
+          <Property Name="Score" Type="int" />
+          <Property Name="CommentDate" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_UserProject”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_UserProject">
+          <Key>
+            <PropertyRef Name="ProjProjectID" />
+          </Key>
+          <Property Name="MemberID" Type="bigint" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="ProjectID" Type="bigint" />
+          <Property Name="ApplyInTime" Type="datetime" />
+          <Property Name="ApprovedInTime" Type="nchar" MaxLength="10" />
+          <Property Name="ApprovedInBy" Type="bigint" />
+          <Property Name="ApplyOutTime" Type="datetime" />
+          <Property Name="OutReason" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovedOutTime" Type="datetime" />
+          <Property Name="ApprovedOutBy" Type="bigint" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="ProjProjectID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="PCode" Type="varchar" MaxLength="50" />
+          <Property Name="Budget" Type="money" />
+          <Property Name="Sponsor" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="TypeID" Type="bigint" />
+          <Property Name="SubjectID" Type="bigint" />
+          <Property Name="Introduce" Type="varchar" MaxLength="2000" />
+          <Property Name="Background" Type="varchar" MaxLength="2000" />
+          <Property Name="Implementation" Type="varchar" MaxLength="2000" />
+          <Property Name="ExpectedGoal" Type="varchar" MaxLength="500" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="ProjectFlag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_VExpert”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_VExpert">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Sex" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="18" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Duty" Type="varchar" MaxLength="100" />
+          <Property Name="ProfessionalTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Sex" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_VUserRoles”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_VUserRoles">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="SystemID" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="UserRoleID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_VUserScore”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_VUserScore">
+          <Key>
+            
+            
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="ProjectID" Type="bigint" Nullable="false" />
+          <Property Name="PName" Type="varchar" MaxLength="200" />
+          <Property Name="Score" Type="float" />
+          <Property Name="PScore" Type="float" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="MemberID" Type="bigint" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ApplyInTime" Type="datetime" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.Proj_VUserWithRole”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Proj_VUserWithRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="18" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Duty" Type="varchar" MaxLength="100" />
+          <Property Name="ProfessionalTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Sex" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="ContestID" Type="bigint" />
+          <Property Name="UserRoleID" Type="bigint" Nullable="false" />
+          <Property Name="AreaID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Proj_ExpertProjects_Proj_Project">
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="0..1" />
+          <End Role="Proj_ExpertProjects" Type="Self.Proj_ExpertProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_ExpertProjects">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_ExpertProjects_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Proj_ExpertProjects" Type="Self.Proj_ExpertProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_ExpertProjects">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Match_Proj_Project">
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="0..1" />
+          <End Role="Proj_Match" Type="Self.Proj_Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_Match">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Match_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Proj_Match" Type="Self.Proj_Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_Match">
+              <PropertyRef Name="MatchSender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Member_Proj_Project">
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="1" />
+          <End Role="Proj_Member" Type="Self.Proj_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_Member">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Member_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Proj_Member" Type="Self.Proj_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_Member">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Project_Proj_State">
+          <End Role="Proj_State" Type="Self.Proj_State" Multiplicity="0..1" />
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Proj_Project">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Project_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="Proj_Project">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Project_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_Project">
+              <PropertyRef Name="Sponsor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_ProjectApprove_Proj_Project">
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="0..1" />
+          <End Role="Proj_ProjectApprove" Type="Self.Proj_ProjectApprove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_ProjectApprove">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proj_ProjectFile_Proj_Project">
+          <End Role="Proj_Project" Type="Self.Proj_Project" Multiplicity="0..1" />
+          <End Role="proj_ProjectFile" Type="Self.proj_ProjectFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="proj_ProjectFile">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_School_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Degree" EntityType="Self.Degree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileType" EntityType="Self.FileType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_Comments" EntityType="Self.Proj_Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_ExpertProjects" EntityType="Self.Proj_ExpertProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_Match" EntityType="Self.Proj_Match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_Member" EntityType="Self.Proj_Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_Project" EntityType="Self.Proj_Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_ProjectApprove" EntityType="Self.Proj_ProjectApprove" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proj_ProjectFile" EntityType="Self.proj_ProjectFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_State" EntityType="Self.Proj_State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proj_CountProjMember" EntityType="Self.Proj_CountProjMember" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_CountProjMember].[MemberCount] AS [MemberCount], 
+    [Proj_CountProjMember].[SubjectName] AS [SubjectName], 
+    [Proj_CountProjMember].[Name] AS [Name], 
+    [Proj_CountProjMember].[ProjectID] AS [ProjectID], 
+    [Proj_CountProjMember].[PName] AS [PName], 
+    [Proj_CountProjMember].[PCode] AS [PCode], 
+    [Proj_CountProjMember].[Budget] AS [Budget], 
+    [Proj_CountProjMember].[Sponsor] AS [Sponsor], 
+    [Proj_CountProjMember].[CreatedDate] AS [CreatedDate], 
+    [Proj_CountProjMember].[TypeID] AS [TypeID], 
+    [Proj_CountProjMember].[SubjectID] AS [SubjectID], 
+    [Proj_CountProjMember].[Introduce] AS [Introduce], 
+    [Proj_CountProjMember].[Background] AS [Background], 
+    [Proj_CountProjMember].[Implementation] AS [Implementation], 
+    [Proj_CountProjMember].[ExpectedGoal] AS [ExpectedGoal], 
+    [Proj_CountProjMember].[StateID] AS [StateID], 
+    [Proj_CountProjMember].[ModifyTime] AS [ModifyTime], 
+    [Proj_CountProjMember].[IsMatch] AS [IsMatch], 
+    [Proj_CountProjMember].[Flag] AS [Flag], 
+    [Proj_CountProjMember].[StateName] AS [StateName], 
+    [Proj_CountProjMember].[Email] AS [Email], 
+    [Proj_CountProjMember].[Telephone] AS [Telephone], 
+    [Proj_CountProjMember].[UserID] AS [UserID], 
+    [Proj_CountProjMember].[ModifiedBy] AS [ModifiedBy]
+    FROM [dbo].[Proj_CountProjMember] AS [Proj_CountProjMember]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_MatchResult" EntityType="Self.Proj_MatchResult" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_MatchResult].[StateName] AS [StateName], 
+    [Proj_MatchResult].[PName] AS [PName], 
+    [Proj_MatchResult].[Name] AS [Name], 
+    [Proj_MatchResult].[Telephone] AS [Telephone], 
+    [Proj_MatchResult].[Email] AS [Email], 
+    [Proj_MatchResult].[IsAccepted] AS [IsAccepted], 
+    [Proj_MatchResult].[AcceptedTime] AS [AcceptedTime], 
+    [Proj_MatchResult].[Flag] AS [Flag], 
+    [Proj_MatchResult].[MatchSender] AS [MatchSender], 
+    [Proj_MatchResult].[MatchID] AS [MatchID]
+    FROM [dbo].[Proj_MatchResult] AS [Proj_MatchResult]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_ProjectsCreatedByUser" EntityType="Self.Proj_ProjectsCreatedByUser" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_ProjectsCreatedByUser].[ProjectID] AS [ProjectID], 
+    [Proj_ProjectsCreatedByUser].[PName] AS [PName], 
+    [Proj_ProjectsCreatedByUser].[CreatedDate] AS [CreatedDate], 
+    [Proj_ProjectsCreatedByUser].[StateName] AS [StateName], 
+    [Proj_ProjectsCreatedByUser].[SubjectName] AS [SubjectName], 
+    [Proj_ProjectsCreatedByUser].[Flag] AS [Flag], 
+    [Proj_ProjectsCreatedByUser].[Sponsor] AS [Sponsor], 
+    [Proj_ProjectsCreatedByUser].[IsMatch] AS [IsMatch]
+    FROM [dbo].[Proj_ProjectsCreatedByUser] AS [Proj_ProjectsCreatedByUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_ProjectsIAmINorOut" EntityType="Self.Proj_ProjectsIAmINorOut" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_ProjectsIAmINorOut].[UserID] AS [UserID], 
+    [Proj_ProjectsIAmINorOut].[PName] AS [PName], 
+    [Proj_ProjectsIAmINorOut].[StateName] AS [StateName], 
+    [Proj_ProjectsIAmINorOut].[SubjectName] AS [SubjectName], 
+    [Proj_ProjectsIAmINorOut].[ApplyInTime] AS [ApplyInTime], 
+    [Proj_ProjectsIAmINorOut].[ApprovedInTime] AS [ApprovedInTime], 
+    [Proj_ProjectsIAmINorOut].[ApprovedInBy] AS [ApprovedInBy], 
+    [Proj_ProjectsIAmINorOut].[ApplyOutTime] AS [ApplyOutTime], 
+    [Proj_ProjectsIAmINorOut].[OutReason] AS [OutReason], 
+    [Proj_ProjectsIAmINorOut].[ApprovedOutTime] AS [ApprovedOutTime], 
+    [Proj_ProjectsIAmINorOut].[ApprovedOutBy] AS [ApprovedOutBy], 
+    [Proj_ProjectsIAmINorOut].[Score] AS [Score], 
+    [Proj_ProjectsIAmINorOut].[Flag] AS [Flag], 
+    [Proj_ProjectsIAmINorOut].[ProjectID] AS [ProjectID], 
+    [Proj_ProjectsIAmINorOut].[ProjFlag] AS [ProjFlag]
+    FROM [dbo].[Proj_ProjectsIAmINorOut] AS [Proj_ProjectsIAmINorOut]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_ProjectState" EntityType="Self.Proj_ProjectState" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_ProjectState].[SubjectName] AS [SubjectName], 
+    [Proj_ProjectState].[Name] AS [Name], 
+    [Proj_ProjectState].[ProjectID] AS [ProjectID], 
+    [Proj_ProjectState].[PName] AS [PName], 
+    [Proj_ProjectState].[PCode] AS [PCode], 
+    [Proj_ProjectState].[Budget] AS [Budget], 
+    [Proj_ProjectState].[Sponsor] AS [Sponsor], 
+    [Proj_ProjectState].[CreatedDate] AS [CreatedDate], 
+    [Proj_ProjectState].[TypeID] AS [TypeID], 
+    [Proj_ProjectState].[SubjectID] AS [SubjectID], 
+    [Proj_ProjectState].[Introduce] AS [Introduce], 
+    [Proj_ProjectState].[Background] AS [Background], 
+    [Proj_ProjectState].[Implementation] AS [Implementation], 
+    [Proj_ProjectState].[ExpectedGoal] AS [ExpectedGoal], 
+    [Proj_ProjectState].[StateID] AS [StateID], 
+    [Proj_ProjectState].[ModifiedBy] AS [ModifiedBy], 
+    [Proj_ProjectState].[ModifyTime] AS [ModifyTime], 
+    [Proj_ProjectState].[IsMatch] AS [IsMatch], 
+    [Proj_ProjectState].[Flag] AS [Flag], 
+    [Proj_ProjectState].[StateName] AS [StateName], 
+    [Proj_ProjectState].[Email] AS [Email], 
+    [Proj_ProjectState].[Telephone] AS [Telephone], 
+    [Proj_ProjectState].[UserID] AS [UserID]
+    FROM [dbo].[Proj_ProjectState] AS [Proj_ProjectState]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_ToExpertProj" EntityType="Self.Proj_ToExpertProj" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_ToExpertProj].[ProjectID] AS [ProjectID], 
+    [Proj_ToExpertProj].[PName] AS [PName], 
+    [Proj_ToExpertProj].[CreatedDate] AS [CreatedDate], 
+    [Proj_ToExpertProj].[SubjectName] AS [SubjectName], 
+    [Proj_ToExpertProj].[Flag] AS [Flag], 
+    [Proj_ToExpertProj].[Sponsor] AS [Sponsor], 
+    [Proj_ToExpertProj].[UserID] AS [UserID], 
+    [Proj_ToExpertProj].[Comment] AS [Comment], 
+    [Proj_ToExpertProj].[Score] AS [Score], 
+    [Proj_ToExpertProj].[CommentDate] AS [CommentDate]
+    FROM [dbo].[Proj_ToExpertProj] AS [Proj_ToExpertProj]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_UserProject" EntityType="Self.Proj_UserProject" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_UserProject].[MemberID] AS [MemberID], 
+    [Proj_UserProject].[UserID] AS [UserID], 
+    [Proj_UserProject].[ProjectID] AS [ProjectID], 
+    [Proj_UserProject].[ApplyInTime] AS [ApplyInTime], 
+    [Proj_UserProject].[ApprovedInTime] AS [ApprovedInTime], 
+    [Proj_UserProject].[ApprovedInBy] AS [ApprovedInBy], 
+    [Proj_UserProject].[ApplyOutTime] AS [ApplyOutTime], 
+    [Proj_UserProject].[OutReason] AS [OutReason], 
+    [Proj_UserProject].[ApprovedOutTime] AS [ApprovedOutTime], 
+    [Proj_UserProject].[ApprovedOutBy] AS [ApprovedOutBy], 
+    [Proj_UserProject].[Score] AS [Score], 
+    [Proj_UserProject].[Flag] AS [Flag], 
+    [Proj_UserProject].[ProjProjectID] AS [ProjProjectID], 
+    [Proj_UserProject].[PName] AS [PName], 
+    [Proj_UserProject].[PCode] AS [PCode], 
+    [Proj_UserProject].[Budget] AS [Budget], 
+    [Proj_UserProject].[Sponsor] AS [Sponsor], 
+    [Proj_UserProject].[CreatedDate] AS [CreatedDate], 
+    [Proj_UserProject].[TypeID] AS [TypeID], 
+    [Proj_UserProject].[SubjectID] AS [SubjectID], 
+    [Proj_UserProject].[Introduce] AS [Introduce], 
+    [Proj_UserProject].[Background] AS [Background], 
+    [Proj_UserProject].[Implementation] AS [Implementation], 
+    [Proj_UserProject].[ExpectedGoal] AS [ExpectedGoal], 
+    [Proj_UserProject].[StateID] AS [StateID], 
+    [Proj_UserProject].[ModifiedBy] AS [ModifiedBy], 
+    [Proj_UserProject].[ModifyTime] AS [ModifyTime], 
+    [Proj_UserProject].[ProjectFlag] AS [ProjectFlag]
+    FROM [dbo].[Proj_UserProject] AS [Proj_UserProject]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_VExpert" EntityType="Self.Proj_VExpert" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_VExpert].[UserID] AS [UserID], 
+    [Proj_VExpert].[Account] AS [Account], 
+    [Proj_VExpert].[Name] AS [Name], 
+    [Proj_VExpert].[IDCard] AS [IDCard], 
+    [Proj_VExpert].[Telephone] AS [Telephone], 
+    [Proj_VExpert].[Duty] AS [Duty], 
+    [Proj_VExpert].[ProfessionalTitle] AS [ProfessionalTitle], 
+    [Proj_VExpert].[Department] AS [Department], 
+    [Proj_VExpert].[Major] AS [Major], 
+    [Proj_VExpert].[Class] AS [Class], 
+    [Proj_VExpert].[SchoolID] AS [SchoolID], 
+    [Proj_VExpert].[Grade] AS [Grade], 
+    [Proj_VExpert].[RoleName] AS [RoleName], 
+    [Proj_VExpert].[Email] AS [Email], 
+    [Proj_VExpert].[Sex] AS [Sex], 
+    [Proj_VExpert].[SchoolName] AS [SchoolName], 
+    [Proj_VExpert].[AreaName] AS [AreaName], 
+    [Proj_VExpert].[RoleID] AS [RoleID]
+    FROM [dbo].[Proj_VExpert] AS [Proj_VExpert]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_VUserRoles" EntityType="Self.Proj_VUserRoles" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_VUserRoles].[UserID] AS [UserID], 
+    [Proj_VUserRoles].[RoleID] AS [RoleID], 
+    [Proj_VUserRoles].[RoleName] AS [RoleName], 
+    [Proj_VUserRoles].[SystemID] AS [SystemID], 
+    [Proj_VUserRoles].[CreatedBy] AS [CreatedBy], 
+    [Proj_VUserRoles].[Created] AS [Created], 
+    [Proj_VUserRoles].[ApprovedBy] AS [ApprovedBy], 
+    [Proj_VUserRoles].[Approved] AS [Approved], 
+    [Proj_VUserRoles].[StateID] AS [StateID], 
+    [Proj_VUserRoles].[Flag] AS [Flag], 
+    [Proj_VUserRoles].[Account] AS [Account], 
+    [Proj_VUserRoles].[Name] AS [Name], 
+    [Proj_VUserRoles].[UserRoleID] AS [UserRoleID]
+    FROM [dbo].[Proj_VUserRoles] AS [Proj_VUserRoles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_VUserScore" EntityType="Self.Proj_VUserScore" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_VUserScore].[UserID] AS [UserID], 
+    [Proj_VUserScore].[ProjectID] AS [ProjectID], 
+    [Proj_VUserScore].[PName] AS [PName], 
+    [Proj_VUserScore].[Score] AS [Score], 
+    [Proj_VUserScore].[PScore] AS [PScore], 
+    [Proj_VUserScore].[Name] AS [Name], 
+    [Proj_VUserScore].[Sex] AS [Sex], 
+    [Proj_VUserScore].[SchoolName] AS [SchoolName], 
+    [Proj_VUserScore].[MemberID] AS [MemberID], 
+    [Proj_VUserScore].[Account] AS [Account], 
+    [Proj_VUserScore].[CreatedDate] AS [CreatedDate], 
+    [Proj_VUserScore].[ApplyInTime] AS [ApplyInTime], 
+    [Proj_VUserScore].[StateName] AS [StateName]
+    FROM [dbo].[Proj_VUserScore] AS [Proj_VUserScore]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Proj_VUserWithRole" EntityType="Self.Proj_VUserWithRole" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Proj_VUserWithRole].[UserID] AS [UserID], 
+    [Proj_VUserWithRole].[Account] AS [Account], 
+    [Proj_VUserWithRole].[Name] AS [Name], 
+    [Proj_VUserWithRole].[IDCard] AS [IDCard], 
+    [Proj_VUserWithRole].[Telephone] AS [Telephone], 
+    [Proj_VUserWithRole].[Duty] AS [Duty], 
+    [Proj_VUserWithRole].[ProfessionalTitle] AS [ProfessionalTitle], 
+    [Proj_VUserWithRole].[Department] AS [Department], 
+    [Proj_VUserWithRole].[Major] AS [Major], 
+    [Proj_VUserWithRole].[Class] AS [Class], 
+    [Proj_VUserWithRole].[SchoolID] AS [SchoolID], 
+    [Proj_VUserWithRole].[Grade] AS [Grade], 
+    [Proj_VUserWithRole].[RoleName] AS [RoleName], 
+    [Proj_VUserWithRole].[Email] AS [Email], 
+    [Proj_VUserWithRole].[Sex] AS [Sex], 
+    [Proj_VUserWithRole].[SchoolName] AS [SchoolName], 
+    [Proj_VUserWithRole].[AreaName] AS [AreaName], 
+    [Proj_VUserWithRole].[RoleID] AS [RoleID], 
+    [Proj_VUserWithRole].[ContestID] AS [ContestID], 
+    [Proj_VUserWithRole].[UserRoleID] AS [UserRoleID], 
+    [Proj_VUserWithRole].[AreaID] AS [AreaID]
+    FROM [dbo].[Proj_VUserWithRole] AS [Proj_VUserWithRole]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Proj_ExpertProjects_Proj_Project" Association="Self.FK_Proj_ExpertProjects_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_ExpertProjects" EntitySet="Proj_ExpertProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_ExpertProjects_User" Association="Self.FK_Proj_ExpertProjects_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_ExpertProjects" EntitySet="Proj_ExpertProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Match_Proj_Project" Association="Self.FK_Proj_Match_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_Match" EntitySet="Proj_Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Match_User" Association="Self.FK_Proj_Match_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_Match" EntitySet="Proj_Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Member_Proj_Project" Association="Self.FK_Proj_Member_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_Member" EntitySet="Proj_Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Member_User" Association="Self.FK_Proj_Member_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_Member" EntitySet="Proj_Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Project_Proj_State" Association="Self.FK_Proj_Project_Proj_State">
+            <End Role="Proj_State" EntitySet="Proj_State" />
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Project_Subject" Association="Self.FK_Proj_Project_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Project_User" Association="Self.FK_Proj_Project_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_ProjectApprove_Proj_Project" Association="Self.FK_Proj_ProjectApprove_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_ProjectApprove" EntitySet="Proj_ProjectApprove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proj_ProjectFile_Proj_Project" Association="Self.FK_proj_ProjectFile_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="proj_ProjectFile" EntitySet="proj_ProjectFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_School_Area" Association="Self.FK_School_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_School" Association="Self.FK_User_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Proj_Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sponsor" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="TypeID" Type="Int64" />
+          <Property Name="SubjectID" Type="Int64" />
+          <Property Name="Introduce" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Background" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Implementation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ExpectedGoal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="PCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" />
+          <NavigationProperty Name="Proj_State" Relationship="ProjectModel.FK_Proj_Project_Proj_State" FromRole="Proj_Project" ToRole="Proj_State" />
+          <NavigationProperty Name="Subject" Relationship="ProjectModel.FK_Proj_Project_Subject" FromRole="Proj_Project" ToRole="Subject" />
+          <NavigationProperty Name="User" Relationship="ProjectModel.UserProj_Project" FromRole="Proj_Project" ToRole="User" />
+          <Property Name="IsMatch" Type="Int32" />
+          <NavigationProperty Name="Proj_ExpertProjects" Relationship="ProjectModel.FK_Proj_ExpertProjects_Proj_Project" FromRole="Proj_Project" ToRole="Proj_ExpertProjects" />
+          <NavigationProperty Name="Proj_ProjectApprove" Relationship="ProjectModel.FK_Proj_ProjectApprove_Proj_Project" FromRole="Proj_Project" ToRole="Proj_ProjectApprove" />
+          <NavigationProperty Name="proj_ProjectFile" Relationship="ProjectModel.FK_proj_ProjectFile_Proj_Project" FromRole="Proj_Project" ToRole="proj_ProjectFile" />
+          <NavigationProperty Name="Proj_Match" Relationship="ProjectModel.FK_Proj_Match_Proj_Project" FromRole="Proj_Project" ToRole="Proj_Match" />
+          <Property Name="PScore" Type="Double" />
+          <NavigationProperty Name="Proj_Member" Relationship="ProjectModel.FK_Proj_Member_Proj_Project" FromRole="Proj_Project" ToRole="Proj_Member" />
+        </EntityType>
+        <EntityContainer Name="ProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Proj_Project" EntityType="Self.Proj_Project" />
+          <EntitySet Name="Subject" EntityType="ProjectModel.Subject" />
+          <EntitySet Name="User" EntityType="ProjectModel.User" />
+          <EntitySet Name="Area" EntityType="ProjectModel.Area" />
+          <EntitySet Name="Career" EntityType="ProjectModel.Career" />
+          <EntitySet Name="Degree" EntityType="ProjectModel.Degree" />
+          <EntitySet Name="School" EntityType="ProjectModel.School" />
+          <EntitySet Name="Proj_State" EntityType="ProjectModel.Proj_State" />
+          <AssociationSet Name="FK_School_Area" Association="ProjectModel.FK_School_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Project_Proj_State" Association="ProjectModel.FK_Proj_Project_Proj_State">
+            <End Role="Proj_State" EntitySet="Proj_State" />
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Project_Subject" Association="ProjectModel.FK_Proj_Project_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_School" Association="ProjectModel.FK_User_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="UserProj_Project" Association="ProjectModel.UserProj_Project">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+          </AssociationSet>
+          <EntitySet Name="Proj_ProjectState" EntityType="ProjectModel.Proj_ProjectState" />
+          <EntitySet Name="Proj_UserProject" EntityType="ProjectModel.Proj_UserProject" />
+          <EntitySet Name="Proj_ProjectApprove" EntityType="ProjectModel.Proj_ProjectApprove" />
+          <EntitySet Name="Proj_ProjectsCreatedByUser" EntityType="ProjectModel.Proj_ProjectsCreatedByUser" />
+          <EntitySet Name="Proj_ProjectsIAmINorOut" EntityType="ProjectModel.Proj_ProjectsIAmINorOut" />
+          <EntitySet Name="proj_ProjectFile" EntityType="ProjectModel.proj_ProjectFile" />
+          <EntitySet Name="FileType" EntityType="ProjectModel.FileType" />
+          <EntitySet Name="Proj_Match" EntityType="ProjectModel.Proj_Match" />
+          <EntitySet Name="Proj_ExpertProjects" EntityType="ProjectModel.Proj_ExpertProjects" />
+          <EntitySet Name="Proj_ToExpertProj" EntityType="ProjectModel.Proj_ToExpertProj" />
+          <EntitySet Name="Proj_VExpert" EntityType="ProjectModel.Proj_VExpert" />
+          <AssociationSet Name="FK_Proj_ExpertProjects_Proj_Project" Association="ProjectModel.FK_Proj_ExpertProjects_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_ExpertProjects" EntitySet="Proj_ExpertProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_ExpertProjects_User" Association="ProjectModel.FK_Proj_ExpertProjects_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_ExpertProjects" EntitySet="Proj_ExpertProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Match_User" Association="ProjectModel.FK_Proj_Match_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_Match" EntitySet="Proj_Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_ProjectApprove_Proj_Project" Association="ProjectModel.FK_Proj_ProjectApprove_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_ProjectApprove" EntitySet="Proj_ProjectApprove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proj_ProjectFile_Proj_Project" Association="ProjectModel.FK_proj_ProjectFile_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="proj_ProjectFile" EntitySet="proj_ProjectFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Match_Proj_Project" Association="ProjectModel.FK_Proj_Match_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_Match" EntitySet="Proj_Match" />
+          </AssociationSet>
+          <EntitySet Name="Proj_MatchResult" EntityType="ProjectModel.Proj_MatchResult" />
+          <EntitySet Name="Proj_CountProjMember" EntityType="ProjectModel.Proj_CountProjMember" />
+          <EntitySet Name="Proj_VUserWithRole" EntityType="ProjectModel.Proj_VUserWithRole" />
+          <EntitySet Name="Role" EntityType="ProjectModel.Role" />
+          <EntitySet Name="UserRole" EntityType="ProjectModel.UserRole" />
+          <EntitySet Name="Proj_VUserRoles" EntityType="ProjectModel.Proj_VUserRoles" />
+          <EntitySet Name="Proj_Member" EntityType="ProjectModel.Proj_Member" />
+          <AssociationSet Name="FK_Proj_Member_Proj_Project" Association="ProjectModel.FK_Proj_Member_Proj_Project">
+            <End Role="Proj_Project" EntitySet="Proj_Project" />
+            <End Role="Proj_Member" EntitySet="Proj_Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proj_Member_User" Association="ProjectModel.FK_Proj_Member_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Proj_Member" EntitySet="Proj_Member" />
+          </AssociationSet>
+          <EntitySet Name="Proj_VUserScore" EntityType="ProjectModel.Proj_VUserScore" />
+          <EntitySet Name="Proj_Comments" EntityType="ProjectModel.Proj_Comments" />
+        </EntityContainer>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="Int64" Nullable="false" />
+          <Property Name="SubjectCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int64" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_Proj_Project_Subject" FromRole="Subject" ToRole="Proj_Project" />
+          <Property Name="SubjectLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="DegreeID" Type="Int32" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="School" Relationship="ProjectModel.FK_User_School" FromRole="User" ToRole="School" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.UserProj_Project" FromRole="User" ToRole="Proj_Project" />
+          <NavigationProperty Name="Proj_ExpertProjects" Relationship="ProjectModel.FK_Proj_ExpertProjects_User" FromRole="User" ToRole="Proj_ExpertProjects" />
+          <NavigationProperty Name="Proj_Match" Relationship="ProjectModel.FK_Proj_Match_User" FromRole="User" ToRole="Proj_Match" />
+          <NavigationProperty Name="Proj_Member" Relationship="ProjectModel.FK_Proj_Member_User" FromRole="User" ToRole="Proj_Member" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="AreaLevel" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="School" Relationship="ProjectModel.FK_School_Area" FromRole="Area" ToRole="School" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="CareerID" />
+          </Key>
+          <Property Name="CareerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Degree">
+          <Key>
+            <PropertyRef Name="DegreeID" />
+          </Key>
+          <Property Name="DegreeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="ProjectModel.FK_School_Area" FromRole="School" ToRole="Area" />
+          <NavigationProperty Name="User" Relationship="ProjectModel.FK_User_School" FromRole="School" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Proj_State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Descripition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_Proj_Project_Proj_State" FromRole="Proj_State" ToRole="Proj_Project" />
+        </EntityType>
+        <Association Name="FK_School_Area">
+          <End Type="ProjectModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="ProjectModel.School" Role="School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Project_Proj_State">
+          <End Type="ProjectModel.Proj_State" Role="Proj_State" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Proj_Project">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Project_Subject">
+          <End Type="ProjectModel.Subject" Role="Subject" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="Proj_Project">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_School">
+          <End Type="ProjectModel.School" Role="School" Multiplicity="0..1" />
+          <End Type="ProjectModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserProj_Project">
+          <End Type="ProjectModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_Project">
+              <PropertyRef Name="Sponsor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Proj_ProjectState">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="SubjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sponsor" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="TypeID" Type="Int64" />
+          <Property Name="SubjectID" Type="Int64" />
+          <Property Name="Introduce" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Background" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Implementation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ExpectedGoal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="IsMatch" Type="Int32" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Proj_UserProject">
+          <Key>
+            <PropertyRef Name="ProjProjectID" />
+          </Key>
+          <Property Name="MemberID" Type="Int64" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="ProjectID" Type="Int64" />
+          <Property Name="ApplyInTime" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedInTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ApprovedInBy" Type="Int64" />
+          <Property Name="ApplyOutTime" Type="DateTime" Precision="3" />
+          <Property Name="OutReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedOutTime" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedOutBy" Type="Int64" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sponsor" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="TypeID" Type="Int64" />
+          <Property Name="SubjectID" Type="Int64" />
+          <Property Name="Introduce" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Background" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Implementation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ExpectedGoal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="ProjProjectID" Type="Int64" Nullable="false" />
+          <Property Name="ProjectFlag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Proj_ProjectApprove">
+          <Key>
+            <PropertyRef Name="ApproveID" />
+          </Key>
+          <Property Name="ApproveID" Type="Int64" Nullable="false" />
+          <Property Name="ProjectID" Type="Int64" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="ApprovedTime" Type="DateTime" Precision="3" />
+          <Property Name="Result" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_Proj_ProjectApprove_Proj_Project" FromRole="Proj_ProjectApprove" ToRole="Proj_Project" />
+        </EntityType>
+        <EntityType Name="Proj_ProjectsCreatedByUser">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="Sponsor" Type="Int64" />
+          <Property Name="IsMatch" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Proj_ProjectsIAmINorOut">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ApplyInTime" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedInTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ApprovedInBy" Type="Int64" />
+          <Property Name="ApplyOutTime" Type="DateTime" Precision="3" />
+          <Property Name="OutReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedOutTime" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedOutBy" Type="Int64" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="ProjFlag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="proj_ProjectFile">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int64" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FileSize" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="FileTypeID" Type="Int32" />
+          <Property Name="FilePurpose" Type="Int32" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_proj_ProjectFile_Proj_Project" FromRole="proj_ProjectFile" ToRole="Proj_Project" />
+          <Property Name="FileNameInDocLib" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeID" />
+          </Key>
+          <Property Name="FileTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Proj_Match">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="MatchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int64" />
+          <Property Name="MatchSender" Type="Int64" />
+          <Property Name="SendTime" Type="DateTime" Precision="3" />
+          <Property Name="IsAccepted" Type="Int32" />
+          <Property Name="AcceptedTime" Type="DateTime" Precision="3" />
+          <Property Name="MatchPercent" Type="Double" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="ProjectModel.FK_Proj_Match_User" FromRole="Proj_Match" ToRole="User" />
+          <Property Name="EnterpriseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_Proj_Match_Proj_Project" FromRole="Proj_Match" ToRole="Proj_Project" />
+        </EntityType>
+        <EntityType Name="Proj_ExpertProjects">
+          <Key>
+            <PropertyRef Name="ProExpertID" />
+          </Key>
+          <Property Name="ProExpertID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int64" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_Proj_ExpertProjects_Proj_Project" FromRole="Proj_ExpertProjects" ToRole="Proj_Project" />
+          <NavigationProperty Name="User" Relationship="ProjectModel.FK_Proj_ExpertProjects_User" FromRole="Proj_ExpertProjects" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Proj_ToExpertProj">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="SubjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="Sponsor" Type="Int64" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Proj_VExpert">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Sex" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Proj_ExpertProjects_Proj_Project">
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_ExpertProjects" Role="Proj_ExpertProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_ExpertProjects">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_ExpertProjects_User">
+          <End Type="ProjectModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_ExpertProjects" Role="Proj_ExpertProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_ExpertProjects">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Match_User">
+          <End Type="ProjectModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_Match" Role="Proj_Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_Match">
+              <PropertyRef Name="MatchSender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_ProjectApprove_Proj_Project">
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_ProjectApprove" Role="Proj_ProjectApprove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_ProjectApprove">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proj_ProjectFile_Proj_Project">
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="0..1" />
+          <End Type="ProjectModel.proj_ProjectFile" Role="proj_ProjectFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="proj_ProjectFile">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Match_Proj_Project">
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="0..1" />
+          <End Type="ProjectModel.Proj_Match" Role="Proj_Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_Match">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Proj_MatchResult">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsAccepted" Type="Int32" />
+          <Property Name="AcceptedTime" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="MatchSender" Type="Int64" />
+          <Property Name="MatchID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proj_CountProjMember">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="MemberCount" Type="Int32" />
+          <Property Name="SubjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sponsor" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="TypeID" Type="Int64" />
+          <Property Name="SubjectID" Type="Int64" />
+          <Property Name="Introduce" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Background" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Implementation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ExpectedGoal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="IsMatch" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="ModifiedBy" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Proj_VUserWithRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="ContestID" Type="Int64" />
+          <Property Name="UserRoleID" Type="Int64" Nullable="false" />
+          <Property Name="AreaID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SystemID" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="RoleLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="ContestID" Type="Int64" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Proj_VUserRoles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="SystemID" Type="Int32" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserRoleID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proj_Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="ApplyInTime" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedInTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ApprovedInBy" Type="Int64" />
+          <Property Name="ApplyOutTime" Type="DateTime" Precision="3" />
+          <Property Name="OutReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedOutTime" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedOutBy" Type="Int64" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Proj_Project" Relationship="ProjectModel.FK_Proj_Member_Proj_Project" FromRole="Proj_Member" ToRole="Proj_Project" />
+          <NavigationProperty Name="User" Relationship="ProjectModel.FK_Proj_Member_User" FromRole="Proj_Member" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Proj_Member_Proj_Project">
+          <End Type="ProjectModel.Proj_Project" Role="Proj_Project" Multiplicity="1" />
+          <End Type="ProjectModel.Proj_Member" Role="Proj_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proj_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Proj_Member">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proj_Member_User">
+          <End Type="ProjectModel.User" Role="User" Multiplicity="1" />
+          <End Type="ProjectModel.Proj_Member" Role="Proj_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Proj_Member">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Proj_VUserScore">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="ProjectID" Type="Int64" Nullable="false" />
+          <Property Name="PName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="PScore" Type="Double" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int64" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ApplyInTime" Type="DateTime" Precision="3" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Proj_Comments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int64" Nullable="false" />
+          <Property Name="Stars" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CType" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="ItemID" Type="Int64" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectEntities">
+          <EntitySetMapping Name="Proj_Project">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_Project">
+              <MappingFragment StoreEntitySet="Proj_Project">
+                <ScalarProperty Name="PScore" ColumnName="PScore" />
+                <ScalarProperty Name="IsMatch" ColumnName="IsMatch" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="PCode" ColumnName="PCode" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="Background" ColumnName="Background" />
+                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
+                <ScalarProperty Name="ExpectedGoal" ColumnName="ExpectedGoal" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subject">
+            <EntityTypeMapping TypeName="ProjectModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="SubjectLevel" ColumnName="SubjectLevel" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="ProjectModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ProfessionalTitle" ColumnName="ProfessionalTitle" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="ProjectModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="AreaLevel" ColumnName="AreaLevel" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Career">
+            <EntityTypeMapping TypeName="ProjectModel.Career">
+              <MappingFragment StoreEntitySet="Career">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CareerID" ColumnName="CareerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Degree">
+            <EntityTypeMapping TypeName="ProjectModel.Degree">
+              <MappingFragment StoreEntitySet="Degree">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="School">
+            <EntityTypeMapping TypeName="ProjectModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_State">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_State">
+              <MappingFragment StoreEntitySet="Proj_State">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Descripition" ColumnName="Descripition" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_ProjectState">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_ProjectState">
+              <MappingFragment StoreEntitySet="Proj_ProjectState">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="IsMatch" ColumnName="IsMatch" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="ExpectedGoal" ColumnName="ExpectedGoal" />
+                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
+                <ScalarProperty Name="Background" ColumnName="Background" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="PCode" ColumnName="PCode" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_UserProject">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_UserProject">
+              <MappingFragment StoreEntitySet="Proj_UserProject">
+                <ScalarProperty Name="ProjectFlag" ColumnName="ProjectFlag" />
+                <ScalarProperty Name="ProjProjectID" ColumnName="ProjProjectID" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="ExpectedGoal" ColumnName="ExpectedGoal" />
+                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
+                <ScalarProperty Name="Background" ColumnName="Background" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="PCode" ColumnName="PCode" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ApprovedOutBy" ColumnName="ApprovedOutBy" />
+                <ScalarProperty Name="ApprovedOutTime" ColumnName="ApprovedOutTime" />
+                <ScalarProperty Name="OutReason" ColumnName="OutReason" />
+                <ScalarProperty Name="ApplyOutTime" ColumnName="ApplyOutTime" />
+                <ScalarProperty Name="ApprovedInBy" ColumnName="ApprovedInBy" />
+                <ScalarProperty Name="ApprovedInTime" ColumnName="ApprovedInTime" />
+                <ScalarProperty Name="ApplyInTime" ColumnName="ApplyInTime" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_ProjectApprove">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_ProjectApprove">
+              <MappingFragment StoreEntitySet="Proj_ProjectApprove">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ApprovedTime" ColumnName="ApprovedTime" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ApproveID" ColumnName="ApproveID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_ProjectsCreatedByUser">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_ProjectsCreatedByUser">
+              <MappingFragment StoreEntitySet="Proj_ProjectsCreatedByUser">
+                <ScalarProperty Name="IsMatch" ColumnName="IsMatch" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_ProjectsIAmINorOut">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_ProjectsIAmINorOut">
+              <MappingFragment StoreEntitySet="Proj_ProjectsIAmINorOut">
+                <ScalarProperty Name="ProjFlag" ColumnName="ProjFlag" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ApprovedOutBy" ColumnName="ApprovedOutBy" />
+                <ScalarProperty Name="ApprovedOutTime" ColumnName="ApprovedOutTime" />
+                <ScalarProperty Name="OutReason" ColumnName="OutReason" />
+                <ScalarProperty Name="ApplyOutTime" ColumnName="ApplyOutTime" />
+                <ScalarProperty Name="ApprovedInBy" ColumnName="ApprovedInBy" />
+                <ScalarProperty Name="ApprovedInTime" ColumnName="ApprovedInTime" />
+                <ScalarProperty Name="ApplyInTime" ColumnName="ApplyInTime" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proj_ProjectFile">
+            <EntityTypeMapping TypeName="ProjectModel.proj_ProjectFile">
+              <MappingFragment StoreEntitySet="proj_ProjectFile">
+                <ScalarProperty Name="FileNameInDocLib" ColumnName="FileNameInDocLib" />
+                <ScalarProperty Name="FilePurpose" ColumnName="FilePurpose" />
+                <ScalarProperty Name="FileTypeID" ColumnName="FileTypeID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileType">
+            <EntityTypeMapping TypeName="ProjectModel.FileType">
+              <MappingFragment StoreEntitySet="FileType">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="FileTypeID" ColumnName="FileTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_Match">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_Match">
+              <MappingFragment StoreEntitySet="Proj_Match">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EnterpriseName" ColumnName="EnterpriseName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="MatchPercent" ColumnName="MatchPercent" />
+                <ScalarProperty Name="AcceptedTime" ColumnName="AcceptedTime" />
+                <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="MatchSender" ColumnName="MatchSender" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_ExpertProjects">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_ExpertProjects">
+              <MappingFragment StoreEntitySet="Proj_ExpertProjects">
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProExpertID" ColumnName="ProExpertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_ToExpertProj">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_ToExpertProj">
+              <MappingFragment StoreEntitySet="Proj_ToExpertProj">
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_VExpert">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_VExpert">
+              <MappingFragment StoreEntitySet="Proj_VExpert">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ProfessionalTitle" ColumnName="ProfessionalTitle" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_MatchResult">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_MatchResult">
+              <MappingFragment StoreEntitySet="Proj_MatchResult">
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="MatchSender" ColumnName="MatchSender" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="AcceptedTime" ColumnName="AcceptedTime" />
+                <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_CountProjMember">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_CountProjMember">
+              <MappingFragment StoreEntitySet="Proj_CountProjMember">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="IsMatch" ColumnName="IsMatch" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="ExpectedGoal" ColumnName="ExpectedGoal" />
+                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
+                <ScalarProperty Name="Background" ColumnName="Background" />
+                <ScalarProperty Name="Introduce" ColumnName="Introduce" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="PCode" ColumnName="PCode" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="MemberCount" ColumnName="MemberCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_VUserWithRole">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_VUserWithRole">
+              <MappingFragment StoreEntitySet="Proj_VUserWithRole">
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ProfessionalTitle" ColumnName="ProfessionalTitle" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="ProjectModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleLevel" ColumnName="RoleLevel" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="ProjectModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_VUserRoles">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_VUserRoles">
+              <MappingFragment StoreEntitySet="Proj_VUserRoles">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_Member">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_Member">
+              <MappingFragment StoreEntitySet="Proj_Member">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ApprovedOutBy" ColumnName="ApprovedOutBy" />
+                <ScalarProperty Name="ApprovedOutTime" ColumnName="ApprovedOutTime" />
+                <ScalarProperty Name="OutReason" ColumnName="OutReason" />
+                <ScalarProperty Name="ApplyOutTime" ColumnName="ApplyOutTime" />
+                <ScalarProperty Name="ApprovedInBy" ColumnName="ApprovedInBy" />
+                <ScalarProperty Name="ApprovedInTime" ColumnName="ApprovedInTime" />
+                <ScalarProperty Name="ApplyInTime" ColumnName="ApplyInTime" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_VUserScore">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_VUserScore">
+              <MappingFragment StoreEntitySet="Proj_VUserScore">
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="ApplyInTime" ColumnName="ApplyInTime" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PScore" ColumnName="PScore" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="PName" ColumnName="PName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proj_Comments">
+            <EntityTypeMapping TypeName="ProjectModel.Proj_Comments">
+              <MappingFragment StoreEntitySet="Proj_Comments">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CType" ColumnName="CType" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,496 @@
+﻿@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    margin: 10px auto;
+    width: 640px;
+    overflow: hidden;
+    background:#F2F5FA;
+}
+
+#wrap h1 {
+    margin: 20px 0;
+    text-align: center;
+    color: #006393;
+}
+
+
+/* 1 */
+
+.item1 img {
+    vertical-align: top;
+}
+
+.item1 a {
+    text-decoration: none;
+    color: #FFF;
+    display: inline-block;
+    line-height: 35px;
+}
+
+.item1 a:hover {
+    color: #fff;
+}
+
+.item1 li {
+    position: relative;
+    float: left;
+    margin: 10px;
+    width: 157px;
+    height: 203px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.item1 div {
+    position: absolute;
+    left: 0;
+    top: 160px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background: url(../images/demo02.png) no-repeat;
+    color: #FFF;
+    /*filter:alpha(opacity=80);
+      -moz-opacity:0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8;*/
+    overflow: hidden;
+}
+.item1 p {
+    display: none;
+    /*margin: 5px auto 0;*/
+    /*width: 135px;*/
+    width: 100%;
+    line-height: 20px;
+    text-align:center;
+    /*text-indent: 2em;*/
+    font-size: 12px;
+	margin-top: 80px;
+}
+
+.item1 h3 {
+    margin: 4px 0;
+    height: 25px;
+    font-size: 18px;
+    /* text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat 0 -8px; */
+}
+.rating-txt{
+  height: 25px;
+   /*background-image: url('../images/rating-icons.png');
+  background-repeat: no-repeat;*/
+
+   /*background-color: #2dcdf5;*/ 
+  padding:10px;
+  line-height:25px;
+  color: #fff;
+  /*position: absolute;*/
+  /*left:30px;*/
+  /* top: 100px; */
+  z-index: 10;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -ms-border-radius:3px;
+  -o-border-radius:3px;
+  border-radius: 3px;
+}
+.rating-txt .rank{
+  background-color: green;
+  background-position: 0 0;
+  top: 100px;
+}
+.rating-txt .score{
+  background-color: blue;
+  top: 120px;
+}
+.rating-txt .org{
+  background-color:#ffff00;
+  top: 140px;
+}
+/* 2 */
+
+.item2 {
+    position: relative;
+    float: left;
+    margin-right: 3px;
+    width: 157px;
+    height: 203px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.item2 .caption {
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 157px;
+    height: 203px;
+    color: #fff;
+    font-weight: bold;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+.item2 h3 {
+    margin: 10px 0 5px;
+    height: 25px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat 0 -10px;
+}
+
+.item2 p {
+    padding: 0 12px;
+    margin: 0;
+    line-height: 20px;
+    text-indent: 2em;
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.item2 img {
+    border: 0;
+    position: absolute;
+}
+
+.item2-txt {
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    color: #FFF;
+    overflow: hidden;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+
+/* 3 */
+
+.item3 {
+    position: relative;
+    float: left;
+    margin-right: 3px;
+    width: 157px;
+    height: 203px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.item3 h2 {
+    position: absolute;
+    left: 0;
+    top: 130px;
+    height: 40px;
+    width: 100%;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+.item3 h2 p {
+    height: 40px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat;
+}
+
+.item3 div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: url(../images/demo02.png) repeat;
+    overflow: hidden;
+    _zoom: 1;
+}
+
+.item3 .cornerTL {
+    left: 0;
+    top: 0;
+}
+
+.item3 .cornerTR {
+    right: 0;
+    top: 0;
+}
+
+.item3 .cornerBL {
+    left: 0;
+    bottom: 0;
+}
+
+.item3 .cornerBR {
+    right: 0;
+    bottom: 0;
+}
+
+.item3 dl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 157px;
+    height: 203px;
+    display: none;
+}
+
+.item3 dt {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: #FFF;
+}
+
+.item3 dt h3 {
+    height: 40px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat;
+}
+
+.item3 dd {
+    padding: 0 12px;
+    width: 133px;
+    line-height: 20px;
+    text-indent: 2em;
+    color: #FFF;
+    font-size: 12px;
+}
+
+
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+
+
+/* 4 */
+
+.item4 {
+    width: 157px;
+    height: 203px;
+    margin-right: 3px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+
+.item4 .caption {
+    width: 157px;
+    height: 203px;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    display: none;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+.item4 h3 {
+    margin: 10px 0 5px;
+    height: 25px;
+    text-indent: -10000px;
+    background-image: url(../images/demo03.png);
+    background-repeat: no-repeat;
+    background-position: 0 -8px;
+}
+
+.item4 p {
+    padding: 0 12px;
+    margin: 0;
+    text-indent: 2em;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.item4 img {
+    border: 0;
+    position: absolute;
+}
+
+.item4-txt {
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #FFF;
+    overflow: hidden;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+
+
+/* 5 */
+
+.item5 {
+    position: relative;
+    float: left;
+    margin-right: 3px;
+    width: 157px;
+    height: 203px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.item5 h2 {
+    position: absolute;
+    left: 0;
+    top: 130px;
+    height: 40px;
+    width: 100%;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+.item5 h2 p {
+    height: 40px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat;
+}
+
+.item5 div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: url(../images/demo02.png) repeat;
+    overflow: hidden;
+    _zoom: 1;
+}
+
+.item5 .cornerTL {
+    left: 0;
+    top: 0;
+}
+
+.item5 .cornerTR {
+    right: 0;
+    top: 0;
+}
+
+.item5 .cornerBL {
+    left: 0;
+    bottom: 0;
+}
+
+.item5 .cornerBR {
+    right: 0;
+    bottom: 0;
+}
+
+.item5 .cornerCC {
+    left: 78px;
+    top: 101px;
+}
+
+.item5 dl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 157px;
+    height: 203px;
+    display: none;
+}
+
+.item5 dt {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: #FFF;
+}
+
+.item5 dt h3 {
+    height: 40px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat;
+}
+
+.item5 dd {
+    padding: 0 12px;
+    width: 133px;
+    line-height: 20px;
+    text-indent: 2em;
+    color: #FFF;
+    font-size: 12px;
+}
+
+
+/* 6 */
+
+.item6 {
+    position: relative;
+    float: left;
+    margin-right: 3px;
+    width: 157px;
+    height: 203px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.item6 h2 {
+    position: absolute;
+    left: 0;
+    top: 130px;
+    height: 40px;
+    width: 100%;
+    background: url(../images/demo02.png) no-repeat;
+}
+
+.item6 h2 p {
+    height: 40px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat;
+}
+
+.item6 div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: url(../images/demo02.png) repeat;
+    overflow: hidden;
+    _zoom: 1;
+}
+
+.item6 .cornerCC {
+    left: 78px;
+    top: 101px;
+}
+
+.item6 dl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 157px;
+    height: 203px;
+    display: none;
+}
+
+.item6 dt {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: #FFF;
+}
+
+.item6 dt h3 {
+    height: 40px;
+    text-indent: -10000px;
+    background: url(../images/demo03.png) no-repeat;
+}
+
+.item6 dd {
+    padding: 0 12px;
+    width: 133px;
+    line-height: 20px;
+    text-indent: 2em;
+    color: #FFF;
+    font-size: 12px;
+}
+
+
+/* 代码整理：懒人之家 www.lanrenzhijia.com */

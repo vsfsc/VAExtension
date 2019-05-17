@@ -1,0 +1,3138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VAExtensionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="AreaLevel" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="CareerID" />
+          </Key>
+          <Property Name="CareerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="College">
+          <Key>
+            <PropertyRef Name="CollegeID" />
+          </Key>
+          <Property Name="CollegeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CollegeName" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" />
+          <Property Name="Guid" Type="uniqueidentifier" />
+          <Property Name="Url" Type="varchar" MaxLength="200" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Degree">
+          <Key>
+            <PropertyRef Name="DegreeID" />
+          </Key>
+          <Property Name="DegreeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="ExpertGroupType">
+          <Key>
+            <PropertyRef Name="ExpertGroupTypeID" />
+          </Key>
+          <Property Name="ExpertGroupTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="ExpertWorksType">
+          <Key>
+            <PropertyRef Name="ExpertWorksTypeID" />
+          </Key>
+          <Property Name="ExpertWorksTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="WorksTypeID" Type="bigint" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeID" />
+          </Key>
+          <Property Name="FileTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="10" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="FinalsScoreStandard">
+          <Key>
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="StandardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StandardName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Periods">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodTitle" Type="varchar" MaxLength="100" />
+          <Property Name="PeriodCode" Type="varchar" MaxLength="20" />
+          <Property Name="CourseID" Type="bigint" />
+          <Property Name="Require" Type="varchar(max)" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="StartSubmit" Type="datetime" />
+          <Property Name="EndSubmit" Type="datetime" />
+          <Property Name="StartScore" Type="datetime" />
+          <Property Name="EndScore" Type="datetime" />
+          <Property Name="StartPublic" Type="datetime" />
+          <Property Name="EndPublic" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="PeriodStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="int" Nullable="false" />
+          <Property Name="PeriodID" Type="bigint" Nullable="false" />
+          <Property Name="StandardID" Type="int" Nullable="false" />
+          <Property Name="StandardDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="RatingDetails">
+          <Key>
+            <PropertyRef Name="RatingDetailsID" />
+          </Key>
+          <Property Name="RatingDetailsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorksExpertID" Type="bigint" />
+          <Property Name="StandardID" Type="int" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ResetPassword">
+          <Key>
+            <PropertyRef Name="OperateID" />
+          </Key>
+          <Property Name="OperateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="CheckCode" Type="varchar" MaxLength="4" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="IsFinished" Type="bit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="SystemID" Type="int" />
+          <Property Name="RoleLevel" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolCode" Type="varchar" MaxLength="10" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="AreaID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="ScoreStandard">
+          <Key>
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="StandardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StandardName" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Specialty">
+          <Key>
+            <PropertyRef Name="SpecialtyID" />
+          </Key>
+          <Property Name="SpecialtyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecialtyName" Type="varchar" MaxLength="50" />
+          <Property Name="CollegeID" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nchar" MaxLength="10" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="18" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Duty" Type="varchar" MaxLength="100" />
+          <Property Name="ProfessionalTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="DegreeID" Type="int" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="ContestID" Type="bigint" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.UserState”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="UserState">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="20" />
+          <Property Name="Flag" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UserWorks">
+          <Key>
+            <PropertyRef Name="UserWorksID" />
+          </Key>
+          <Property Name="UserWorksID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="Relationship" Type="int" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="TeamName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="WorksCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrgID" Type="int" />
+          <Property Name="IsSample" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="2000" />
+          <Property Name="Profile" Type="varchar" MaxLength="8000" />
+          <Property Name="SubmitProfile" Type="varchar" MaxLength="8000" />
+          <Property Name="Suggestion" Type="varchar" MaxLength="2000" />
+          <Property Name="InstallationGuide" Type="varchar" MaxLength="2000" />
+          <Property Name="DesignIdeas" Type="varchar(max)" />
+          <Property Name="KeyPoints" Type="varchar" MaxLength="2500" />
+          <Property Name="SelfAssessment" Type="varchar" MaxLength="2000" />
+          <Property Name="DemoURL" Type="varchar" MaxLength="2000" />
+          <Property Name="BackReason" Type="varchar" MaxLength="2000" />
+          <Property Name="Score" Type="real" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="AllotTimes" Type="int" />
+          <Property Name="WorksState" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="WorksComments">
+          <Key>
+            <PropertyRef Name="CommentsID" />
+          </Key>
+          <Property Name="CommentsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="Comments" Type="varchar" MaxLength="1000" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="WorksExpert">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="WorksExpertID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="ExpertID" Type="bigint" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="ScoreState" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="WorksFile">
+          <Key>
+            <PropertyRef Name="WorksFileID" />
+          </Key>
+          <Property Name="WorksFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="FilePath" Type="varchar" MaxLength="1000" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="WorksType">
+          <Key>
+            <PropertyRef Name="WorksTypeID" />
+          </Key>
+          <Property Name="WorksTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="LevelID" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="WorksTypeScoreStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="int" Nullable="false" />
+          <Property Name="StandardID" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" />
+          <Property Name="StandardDescription" Type="varchar" MaxLength="200" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSExpertWorksTypeDetail”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSExpertWorksTypeDetail">
+          <Key>
+            <PropertyRef Name="WorksTypeID" />
+            <PropertyRef Name="ExpertWorksTypeID" />
+            <PropertyRef Name="UserRoleID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksTypeID" Type="int" Nullable="false" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ExpertWorksTypeID" Type="bigint" Nullable="false" />
+          <Property Name="UserRoleID" Type="bigint" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSFinalsExpertGroup”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSFinalsExpertGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="ExpertID" Type="bigint" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="ContestID" Type="bigint" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSFinalsExpertWillScore”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSFinalsExpertWillScore">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="ContestID" Type="bigint" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="WorksExpertID" Type="bigint" Nullable="false" />
+          <Property Name="ExpertID" Type="bigint" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSMyWorks”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSMyWorks">
+          
+          <Key>
+            <PropertyRef Name="UserWorksID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" />
+          <Property Name="PeriodTitle" Type="varchar" MaxLength="100" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Relationship" Type="int" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="UserWorksID" Type="bigint" Nullable="false" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="CourseID" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSPeriodScoreStandard”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSPeriodScoreStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="int" Nullable="false" />
+          <Property Name="PeriodID" Type="bigint" Nullable="false" />
+          <Property Name="StandardID" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="StandardDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="StandardName" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSPeriodsCourse”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSPeriodsCourse">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="bigint" Nullable="false" />
+          <Property Name="PeriodTitle" Type="varchar" MaxLength="100" />
+          <Property Name="WorksCount" Type="int" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" />
+          <Property Name="StartSubmit" Type="datetime" />
+          <Property Name="EndSubmit" Type="datetime" />
+          <Property Name="StartScore" Type="datetime" />
+          <Property Name="EndScore" Type="datetime" />
+          <Property Name="StartPublic" Type="datetime" />
+          <Property Name="EndPublic" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CourseID" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Require" Type="varchar(max)" />
+          <Property Name="PeriodCode" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSPeriodsWorksType”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSPeriodsWorksType">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="bigint" Nullable="false" />
+          <Property Name="PeriodTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Require" Type="varchar(max)" />
+          <Property Name="CourseID" Type="bigint" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="StartSubmit" Type="datetime" />
+          <Property Name="EndSubmit" Type="datetime" />
+          <Property Name="StartScore" Type="datetime" />
+          <Property Name="EndScore" Type="datetime" />
+          <Property Name="StartPublic" Type="datetime" />
+          <Property Name="EndPublic" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="LevelID" Type="int" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSSchoolWorksNum”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSSchoolWorksNum">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="Num" Type="int" />
+          <Property Name="SchoolID" Type="int" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSUserWithSchoolAndRole”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSUserWithSchoolAndRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="WorksType" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="18" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Duty" Type="varchar" MaxLength="100" />
+          <Property Name="ProfessionalTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="UserRoleID" Type="bigint" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="ContestID" Type="bigint" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="Sex" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="AreaID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="WorksType" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="SchoolCode" Type="varchar" MaxLength="10" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSUserWorks”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSUserWorks">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="UserWorksID" Type="bigint" />
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="Relationship" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSVUserSocre”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSVUserSocre">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="PeriodTitle" Type="varchar" MaxLength="100" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Score" Type="real" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="CourseID" Type="bigint" />
+          <Property Name="PeriodID" Type="bigint" Nullable="false" />
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="WorksState" Type="int" />
+          <Property Name="Relationship" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSVWorksForMe”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSVWorksForMe">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="ExpertID" Type="bigint" />
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="ScoreState" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="WorksExpertID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodID" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSWorksExpertUser”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSWorksExpertUser">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="ExpertID" Type="bigint" />
+          <Property Name="Score" Type="real" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ScoreState" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="WorksExpertID" Type="bigint" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSWorksPartition”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSWorksPartition">
+          <Key>
+            <PropertyRef Name="WorksID" />
+            <PropertyRef Name="WorksTypeID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="WorksCode" Type="varchar" MaxLength="50" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="Score" Type="real" />
+          <Property Name="WorksTypeID" Type="int" Nullable="false" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksState" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSWorksPublic”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSWorksPublic">
+          <Key>
+            <PropertyRef Name="ExpertScore" />
+            <PropertyRef Name="TSScore" />
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="ExpertScore" Type="float" Nullable="false" />
+          <Property Name="TSScore" Type="float" Nullable="false" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="WorksCode" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSWorksToEvaluate”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSWorksToEvaluate">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="WorksExpertID" Type="bigint" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="WorksID" Type="bigint" />
+          <Property Name="ScoreState" Type="int" />
+          <Property Name="ExpertID" Type="bigint" />
+          <Property Name="WorksCode" Type="varchar" MaxLength="50" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="IsSample" Type="int" />
+          <Property Name="Score" Type="real" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSWorksTypeScoreStandard”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSWorksTypeScoreStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="int" Nullable="false" />
+          <Property Name="StandardID" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" />
+          <Property Name="StandardDescription" Type="varchar" MaxLength="200" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="StandardName" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CSWorksWorksType”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CSWorksWorksType">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="TeamName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrgID" Type="int" />
+          <Property Name="IsSample" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="2000" />
+          <Property Name="Profile" Type="varchar" MaxLength="8000" />
+          <Property Name="Flag" Type="bigint" />
+          <Property Name="WorksState" Type="int" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Score" Type="real" />
+          <Property Name="BackReason" Type="varchar" MaxLength="2000" />
+          <Property Name="DemoURL" Type="varchar" MaxLength="2000" />
+          <Property Name="SelfAssessment" Type="varchar" MaxLength="2000" />
+          <Property Name="KeyPoints" Type="varchar" MaxLength="2500" />
+          <Property Name="SubmitProfile" Type="varchar" MaxLength="8000" />
+          <Property Name="Suggestion" Type="varchar" MaxLength="2000" />
+          <Property Name="InstallationGuide" Type="varchar" MaxLength="2000" />
+          <Property Name="DesignIdeas" Type="varchar(max)" />
+          <Property Name="WorksTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="LevelID" Type="int" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <Association Name="FK_College_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="College" Type="Self.College" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="College">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Periods_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Periods" Type="Self.Periods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Periods">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeriodStandard_Periods">
+          <End Role="Periods" Type="Self.Periods" Multiplicity="1" />
+          <End Role="PeriodStandard" Type="Self.PeriodStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PeriodID" />
+            </Principal>
+            <Dependent Role="PeriodStandard">
+              <PropertyRef Name="PeriodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeriodStandard_ScoreStandard">
+          <End Role="ScoreStandard" Type="Self.ScoreStandard" Multiplicity="1" />
+          <End Role="PeriodStandard" Type="Self.PeriodStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoreStandard">
+              <PropertyRef Name="StandardID" />
+            </Principal>
+            <Dependent Role="PeriodStandard">
+              <PropertyRef Name="StandardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeriodStandard_WorksType">
+          <End Role="WorksType" Type="Self.WorksType" Multiplicity="1" />
+          <End Role="PeriodStandard" Type="Self.PeriodStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorksType">
+              <PropertyRef Name="WorksTypeID" />
+            </Principal>
+            <Dependent Role="PeriodStandard">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_School_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialty_College">
+          <End Role="College" Type="Self.College" Multiplicity="0..1" />
+          <End Role="Specialty" Type="Self.Specialty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="College">
+              <PropertyRef Name="CollegeID" />
+            </Principal>
+            <Dependent Role="Specialty">
+              <PropertyRef Name="CollegeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserWorks_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserWorks" Type="Self.UserWorks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserWorks">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserWorks_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="UserWorks" Type="Self.UserWorks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="UserWorks">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Periods">
+          <End Role="Periods" Type="Self.Periods" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PeriodID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="PeriodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorksState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksExpert_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="WorksExpert" Type="Self.WorksExpert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="WorksExpert">
+              <PropertyRef Name="ExpertID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksExpert_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="WorksExpert" Type="Self.WorksExpert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="WorksExpert">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksFile_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="1" />
+          <End Role="WorksFile" Type="Self.WorksFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="WorksFile">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksTypeScoreStandard_ScoreStandard">
+          <End Role="ScoreStandard" Type="Self.ScoreStandard" Multiplicity="1" />
+          <End Role="WorksTypeScoreStandard" Type="Self.WorksTypeScoreStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoreStandard">
+              <PropertyRef Name="StandardID" />
+            </Principal>
+            <Dependent Role="WorksTypeScoreStandard">
+              <PropertyRef Name="StandardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksTypeScoreStandard_WorksType">
+          <End Role="WorksType" Type="Self.WorksType" Multiplicity="1" />
+          <End Role="WorksTypeScoreStandard" Type="Self.WorksTypeScoreStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorksType">
+              <PropertyRef Name="WorksTypeID" />
+            </Principal>
+            <Dependent Role="WorksTypeScoreStandard">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VAExtensionModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="College" EntityType="Self.College" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Degree" EntityType="Self.Degree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpertGroupType" EntityType="Self.ExpertGroupType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpertWorksType" EntityType="Self.ExpertWorksType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileType" EntityType="Self.FileType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinalsScoreStandard" EntityType="Self.FinalsScoreStandard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periods" EntityType="Self.Periods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PeriodStandard" EntityType="Self.PeriodStandard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RatingDetails" EntityType="Self.RatingDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResetPassword" EntityType="Self.ResetPassword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoreStandard" EntityType="Self.ScoreStandard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specialty" EntityType="Self.Specialty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserWorks" EntityType="Self.UserWorks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorksComments" EntityType="Self.WorksComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorksExpert" EntityType="Self.WorksExpert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorksFile" EntityType="Self.WorksFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorksType" EntityType="Self.WorksType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorksTypeScoreStandard" EntityType="Self.WorksTypeScoreStandard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserState" EntityType="Self.UserState" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserState].[StateID] AS [StateID], 
+    [UserState].[StateName] AS [StateName], 
+    [UserState].[Flag] AS [Flag]
+    FROM [dbo].[UserState] AS [UserState]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSExpertWorksTypeDetail" EntityType="Self.CSExpertWorksTypeDetail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSExpertWorksTypeDetail].[WorksTypeName] AS [WorksTypeName], 
+    [CSExpertWorksTypeDetail].[WorksTypeID] AS [WorksTypeID], 
+    [CSExpertWorksTypeDetail].[Flag] AS [Flag], 
+    [CSExpertWorksTypeDetail].[Name] AS [Name], 
+    [CSExpertWorksTypeDetail].[Account] AS [Account], 
+    [CSExpertWorksTypeDetail].[ParentID] AS [ParentID], 
+    [CSExpertWorksTypeDetail].[ExpertWorksTypeID] AS [ExpertWorksTypeID], 
+    [CSExpertWorksTypeDetail].[UserRoleID] AS [UserRoleID], 
+    [CSExpertWorksTypeDetail].[UserID] AS [UserID], 
+    [CSExpertWorksTypeDetail].[RoleID] AS [RoleID]
+    FROM [dbo].[CSExpertWorksTypeDetail] AS [CSExpertWorksTypeDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSFinalsExpertGroup" EntityType="Self.CSFinalsExpertGroup" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSFinalsExpertGroup].[ExpertID] AS [ExpertID], 
+    [CSFinalsExpertGroup].[Flag] AS [Flag], 
+    [CSFinalsExpertGroup].[ContestID] AS [ContestID], 
+    [CSFinalsExpertGroup].[ID] AS [ID], 
+    [CSFinalsExpertGroup].[GroupID] AS [GroupID]
+    FROM [dbo].[CSFinalsExpertGroup] AS [CSFinalsExpertGroup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSFinalsExpertWillScore" EntityType="Self.CSFinalsExpertWillScore" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSFinalsExpertWillScore].[WorksID] AS [WorksID], 
+    [CSFinalsExpertWillScore].[GroupID] AS [GroupID], 
+    [CSFinalsExpertWillScore].[Number] AS [Number], 
+    [CSFinalsExpertWillScore].[ContestID] AS [ContestID], 
+    [CSFinalsExpertWillScore].[ID] AS [ID], 
+    [CSFinalsExpertWillScore].[WorksExpertID] AS [WorksExpertID], 
+    [CSFinalsExpertWillScore].[ExpertID] AS [ExpertID], 
+    [CSFinalsExpertWillScore].[Score] AS [Score], 
+    [CSFinalsExpertWillScore].[Flag] AS [Flag]
+    FROM [dbo].[CSFinalsExpertWillScore] AS [CSFinalsExpertWillScore]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSMyWorks" EntityType="Self.CSMyWorks" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSMyWorks].[WorksID] AS [WorksID], 
+    [CSMyWorks].[WorksName] AS [WorksName], 
+    [CSMyWorks].[CourseName] AS [CourseName], 
+    [CSMyWorks].[PeriodTitle] AS [PeriodTitle], 
+    [CSMyWorks].[WorksTypeName] AS [WorksTypeName], 
+    [CSMyWorks].[StateName] AS [StateName], 
+    [CSMyWorks].[Score] AS [Score], 
+    [CSMyWorks].[Relationship] AS [Relationship], 
+    [CSMyWorks].[UserID] AS [UserID], 
+    [CSMyWorks].[PeriodID] AS [PeriodID], 
+    [CSMyWorks].[WorksTypeID] AS [WorksTypeID], 
+    [CSMyWorks].[UserWorksID] AS [UserWorksID], 
+    [CSMyWorks].[StateID] AS [StateID], 
+    [CSMyWorks].[CourseID] AS [CourseID]
+    FROM [dbo].[CSMyWorks] AS [CSMyWorks]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSPeriodScoreStandard" EntityType="Self.CSPeriodScoreStandard" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSPeriodScoreStandard].[WorkTypeID] AS [WorkTypeID], 
+    [CSPeriodScoreStandard].[PeriodID] AS [PeriodID], 
+    [CSPeriodScoreStandard].[StandardID] AS [StandardID], 
+    [CSPeriodScoreStandard].[Created] AS [Created], 
+    [CSPeriodScoreStandard].[CreatedBy] AS [CreatedBy], 
+    [CSPeriodScoreStandard].[Modified] AS [Modified], 
+    [CSPeriodScoreStandard].[ModifiedBy] AS [ModifiedBy], 
+    [CSPeriodScoreStandard].[StandardDescription] AS [StandardDescription], 
+    [CSPeriodScoreStandard].[Score] AS [Score], 
+    [CSPeriodScoreStandard].[Flag] AS [Flag], 
+    [CSPeriodScoreStandard].[StandardName] AS [StandardName], 
+    [CSPeriodScoreStandard].[Description] AS [Description]
+    FROM [dbo].[CSPeriodScoreStandard] AS [CSPeriodScoreStandard]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSPeriodsCourse" EntityType="Self.CSPeriodsCourse" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSPeriodsCourse].[PeriodID] AS [PeriodID], 
+    [CSPeriodsCourse].[PeriodTitle] AS [PeriodTitle], 
+    [CSPeriodsCourse].[WorksCount] AS [WorksCount], 
+    [CSPeriodsCourse].[CourseName] AS [CourseName], 
+    [CSPeriodsCourse].[StartSubmit] AS [StartSubmit], 
+    [CSPeriodsCourse].[EndSubmit] AS [EndSubmit], 
+    [CSPeriodsCourse].[StartScore] AS [StartScore], 
+    [CSPeriodsCourse].[EndScore] AS [EndScore], 
+    [CSPeriodsCourse].[StartPublic] AS [StartPublic], 
+    [CSPeriodsCourse].[EndPublic] AS [EndPublic], 
+    [CSPeriodsCourse].[CreatedBy] AS [CreatedBy], 
+    [CSPeriodsCourse].[CourseID] AS [CourseID], 
+    [CSPeriodsCourse].[Created] AS [Created], 
+    [CSPeriodsCourse].[UserID] AS [UserID], 
+    [CSPeriodsCourse].[UserName] AS [UserName], 
+    [CSPeriodsCourse].[WorksTypeID] AS [WorksTypeID], 
+    [CSPeriodsCourse].[WorksTypeName] AS [WorksTypeName], 
+    [CSPeriodsCourse].[Number] AS [Number], 
+    [CSPeriodsCourse].[Require] AS [Require], 
+    [CSPeriodsCourse].[PeriodCode] AS [PeriodCode]
+    FROM [dbo].[CSPeriodsCourse] AS [CSPeriodsCourse]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSPeriodsWorksType" EntityType="Self.CSPeriodsWorksType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSPeriodsWorksType].[PeriodID] AS [PeriodID], 
+    [CSPeriodsWorksType].[PeriodTitle] AS [PeriodTitle], 
+    [CSPeriodsWorksType].[Require] AS [Require], 
+    [CSPeriodsWorksType].[CourseID] AS [CourseID], 
+    [CSPeriodsWorksType].[WorksTypeID] AS [WorksTypeID], 
+    [CSPeriodsWorksType].[Number] AS [Number], 
+    [CSPeriodsWorksType].[StartSubmit] AS [StartSubmit], 
+    [CSPeriodsWorksType].[EndSubmit] AS [EndSubmit], 
+    [CSPeriodsWorksType].[StartScore] AS [StartScore], 
+    [CSPeriodsWorksType].[EndScore] AS [EndScore], 
+    [CSPeriodsWorksType].[StartPublic] AS [StartPublic], 
+    [CSPeriodsWorksType].[EndPublic] AS [EndPublic], 
+    [CSPeriodsWorksType].[CreatedBy] AS [CreatedBy], 
+    [CSPeriodsWorksType].[Created] AS [Created], 
+    [CSPeriodsWorksType].[ModifiedBy] AS [ModifiedBy], 
+    [CSPeriodsWorksType].[Modified] AS [Modified], 
+    [CSPeriodsWorksType].[Flag] AS [Flag], 
+    [CSPeriodsWorksType].[LevelID] AS [LevelID], 
+    [CSPeriodsWorksType].[ParentID] AS [ParentID]
+    FROM [dbo].[CSPeriodsWorksType] AS [CSPeriodsWorksType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSSchoolWorksNum" EntityType="Self.CSSchoolWorksNum" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSSchoolWorksNum].[Num] AS [Num], 
+    [CSSchoolWorksNum].[SchoolID] AS [SchoolID], 
+    [CSSchoolWorksNum].[SchoolName] AS [SchoolName], 
+    [CSSchoolWorksNum].[PeriodID] AS [PeriodID], 
+    [CSSchoolWorksNum].[WorksID] AS [WorksID]
+    FROM [dbo].[CSSchoolWorksNum] AS [CSSchoolWorksNum]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSUserWithSchoolAndRole" EntityType="Self.CSUserWithSchoolAndRole" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSUserWithSchoolAndRole].[UserID] AS [UserID], 
+    [CSUserWithSchoolAndRole].[Account] AS [Account], 
+    [CSUserWithSchoolAndRole].[Name] AS [Name], 
+    [CSUserWithSchoolAndRole].[IDCard] AS [IDCard], 
+    [CSUserWithSchoolAndRole].[Telephone] AS [Telephone], 
+    [CSUserWithSchoolAndRole].[Duty] AS [Duty], 
+    [CSUserWithSchoolAndRole].[ProfessionalTitle] AS [ProfessionalTitle], 
+    [CSUserWithSchoolAndRole].[Department] AS [Department], 
+    [CSUserWithSchoolAndRole].[Major] AS [Major], 
+    [CSUserWithSchoolAndRole].[Class] AS [Class], 
+    [CSUserWithSchoolAndRole].[Grade] AS [Grade], 
+    [CSUserWithSchoolAndRole].[SchoolName] AS [SchoolName], 
+    [CSUserWithSchoolAndRole].[RoleName] AS [RoleName], 
+    [CSUserWithSchoolAndRole].[Email] AS [Email], 
+    [CSUserWithSchoolAndRole].[UserRoleID] AS [UserRoleID], 
+    [CSUserWithSchoolAndRole].[CreatedBy] AS [CreatedBy], 
+    [CSUserWithSchoolAndRole].[Created] AS [Created], 
+    [CSUserWithSchoolAndRole].[StateID] AS [StateID], 
+    [CSUserWithSchoolAndRole].[ApprovedBy] AS [ApprovedBy], 
+    [CSUserWithSchoolAndRole].[Approved] AS [Approved], 
+    [CSUserWithSchoolAndRole].[ContestID] AS [ContestID], 
+    [CSUserWithSchoolAndRole].[Flag] AS [Flag], 
+    [CSUserWithSchoolAndRole].[Sex] AS [Sex], 
+    [CSUserWithSchoolAndRole].[SchoolID] AS [SchoolID], 
+    [CSUserWithSchoolAndRole].[AreaID] AS [AreaID], 
+    [CSUserWithSchoolAndRole].[RoleID] AS [RoleID], 
+    [CSUserWithSchoolAndRole].[WorksType] AS [WorksType], 
+    [CSUserWithSchoolAndRole].[SchoolCode] AS [SchoolCode], 
+    [CSUserWithSchoolAndRole].[AreaName] AS [AreaName]
+    FROM [dbo].[CSUserWithSchoolAndRole] AS [CSUserWithSchoolAndRole]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSUserWorks" EntityType="Self.CSUserWorks" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSUserWorks].[PeriodID] AS [PeriodID], 
+    [CSUserWorks].[Account] AS [Account], 
+    [CSUserWorks].[UserWorksID] AS [UserWorksID], 
+    [CSUserWorks].[WorksID] AS [WorksID], 
+    [CSUserWorks].[UserID] AS [UserID], 
+    [CSUserWorks].[Relationship] AS [Relationship], 
+    [CSUserWorks].[Name] AS [Name]
+    FROM [dbo].[CSUserWorks] AS [CSUserWorks]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSVUserSocre" EntityType="Self.CSVUserSocre" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSVUserSocre].[PeriodTitle] AS [PeriodTitle], 
+    [CSVUserSocre].[CourseName] AS [CourseName], 
+    [CSVUserSocre].[Account] AS [Account], 
+    [CSVUserSocre].[UserID] AS [UserID], 
+    [CSVUserSocre].[Name] AS [Name], 
+    [CSVUserSocre].[Score] AS [Score], 
+    [CSVUserSocre].[WorksName] AS [WorksName], 
+    [CSVUserSocre].[SchoolName] AS [SchoolName], 
+    [CSVUserSocre].[CourseID] AS [CourseID], 
+    [CSVUserSocre].[PeriodID] AS [PeriodID], 
+    [CSVUserSocre].[WorksID] AS [WorksID], 
+    [CSVUserSocre].[Created] AS [Created], 
+    [CSVUserSocre].[WorksState] AS [WorksState], 
+    [CSVUserSocre].[Relationship] AS [Relationship]
+    FROM [dbo].[CSVUserSocre] AS [CSVUserSocre]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSVWorksForMe" EntityType="Self.CSVWorksForMe" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSVWorksForMe].[ExpertID] AS [ExpertID], 
+    [CSVWorksForMe].[WorksID] AS [WorksID], 
+    [CSVWorksForMe].[Score] AS [Score], 
+    [CSVWorksForMe].[Comments] AS [Comments], 
+    [CSVWorksForMe].[ScoreState] AS [ScoreState], 
+    [CSVWorksForMe].[Flag] AS [Flag], 
+    [CSVWorksForMe].[WorksExpertID] AS [WorksExpertID], 
+    [CSVWorksForMe].[PeriodID] AS [PeriodID]
+    FROM [dbo].[CSVWorksForMe] AS [CSVWorksForMe]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSWorksExpertUser" EntityType="Self.CSWorksExpertUser" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSWorksExpertUser].[WorksID] AS [WorksID], 
+    [CSWorksExpertUser].[ExpertID] AS [ExpertID], 
+    [CSWorksExpertUser].[Score] AS [Score], 
+    [CSWorksExpertUser].[Comments] AS [Comments], 
+    [CSWorksExpertUser].[Created] AS [Created], 
+    [CSWorksExpertUser].[ScoreState] AS [ScoreState], 
+    [CSWorksExpertUser].[Flag] AS [Flag], 
+    [CSWorksExpertUser].[Name] AS [Name], 
+    [CSWorksExpertUser].[WorksExpertID] AS [WorksExpertID], 
+    [CSWorksExpertUser].[UserID] AS [UserID]
+    FROM [dbo].[CSWorksExpertUser] AS [CSWorksExpertUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSWorksPartition" EntityType="Self.CSWorksPartition" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSWorksPartition].[WorksID] AS [WorksID], 
+    [CSWorksPartition].[WorksCode] AS [WorksCode], 
+    [CSWorksPartition].[WorksTypeName] AS [WorksTypeName], 
+    [CSWorksPartition].[WorksName] AS [WorksName], 
+    [CSWorksPartition].[Score] AS [Score], 
+    [CSWorksPartition].[WorksTypeID] AS [WorksTypeID], 
+    [CSWorksPartition].[PeriodID] AS [PeriodID], 
+    [CSWorksPartition].[WorksState] AS [WorksState]
+    FROM [dbo].[CSWorksPartition] AS [CSWorksPartition]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSWorksPublic" EntityType="Self.CSWorksPublic" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSWorksPublic].[WorksName] AS [WorksName], 
+    [CSWorksPublic].[WorksTypeID] AS [WorksTypeID], 
+    [CSWorksPublic].[ExpertScore] AS [ExpertScore], 
+    [CSWorksPublic].[TSScore] AS [TSScore], 
+    [CSWorksPublic].[WorksTypeName] AS [WorksTypeName], 
+    [CSWorksPublic].[PeriodID] AS [PeriodID], 
+    [CSWorksPublic].[WorksID] AS [WorksID], 
+    [CSWorksPublic].[WorksCode] AS [WorksCode]
+    FROM [dbo].[CSWorksPublic] AS [CSWorksPublic]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSWorksToEvaluate" EntityType="Self.CSWorksToEvaluate" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSWorksToEvaluate].[WorksExpertID] AS [WorksExpertID], 
+    [CSWorksToEvaluate].[Comments] AS [Comments], 
+    [CSWorksToEvaluate].[WorksID] AS [WorksID], 
+    [CSWorksToEvaluate].[ScoreState] AS [ScoreState], 
+    [CSWorksToEvaluate].[ExpertID] AS [ExpertID], 
+    [CSWorksToEvaluate].[WorksCode] AS [WorksCode], 
+    [CSWorksToEvaluate].[WorksName] AS [WorksName], 
+    [CSWorksToEvaluate].[IsSample] AS [IsSample], 
+    [CSWorksToEvaluate].[Score] AS [Score], 
+    [CSWorksToEvaluate].[WorksTypeID] AS [WorksTypeID], 
+    [CSWorksToEvaluate].[WorksTypeName] AS [WorksTypeName], 
+    [CSWorksToEvaluate].[PeriodID] AS [PeriodID], 
+    [CSWorksToEvaluate].[Flag] AS [Flag]
+    FROM [dbo].[CSWorksToEvaluate] AS [CSWorksToEvaluate]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSWorksTypeScoreStandard" EntityType="Self.CSWorksTypeScoreStandard" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSWorksTypeScoreStandard].[WorkTypeID] AS [WorkTypeID], 
+    [CSWorksTypeScoreStandard].[StandardID] AS [StandardID], 
+    [CSWorksTypeScoreStandard].[Score] AS [Score], 
+    [CSWorksTypeScoreStandard].[StandardDescription] AS [StandardDescription], 
+    [CSWorksTypeScoreStandard].[Flag] AS [Flag], 
+    [CSWorksTypeScoreStandard].[StandardName] AS [StandardName], 
+    [CSWorksTypeScoreStandard].[Description] AS [Description]
+    FROM [dbo].[CSWorksTypeScoreStandard] AS [CSWorksTypeScoreStandard]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CSWorksWorksType" EntityType="Self.CSWorksWorksType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CSWorksWorksType].[WorksID] AS [WorksID], 
+    [CSWorksWorksType].[PeriodID] AS [PeriodID], 
+    [CSWorksWorksType].[WorksName] AS [WorksName], 
+    [CSWorksWorksType].[TeamName] AS [TeamName], 
+    [CSWorksWorksType].[WorksCode] AS [WorksCode], 
+    [CSWorksWorksType].[OrgID] AS [OrgID], 
+    [CSWorksWorksType].[IsSample] AS [IsSample], 
+    [CSWorksWorksType].[Comment] AS [Comment], 
+    [CSWorksWorksType].[Profile] AS [Profile], 
+    [CSWorksWorksType].[Flag] AS [Flag], 
+    [CSWorksWorksType].[WorksState] AS [WorksState], 
+    [CSWorksWorksType].[Modified] AS [Modified], 
+    [CSWorksWorksType].[ModifiedBy] AS [ModifiedBy], 
+    [CSWorksWorksType].[Created] AS [Created], 
+    [CSWorksWorksType].[CreatedBy] AS [CreatedBy], 
+    [CSWorksWorksType].[Score] AS [Score], 
+    [CSWorksWorksType].[BackReason] AS [BackReason], 
+    [CSWorksWorksType].[DemoURL] AS [DemoURL], 
+    [CSWorksWorksType].[SelfAssessment] AS [SelfAssessment], 
+    [CSWorksWorksType].[KeyPoints] AS [KeyPoints], 
+    [CSWorksWorksType].[SubmitProfile] AS [SubmitProfile], 
+    [CSWorksWorksType].[Suggestion] AS [Suggestion], 
+    [CSWorksWorksType].[InstallationGuide] AS [InstallationGuide], 
+    [CSWorksWorksType].[DesignIdeas] AS [DesignIdeas], 
+    [CSWorksWorksType].[WorksTypeName] AS [WorksTypeName], 
+    [CSWorksWorksType].[WorksTypeID] AS [WorksTypeID], 
+    [CSWorksWorksType].[LevelID] AS [LevelID], 
+    [CSWorksWorksType].[ParentID] AS [ParentID]
+    FROM [dbo].[CSWorksWorksType] AS [CSWorksWorksType]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_College_School" Association="Self.FK_College_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="College" EntitySet="College" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Periods_Course" Association="Self.FK_Periods_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Periods" EntitySet="Periods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeriodStandard_Periods" Association="Self.FK_PeriodStandard_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="PeriodStandard" EntitySet="PeriodStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeriodStandard_ScoreStandard" Association="Self.FK_PeriodStandard_ScoreStandard">
+            <End Role="ScoreStandard" EntitySet="ScoreStandard" />
+            <End Role="PeriodStandard" EntitySet="PeriodStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeriodStandard_WorksType" Association="Self.FK_PeriodStandard_WorksType">
+            <End Role="WorksType" EntitySet="WorksType" />
+            <End Role="PeriodStandard" EntitySet="PeriodStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_School_Area" Association="Self.FK_School_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialty_College" Association="Self.FK_Specialty_College">
+            <End Role="College" EntitySet="College" />
+            <End Role="Specialty" EntitySet="Specialty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_School" Association="Self.FK_User_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserWorks_User" Association="Self.FK_UserWorks_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserWorks" EntitySet="UserWorks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserWorks_Works" Association="Self.FK_UserWorks_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="UserWorks" EntitySet="UserWorks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Periods" Association="Self.FK_Works_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_State" Association="Self.FK_Works_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksExpert_User" Association="Self.FK_WorksExpert_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="WorksExpert" EntitySet="WorksExpert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksExpert_Works" Association="Self.FK_WorksExpert_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorksExpert" EntitySet="WorksExpert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksFile_Works" Association="Self.FK_WorksFile_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorksFile" EntitySet="WorksFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksTypeScoreStandard_ScoreStandard" Association="Self.FK_WorksTypeScoreStandard_ScoreStandard">
+            <End Role="ScoreStandard" EntitySet="ScoreStandard" />
+            <End Role="WorksTypeScoreStandard" EntitySet="WorksTypeScoreStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksTypeScoreStandard_WorksType" Association="Self.FK_WorksTypeScoreStandard_WorksType">
+            <End Role="WorksType" EntitySet="WorksType" />
+            <End Role="WorksTypeScoreStandard" EntitySet="WorksTypeScoreStandard" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VAExtensionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="AreaLevel" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="School" Relationship="VAExtensionModel.FK_School_Area" FromRole="Area" ToRole="School" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="CareerID" />
+          </Key>
+          <Property Name="CareerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="College">
+          <Key>
+            <PropertyRef Name="CollegeID" />
+          </Key>
+          <Property Name="CollegeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CollegeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="School" Relationship="Self.FK_College_School" FromRole="College" ToRole="School" />
+          <NavigationProperty Name="Specialty" Relationship="Self.FK_Specialty_College" FromRole="College" ToRole="Specialty" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Guid" Type="Guid" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Periods" Relationship="Self.FK_Periods_Course" FromRole="Course" ToRole="Periods" />
+        </EntityType>
+        <EntityType Name="Degree">
+          <Key>
+            <PropertyRef Name="DegreeID" />
+          </Key>
+          <Property Name="DegreeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ExpertGroupType">
+          <Key>
+            <PropertyRef Name="ExpertGroupTypeID" />
+          </Key>
+          <Property Name="ExpertGroupTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ExpertWorksType">
+          <Key>
+            <PropertyRef Name="ExpertWorksTypeID" />
+          </Key>
+          <Property Name="ExpertWorksTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="WorksTypeID" Type="Int64" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Periods">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseID" Type="Int64" />
+          <Property Name="Require" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="StartSubmit" Type="DateTime" Precision="3" />
+          <Property Name="EndSubmit" Type="DateTime" Precision="3" />
+          <Property Name="StartScore" Type="DateTime" Precision="3" />
+          <Property Name="EndScore" Type="DateTime" Precision="3" />
+          <Property Name="StartPublic" Type="DateTime" Precision="3" />
+          <Property Name="EndPublic" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Periods_Course" FromRole="Periods" ToRole="Course" />
+          <NavigationProperty Name="PeriodStandard" Relationship="Self.FK_PeriodStandard_Periods" FromRole="Periods" ToRole="PeriodStandard" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Periods" FromRole="Periods" ToRole="Works" />
+          <Property Name="PeriodCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PeriodStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="Int32" Nullable="false" />
+          <Property Name="PeriodID" Type="Int64" Nullable="false" />
+          <Property Name="StandardID" Type="Int32" Nullable="false" />
+          <Property Name="StandardDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Periods" Relationship="Self.FK_PeriodStandard_Periods" FromRole="PeriodStandard" ToRole="Periods" />
+          <NavigationProperty Name="ScoreStandard" Relationship="Self.FK_PeriodStandard_ScoreStandard" FromRole="PeriodStandard" ToRole="ScoreStandard" />
+          <NavigationProperty Name="WorksType" Relationship="Self.FK_PeriodStandard_WorksType" FromRole="PeriodStandard" ToRole="WorksType" />
+        </EntityType>
+        <EntityType Name="RatingDetails">
+          <Key>
+            <PropertyRef Name="RatingDetailsID" />
+          </Key>
+          <Property Name="RatingDetailsID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorksExpertID" Type="Int64" />
+          <Property Name="StandardID" Type="Int32" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="ResetPassword">
+          <Key>
+            <PropertyRef Name="OperateID" />
+          </Key>
+          <Property Name="OperateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CheckCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="IsFinished" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="SystemID" Type="Int32" />
+          <Property Name="RoleLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="College" Relationship="Self.FK_College_School" FromRole="School" ToRole="College" />
+          <NavigationProperty Name="Area" Relationship="VAExtensionModel.FK_School_Area" FromRole="School" ToRole="Area" />
+          <NavigationProperty Name="User" Relationship="VAExtensionModel.FK_User_School" FromRole="School" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ScoreStandard">
+          <Key>
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="StandardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StandardName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="PeriodStandard" Relationship="Self.FK_PeriodStandard_ScoreStandard" FromRole="ScoreStandard" ToRole="PeriodStandard" />
+          <NavigationProperty Name="WorksTypeScoreStandard" Relationship="Self.FK_WorksTypeScoreStandard_ScoreStandard" FromRole="ScoreStandard" ToRole="WorksTypeScoreStandard" />
+        </EntityType>
+        <EntityType Name="Specialty">
+          <Key>
+            <PropertyRef Name="SpecialtyID" />
+          </Key>
+          <Property Name="SpecialtyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecialtyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollegeID" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="College" Relationship="Self.FK_Specialty_College" FromRole="Specialty" ToRole="College" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_State" FromRole="State" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="UserWorks" Relationship="Self.FK_UserWorks_User" FromRole="User" ToRole="UserWorks" />
+          <NavigationProperty Name="WorksExpert" Relationship="Self.FK_WorksExpert_User" FromRole="User" ToRole="WorksExpert" />
+          <Property Name="DegreeID" Type="Int32" />
+          <NavigationProperty Name="School" Relationship="VAExtensionModel.FK_User_School" FromRole="User" ToRole="School" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="ContestID" Type="Int64" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="UserWorks">
+          <Key>
+            <PropertyRef Name="UserWorksID" />
+          </Key>
+          <Property Name="UserWorksID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="Relationship" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserWorks_User" FromRole="UserWorks" ToRole="User" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_UserWorks_Works" FromRole="UserWorks" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TeamName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="WorksCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgID" Type="Int32" />
+          <Property Name="IsSample" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="SubmitProfile" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Suggestion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="InstallationGuide" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DesignIdeas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KeyPoints" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="SelfAssessment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DemoURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="BackReason" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="AllotTimes" Type="Int32" />
+          <Property Name="WorksState" Type="Int32" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="Periods" Relationship="Self.FK_Works_Periods" FromRole="Works" ToRole="Periods" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Works_State" FromRole="Works" ToRole="State" />
+          <NavigationProperty Name="UserWorks" Relationship="Self.FK_UserWorks_Works" FromRole="Works" ToRole="UserWorks" />
+          <NavigationProperty Name="WorksExpert" Relationship="Self.FK_WorksExpert_Works" FromRole="Works" ToRole="WorksExpert" />
+          <NavigationProperty Name="WorksFile" Relationship="Self.FK_WorksFile_Works" FromRole="Works" ToRole="WorksFile" />
+        </EntityType>
+        <EntityType Name="WorksComments">
+          <Key>
+            <PropertyRef Name="CommentsID" />
+          </Key>
+          <Property Name="CommentsID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="Comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="WorksExpert">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="WorksExpertID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="ExpertID" Type="Int64" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="ScoreState" Type="Int32" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="User" Relationship="Self.FK_WorksExpert_User" FromRole="WorksExpert" ToRole="User" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorksExpert_Works" FromRole="WorksExpert" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="WorksFile">
+          <Key>
+            <PropertyRef Name="WorksFileID" />
+          </Key>
+          <Property Name="WorksFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorksFile_Works" FromRole="WorksFile" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="WorksType">
+          <Key>
+            <PropertyRef Name="WorksTypeID" />
+          </Key>
+          <Property Name="WorksTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="LevelID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="PeriodStandard" Relationship="Self.FK_PeriodStandard_WorksType" FromRole="WorksType" ToRole="PeriodStandard" />
+          <NavigationProperty Name="WorksTypeScoreStandard" Relationship="Self.FK_WorksTypeScoreStandard_WorksType" FromRole="WorksType" ToRole="WorksTypeScoreStandard" />
+        </EntityType>
+        <EntityType Name="WorksTypeScoreStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="Int32" Nullable="false" />
+          <Property Name="StandardID" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="StandardDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="ScoreStandard" Relationship="Self.FK_WorksTypeScoreStandard_ScoreStandard" FromRole="WorksTypeScoreStandard" ToRole="ScoreStandard" />
+          <NavigationProperty Name="WorksType" Relationship="Self.FK_WorksTypeScoreStandard_WorksType" FromRole="WorksTypeScoreStandard" ToRole="WorksType" />
+        </EntityType>
+        <EntityType Name="UserState">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CSPeriodScoreStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="Int32" Nullable="false" />
+          <Property Name="PeriodID" Type="Int64" Nullable="false" />
+          <Property Name="StandardID" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="StandardDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="StandardName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CSPeriodsCourse">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="Int64" Nullable="false" />
+          <Property Name="PeriodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksCount" Type="Int32" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartSubmit" Type="DateTime" Precision="3" />
+          <Property Name="EndSubmit" Type="DateTime" Precision="3" />
+          <Property Name="StartScore" Type="DateTime" Precision="3" />
+          <Property Name="EndScore" Type="DateTime" Precision="3" />
+          <Property Name="StartPublic" Type="DateTime" Precision="3" />
+          <Property Name="EndPublic" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CourseID" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Require" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CSPeriodsWorksType">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="Int64" Nullable="false" />
+          <Property Name="PeriodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Require" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CourseID" Type="Int64" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="StartSubmit" Type="DateTime" Precision="3" />
+          <Property Name="EndSubmit" Type="DateTime" Precision="3" />
+          <Property Name="StartScore" Type="DateTime" Precision="3" />
+          <Property Name="EndScore" Type="DateTime" Precision="3" />
+          <Property Name="StartPublic" Type="DateTime" Precision="3" />
+          <Property Name="EndPublic" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="LevelID" Type="Int32" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CSUserWorks">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserWorksID" Type="Int64" />
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="Relationship" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CSWorksExpertUser">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="ExpertID" Type="Int64" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ScoreState" Type="Int32" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorksExpertID" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSWorksToEvaluate">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="WorksExpertID" Type="Int64" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="ScoreState" Type="Int32" />
+          <Property Name="ExpertID" Type="Int64" />
+          <Property Name="WorksCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsSample" Type="Int32" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="CSWorksTypeScoreStandard">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="Int32" Nullable="false" />
+          <Property Name="StandardID" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="StandardDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="StandardName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CSWorksWorksType">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TeamName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgID" Type="Int32" />
+          <Property Name="IsSample" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="WorksState" Type="Int32" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="BackReason" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DemoURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="SelfAssessment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="KeyPoints" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="SubmitProfile" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Suggestion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="InstallationGuide" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DesignIdeas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="LevelID" Type="Int32" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_College_School">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="College" Type="Self.College" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="College">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialty_College">
+          <End Role="College" Type="Self.College" Multiplicity="0..1" />
+          <End Role="Specialty" Type="Self.Specialty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="College">
+              <PropertyRef Name="CollegeID" />
+            </Principal>
+            <Dependent Role="Specialty">
+              <PropertyRef Name="CollegeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Periods_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <End Role="Periods" Type="Self.Periods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Periods">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeriodStandard_Periods">
+          <End Role="Periods" Type="Self.Periods" Multiplicity="1" />
+          <End Role="PeriodStandard" Type="Self.PeriodStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PeriodID" />
+            </Principal>
+            <Dependent Role="PeriodStandard">
+              <PropertyRef Name="PeriodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Periods">
+          <End Role="Periods" Type="Self.Periods" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PeriodID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="PeriodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeriodStandard_ScoreStandard">
+          <End Role="ScoreStandard" Type="Self.ScoreStandard" Multiplicity="1" />
+          <End Role="PeriodStandard" Type="Self.PeriodStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoreStandard">
+              <PropertyRef Name="StandardID" />
+            </Principal>
+            <Dependent Role="PeriodStandard">
+              <PropertyRef Name="StandardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeriodStandard_WorksType">
+          <End Role="WorksType" Type="Self.WorksType" Multiplicity="1" />
+          <End Role="PeriodStandard" Type="Self.PeriodStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorksType">
+              <PropertyRef Name="WorksTypeID" />
+            </Principal>
+            <Dependent Role="PeriodStandard">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksTypeScoreStandard_ScoreStandard">
+          <End Role="ScoreStandard" Type="Self.ScoreStandard" Multiplicity="1" />
+          <End Role="WorksTypeScoreStandard" Type="Self.WorksTypeScoreStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScoreStandard">
+              <PropertyRef Name="StandardID" />
+            </Principal>
+            <Dependent Role="WorksTypeScoreStandard">
+              <PropertyRef Name="StandardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="WorksState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserWorks_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserWorks" Type="Self.UserWorks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserWorks">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksExpert_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="WorksExpert" Type="Self.WorksExpert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="WorksExpert">
+              <PropertyRef Name="ExpertID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserWorks_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="UserWorks" Type="Self.UserWorks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="UserWorks">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksExpert_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="WorksExpert" Type="Self.WorksExpert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="WorksExpert">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksFile_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="1" />
+          <End Role="WorksFile" Type="Self.WorksFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="WorksFile">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksTypeScoreStandard_WorksType">
+          <End Role="WorksType" Type="Self.WorksType" Multiplicity="1" />
+          <End Role="WorksTypeScoreStandard" Type="Self.WorksTypeScoreStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorksType">
+              <PropertyRef Name="WorksTypeID" />
+            </Principal>
+            <Dependent Role="WorksTypeScoreStandard">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ContestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Area" EntityType="Self.Area" />
+          <EntitySet Name="Career" EntityType="Self.Career" />
+          <EntitySet Name="College" EntityType="Self.College" />
+          <EntitySet Name="Course" EntityType="Self.Course" />
+          <EntitySet Name="Degree" EntityType="Self.Degree" />
+          <EntitySet Name="ExpertGroupType" EntityType="Self.ExpertGroupType" />
+          <EntitySet Name="ExpertWorksType" EntityType="Self.ExpertWorksType" />
+          <EntitySet Name="Periods" EntityType="Self.Periods" />
+          <EntitySet Name="PeriodStandard" EntityType="Self.PeriodStandard" />
+          <EntitySet Name="RatingDetails" EntityType="Self.RatingDetails" />
+          <EntitySet Name="ResetPassword" EntityType="Self.ResetPassword" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="School" EntityType="Self.School" />
+          <EntitySet Name="ScoreStandard" EntityType="Self.ScoreStandard" />
+          <EntitySet Name="Specialty" EntityType="Self.Specialty" />
+          <EntitySet Name="State" EntityType="Self.State" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+          <EntitySet Name="UserWorks" EntityType="Self.UserWorks" />
+          <EntitySet Name="Works" EntityType="Self.Works" />
+          <EntitySet Name="WorksComments" EntityType="Self.WorksComments" />
+          <EntitySet Name="WorksExpert" EntityType="Self.WorksExpert" />
+          <EntitySet Name="WorksFile" EntityType="Self.WorksFile" />
+          <EntitySet Name="WorksType" EntityType="Self.WorksType" />
+          <EntitySet Name="WorksTypeScoreStandard" EntityType="Self.WorksTypeScoreStandard" />
+          <EntitySet Name="UserState" EntityType="Self.UserState" />
+          <EntitySet Name="CSPeriodScoreStandard" EntityType="Self.CSPeriodScoreStandard" />
+          <EntitySet Name="CSPeriodsCourse" EntityType="Self.CSPeriodsCourse" />
+          <EntitySet Name="CSPeriodsWorksType" EntityType="Self.CSPeriodsWorksType" />
+          <EntitySet Name="CSUserWorks" EntityType="Self.CSUserWorks" />
+          <EntitySet Name="CSWorksExpertUser" EntityType="Self.CSWorksExpertUser" />
+          <EntitySet Name="CSWorksToEvaluate" EntityType="Self.CSWorksToEvaluate" />
+          <EntitySet Name="CSWorksTypeScoreStandard" EntityType="Self.CSWorksTypeScoreStandard" />
+          <EntitySet Name="CSWorksWorksType" EntityType="Self.CSWorksWorksType" />
+          <AssociationSet Name="FK_College_School" Association="Self.FK_College_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="College" EntitySet="College" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialty_College" Association="Self.FK_Specialty_College">
+            <End Role="College" EntitySet="College" />
+            <End Role="Specialty" EntitySet="Specialty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Periods_Course" Association="Self.FK_Periods_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Periods" EntitySet="Periods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeriodStandard_Periods" Association="Self.FK_PeriodStandard_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="PeriodStandard" EntitySet="PeriodStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Periods" Association="Self.FK_Works_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeriodStandard_ScoreStandard" Association="Self.FK_PeriodStandard_ScoreStandard">
+            <End Role="ScoreStandard" EntitySet="ScoreStandard" />
+            <End Role="PeriodStandard" EntitySet="PeriodStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeriodStandard_WorksType" Association="Self.FK_PeriodStandard_WorksType">
+            <End Role="WorksType" EntitySet="WorksType" />
+            <End Role="PeriodStandard" EntitySet="PeriodStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksTypeScoreStandard_ScoreStandard" Association="Self.FK_WorksTypeScoreStandard_ScoreStandard">
+            <End Role="ScoreStandard" EntitySet="ScoreStandard" />
+            <End Role="WorksTypeScoreStandard" EntitySet="WorksTypeScoreStandard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_State" Association="Self.FK_Works_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserWorks_User" Association="Self.FK_UserWorks_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserWorks" EntitySet="UserWorks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksExpert_User" Association="Self.FK_WorksExpert_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="WorksExpert" EntitySet="WorksExpert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserWorks_Works" Association="Self.FK_UserWorks_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="UserWorks" EntitySet="UserWorks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksExpert_Works" Association="Self.FK_WorksExpert_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorksExpert" EntitySet="WorksExpert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksFile_Works" Association="Self.FK_WorksFile_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorksFile" EntitySet="WorksFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksTypeScoreStandard_WorksType" Association="Self.FK_WorksTypeScoreStandard_WorksType">
+            <End Role="WorksType" EntitySet="WorksType" />
+            <End Role="WorksTypeScoreStandard" EntitySet="WorksTypeScoreStandard" />
+          </AssociationSet>
+          <EntitySet Name="CSMyWorks" EntityType="VAExtensionModel.CSMyWorks" />
+          <AssociationSet Name="FK_School_Area" Association="VAExtensionModel.FK_School_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_School" Association="VAExtensionModel.FK_User_School">
+            <End Role="School" EntitySet="School" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="CSWorksPublic" EntityType="VAExtensionModel.CSWorksPublic" />
+          <EntitySet Name="CSVWorksForMe" EntityType="VAExtensionModel.CSVWorksForMe" />
+          <EntitySet Name="FileType" EntityType="VAExtensionModel.FileType" />
+          <EntitySet Name="CSVUserSocre" EntityType="VAExtensionModel.CSVUserSocre" />
+          <EntitySet Name="FinalsScoreStandard" EntityType="VAExtensionModel.FinalsScoreStandard" />
+          <EntitySet Name="CSFinalsExpertGroup" EntityType="VAExtensionModel.CSFinalsExpertGroup" />
+          <EntitySet Name="CSFinalsExpertWillScore" EntityType="VAExtensionModel.CSFinalsExpertWillScore" />
+          <EntitySet Name="CSExpertWorksTypeDetail" EntityType="VAExtensionModel.CSExpertWorksTypeDetail" />
+          <EntitySet Name="CSWorksPartition" EntityType="VAExtensionModel.CSWorksPartition" />
+          <EntitySet Name="CSSchoolWorksNum" EntityType="VAExtensionModel.CSSchoolWorksNum" />
+          <EntitySet Name="CSUserWithSchoolAndRole" EntityType="VAExtensionModel.CSUserWithSchoolAndRole" />
+        </EntityContainer>
+        <EntityType Name="CSMyWorks">
+          <Key>
+            <PropertyRef Name="UserWorksID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Relationship" Type="Int32" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="UserWorksID" Type="Int64" Nullable="false" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="CourseID" Type="Int64" />
+        </EntityType>
+        <Association Name="FK_School_Area">
+          <End Type="VAExtensionModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="VAExtensionModel.School" Role="School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_School">
+          <End Type="VAExtensionModel.School" Role="School" Multiplicity="0..1" />
+          <End Type="VAExtensionModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CSWorksPublic">
+          <Key>
+            <PropertyRef Name="ExpertScore" />
+            <PropertyRef Name="TSScore" />
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="ExpertScore" Type="Double" Nullable="false" />
+          <Property Name="TSScore" Type="Double" Nullable="false" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="WorksCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CSVWorksForMe">
+          <Key>
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="ExpertID" Type="Int64" />
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ScoreState" Type="Int32" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="WorksExpertID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeID" />
+          </Key>
+          <Property Name="FileTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CSVUserSocre">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="PeriodTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseID" Type="Int64" />
+          <Property Name="PeriodID" Type="Int64" Nullable="false" />
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="WorksState" Type="Int32" />
+          <Property Name="Relationship" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FinalsScoreStandard">
+          <Key>
+            <PropertyRef Name="StandardID" />
+          </Key>
+          <Property Name="StandardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StandardName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="CSFinalsExpertGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="ExpertID" Type="Int64" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="ContestID" Type="Int64" />
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSFinalsExpertWillScore">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="WorksExpertID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="ContestID" Type="Int64" />
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="WorksExpertID" Type="Int64" Nullable="false" />
+          <Property Name="ExpertID" Type="Int64" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="Flag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="CSExpertWorksTypeDetail">
+          <Key>
+            <PropertyRef Name="WorksTypeID" />
+            <PropertyRef Name="ExpertWorksTypeID" />
+            <PropertyRef Name="UserRoleID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ExpertWorksTypeID" Type="Int64" Nullable="false" />
+          <Property Name="UserRoleID" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSWorksPartition">
+          <Key>
+            <PropertyRef Name="WorksID" />
+            <PropertyRef Name="WorksTypeID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="WorksCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="WorksTypeID" Type="Int32" Nullable="false" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksState" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CSSchoolWorksNum">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="Num" Type="Int32" />
+          <Property Name="SchoolID" Type="Int32" Nullable="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CSUserWithSchoolAndRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="WorksType" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserRoleID" Type="Int64" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="ContestID" Type="Int64" />
+          <Property Name="Flag" Type="Int64" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="AreaID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="WorksType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VAExtensionModelStoreContainer" CdmEntityContainer="ContestEntities">
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="VAExtensionModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="AreaLevel" ColumnName="AreaLevel" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Career">
+            <EntityTypeMapping TypeName="VAExtensionModel.Career">
+              <MappingFragment StoreEntitySet="Career">
+                <ScalarProperty Name="CareerID" ColumnName="CareerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="College">
+            <EntityTypeMapping TypeName="VAExtensionModel.College">
+              <MappingFragment StoreEntitySet="College">
+                <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+                <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="VAExtensionModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Degree">
+            <EntityTypeMapping TypeName="VAExtensionModel.Degree">
+              <MappingFragment StoreEntitySet="Degree">
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertGroupType">
+            <EntityTypeMapping TypeName="VAExtensionModel.ExpertGroupType">
+              <MappingFragment StoreEntitySet="ExpertGroupType">
+                <ScalarProperty Name="ExpertGroupTypeID" ColumnName="ExpertGroupTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertWorksType">
+            <EntityTypeMapping TypeName="VAExtensionModel.ExpertWorksType">
+              <MappingFragment StoreEntitySet="ExpertWorksType">
+                <ScalarProperty Name="ExpertWorksTypeID" ColumnName="ExpertWorksTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periods">
+            <EntityTypeMapping TypeName="VAExtensionModel.Periods">
+              <MappingFragment StoreEntitySet="Periods">
+                <ScalarProperty Name="PeriodCode" ColumnName="PeriodCode" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="PeriodTitle" ColumnName="PeriodTitle" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Require" ColumnName="Require" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="StartSubmit" ColumnName="StartSubmit" />
+                <ScalarProperty Name="EndSubmit" ColumnName="EndSubmit" />
+                <ScalarProperty Name="StartScore" ColumnName="StartScore" />
+                <ScalarProperty Name="EndScore" ColumnName="EndScore" />
+                <ScalarProperty Name="StartPublic" ColumnName="StartPublic" />
+                <ScalarProperty Name="EndPublic" ColumnName="EndPublic" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PeriodStandard">
+            <EntityTypeMapping TypeName="VAExtensionModel.PeriodStandard">
+              <MappingFragment StoreEntitySet="PeriodStandard">
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="StandardDescription" ColumnName="StandardDescription" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingDetails">
+            <EntityTypeMapping TypeName="VAExtensionModel.RatingDetails">
+              <MappingFragment StoreEntitySet="RatingDetails">
+                <ScalarProperty Name="RatingDetailsID" ColumnName="RatingDetailsID" />
+                <ScalarProperty Name="WorksExpertID" ColumnName="WorksExpertID" />
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResetPassword">
+            <EntityTypeMapping TypeName="VAExtensionModel.ResetPassword">
+              <MappingFragment StoreEntitySet="ResetPassword">
+                <ScalarProperty Name="OperateID" ColumnName="OperateID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CheckCode" ColumnName="CheckCode" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="VAExtensionModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleLevel" ColumnName="RoleLevel" />
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="School">
+            <EntityTypeMapping TypeName="VAExtensionModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoreStandard">
+            <EntityTypeMapping TypeName="VAExtensionModel.ScoreStandard">
+              <MappingFragment StoreEntitySet="ScoreStandard">
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="StandardName" ColumnName="StandardName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specialty">
+            <EntityTypeMapping TypeName="VAExtensionModel.Specialty">
+              <MappingFragment StoreEntitySet="Specialty">
+                <ScalarProperty Name="SpecialtyID" ColumnName="SpecialtyID" />
+                <ScalarProperty Name="SpecialtyName" ColumnName="SpecialtyName" />
+                <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State">
+            <EntityTypeMapping TypeName="VAExtensionModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="VAExtensionModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="ProfessionalTitle" ColumnName="ProfessionalTitle" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="VAExtensionModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserWorks">
+            <EntityTypeMapping TypeName="VAExtensionModel.UserWorks">
+              <MappingFragment StoreEntitySet="UserWorks">
+                <ScalarProperty Name="UserWorksID" ColumnName="UserWorksID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Works">
+            <EntityTypeMapping TypeName="VAExtensionModel.Works">
+              <MappingFragment StoreEntitySet="Works">
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="WorksCode" ColumnName="WorksCode" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="IsSample" ColumnName="IsSample" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="SubmitProfile" ColumnName="SubmitProfile" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="InstallationGuide" ColumnName="InstallationGuide" />
+                <ScalarProperty Name="DesignIdeas" ColumnName="DesignIdeas" />
+                <ScalarProperty Name="KeyPoints" ColumnName="KeyPoints" />
+                <ScalarProperty Name="SelfAssessment" ColumnName="SelfAssessment" />
+                <ScalarProperty Name="DemoURL" ColumnName="DemoURL" />
+                <ScalarProperty Name="BackReason" ColumnName="BackReason" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="AllotTimes" ColumnName="AllotTimes" />
+                <ScalarProperty Name="WorksState" ColumnName="WorksState" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorksComments">
+            <EntityTypeMapping TypeName="VAExtensionModel.WorksComments">
+              <MappingFragment StoreEntitySet="WorksComments">
+                <ScalarProperty Name="CommentsID" ColumnName="CommentsID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorksExpert">
+            <EntityTypeMapping TypeName="VAExtensionModel.WorksExpert">
+              <MappingFragment StoreEntitySet="WorksExpert">
+                <ScalarProperty Name="WorksExpertID" ColumnName="WorksExpertID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ScoreState" ColumnName="ScoreState" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorksFile">
+            <EntityTypeMapping TypeName="VAExtensionModel.WorksFile">
+              <MappingFragment StoreEntitySet="WorksFile">
+                <ScalarProperty Name="WorksFileID" ColumnName="WorksFileID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorksType">
+            <EntityTypeMapping TypeName="VAExtensionModel.WorksType">
+              <MappingFragment StoreEntitySet="WorksType">
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorksTypeScoreStandard">
+            <EntityTypeMapping TypeName="VAExtensionModel.WorksTypeScoreStandard">
+              <MappingFragment StoreEntitySet="WorksTypeScoreStandard">
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="StandardDescription" ColumnName="StandardDescription" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserState">
+            <EntityTypeMapping TypeName="VAExtensionModel.UserState">
+              <MappingFragment StoreEntitySet="UserState">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPeriodScoreStandard">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSPeriodScoreStandard">
+              <MappingFragment StoreEntitySet="CSPeriodScoreStandard">
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="StandardDescription" ColumnName="StandardDescription" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="StandardName" ColumnName="StandardName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPeriodsCourse">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSPeriodsCourse">
+              <MappingFragment StoreEntitySet="CSPeriodsCourse">
+                <ScalarProperty Name="PeriodCode" ColumnName="PeriodCode" />
+                <ScalarProperty Name="Require" ColumnName="Require" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="PeriodTitle" ColumnName="PeriodTitle" />
+                <ScalarProperty Name="WorksCount" ColumnName="WorksCount" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="StartSubmit" ColumnName="StartSubmit" />
+                <ScalarProperty Name="EndSubmit" ColumnName="EndSubmit" />
+                <ScalarProperty Name="StartScore" ColumnName="StartScore" />
+                <ScalarProperty Name="EndScore" ColumnName="EndScore" />
+                <ScalarProperty Name="StartPublic" ColumnName="StartPublic" />
+                <ScalarProperty Name="EndPublic" ColumnName="EndPublic" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSPeriodsWorksType">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSPeriodsWorksType">
+              <MappingFragment StoreEntitySet="CSPeriodsWorksType">
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="PeriodTitle" ColumnName="PeriodTitle" />
+                <ScalarProperty Name="Require" ColumnName="Require" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="StartSubmit" ColumnName="StartSubmit" />
+                <ScalarProperty Name="EndSubmit" ColumnName="EndSubmit" />
+                <ScalarProperty Name="StartScore" ColumnName="StartScore" />
+                <ScalarProperty Name="EndScore" ColumnName="EndScore" />
+                <ScalarProperty Name="StartPublic" ColumnName="StartPublic" />
+                <ScalarProperty Name="EndPublic" ColumnName="EndPublic" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSUserWorks">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSUserWorks">
+              <MappingFragment StoreEntitySet="CSUserWorks">
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="UserWorksID" ColumnName="UserWorksID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSWorksExpertUser">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSWorksExpertUser">
+              <MappingFragment StoreEntitySet="CSWorksExpertUser">
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ScoreState" ColumnName="ScoreState" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WorksExpertID" ColumnName="WorksExpertID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSWorksToEvaluate">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSWorksToEvaluate">
+              <MappingFragment StoreEntitySet="CSWorksToEvaluate">
+                <ScalarProperty Name="WorksExpertID" ColumnName="WorksExpertID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="ScoreState" ColumnName="ScoreState" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+                <ScalarProperty Name="WorksCode" ColumnName="WorksCode" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="IsSample" ColumnName="IsSample" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSWorksTypeScoreStandard">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSWorksTypeScoreStandard">
+              <MappingFragment StoreEntitySet="CSWorksTypeScoreStandard">
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="StandardDescription" ColumnName="StandardDescription" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="StandardName" ColumnName="StandardName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSWorksWorksType">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSWorksWorksType">
+              <MappingFragment StoreEntitySet="CSWorksWorksType">
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="WorksCode" ColumnName="WorksCode" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="IsSample" ColumnName="IsSample" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="WorksState" ColumnName="WorksState" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="BackReason" ColumnName="BackReason" />
+                <ScalarProperty Name="DemoURL" ColumnName="DemoURL" />
+                <ScalarProperty Name="SelfAssessment" ColumnName="SelfAssessment" />
+                <ScalarProperty Name="KeyPoints" ColumnName="KeyPoints" />
+                <ScalarProperty Name="SubmitProfile" ColumnName="SubmitProfile" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="InstallationGuide" ColumnName="InstallationGuide" />
+                <ScalarProperty Name="DesignIdeas" ColumnName="DesignIdeas" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSMyWorks">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSMyWorks">
+              <MappingFragment StoreEntitySet="CSMyWorks">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="UserWorksID" ColumnName="UserWorksID" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="PeriodTitle" ColumnName="PeriodTitle" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSWorksPublic">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSWorksPublic">
+              <MappingFragment StoreEntitySet="CSWorksPublic">
+                <ScalarProperty Name="WorksCode" ColumnName="WorksCode" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="TSScore" ColumnName="TSScore" />
+                <ScalarProperty Name="ExpertScore" ColumnName="ExpertScore" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSVWorksForMe">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSVWorksForMe">
+              <MappingFragment StoreEntitySet="CSVWorksForMe">
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="WorksExpertID" ColumnName="WorksExpertID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ScoreState" ColumnName="ScoreState" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileType">
+            <EntityTypeMapping TypeName="VAExtensionModel.FileType">
+              <MappingFragment StoreEntitySet="FileType">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="FileTypeID" ColumnName="FileTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSVUserSocre">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSVUserSocre">
+              <MappingFragment StoreEntitySet="CSVUserSocre">
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="WorksState" ColumnName="WorksState" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="PeriodTitle" ColumnName="PeriodTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinalsScoreStandard">
+            <EntityTypeMapping TypeName="VAExtensionModel.FinalsScoreStandard">
+              <MappingFragment StoreEntitySet="FinalsScoreStandard">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StandardName" ColumnName="StandardName" />
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSFinalsExpertGroup">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSFinalsExpertGroup">
+              <MappingFragment StoreEntitySet="CSFinalsExpertGroup">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSFinalsExpertWillScore">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSFinalsExpertWillScore">
+              <MappingFragment StoreEntitySet="CSFinalsExpertWillScore">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+                <ScalarProperty Name="WorksExpertID" ColumnName="WorksExpertID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSExpertWorksTypeDetail">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSExpertWorksTypeDetail">
+              <MappingFragment StoreEntitySet="CSExpertWorksTypeDetail">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="ExpertWorksTypeID" ColumnName="ExpertWorksTypeID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSWorksPartition">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSWorksPartition">
+              <MappingFragment StoreEntitySet="CSWorksPartition">
+                <ScalarProperty Name="WorksState" ColumnName="WorksState" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="WorksTypeName" ColumnName="WorksTypeName" />
+                <ScalarProperty Name="WorksCode" ColumnName="WorksCode" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSSchoolWorksNum">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSSchoolWorksNum">
+              <MappingFragment StoreEntitySet="CSSchoolWorksNum">
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CSUserWithSchoolAndRole">
+            <EntityTypeMapping TypeName="VAExtensionModel.CSUserWithSchoolAndRole">
+              <MappingFragment StoreEntitySet="CSUserWithSchoolAndRole">
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="WorksType" ColumnName="WorksType" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ContestID" ColumnName="ContestID" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ProfessionalTitle" ColumnName="ProfessionalTitle" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<style type="text/css">
+<!--
+body {
+	font-size: 12px;
+	margin: 40px;
+	line-height: 24px;
+}
+table  { border-collapse: collapse; }
+td {
+	border: #ccc 1px solid;
+	line-height:22px;
+}
+th{
+	line-height: 28px;
+	background-color: #eee;
+	border: #ccc 1px solid;
+}
+-->
+</style>
+</head>
+<body>
+此页面文件名为 url.htm ，双击表格行，将值赋给刚才的表单，同时弹出层关闭。<br />
+<table width="400" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <th align="center"><strong>姓名</strong></th>
+    <th align="center"><strong>籍贯</strong></th>
+    <th align="center"><strong>年龄</strong></th>
+  </tr>
+  <tr onDblClick="javascript:parent.g_close_pop();document.getElementById('textfield1').value='张三';document.getElementById('textfield2').value='美国';document.getElementById('textfield3').value='12';">
+    <td align="center">张三</td>
+    <td align="center">美国</td>
+    <td align="center">12</td>
+  </tr>
+  <tr onDblClick="javascript:parent.g_close_pop();document.getElementById('textfield1').value='李四';document.getElementById('textfield2').value='英国';document.getElementById('textfield3').value='11';">
+    <td align="center">李四</td>
+    <td align="center">英国</td>
+    <td align="center">11</td>
+  </tr>
+  <tr onDblClick="javascript:parent.g_close_pop();document.getElementById('textfield1').value='王五';document.getElementById('textfield2').value='中国';document.getElementById('textfield3').value='15';">
+    <td align="center">王五</td>
+    <td align="center">中国</td>
+    <td align="center">15</td>
+  </tr>
+</table>
+</body>
+</html>

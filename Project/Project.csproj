@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71A3DC59-F76D-4710-8C63-B4C76ED096D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project</RootNamespace>
+    <AssemblyName>Project</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Layouts\Project\Hot.aspx.cs">
+      <DependentUpon>Hot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\Hot.aspx.designer.cs">
+      <DependentUpon>Hot.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\MemberDetail.aspx.cs">
+      <DependentUpon>MemberDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\MemberDetail.aspx.designer.cs">
+      <DependentUpon>MemberDetail.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\MemberShow.aspx.cs">
+      <DependentUpon>MemberShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\MemberShow.aspx.designer.cs">
+      <DependentUpon>MemberShow.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\MyProjectsMatch.aspx.cs">
+      <DependentUpon>MyProjectsMatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\MyProjectsMatch.aspx.designer.cs">
+      <DependentUpon>MyProjectsMatch.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\AllProjects.aspx.cs">
+      <DependentUpon>AllProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\AllProjects.aspx.designer.cs">
+      <DependentUpon>AllProjects.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\GenerateCheckCode.aspx.cs">
+      <DependentUpon>GenerateCheckCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\GenerateCheckCode.aspx.designer.cs">
+      <DependentUpon>GenerateCheckCode.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\Initiate.aspx.cs">
+      <DependentUpon>Initiate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\Initiate.aspx.designer.cs">
+      <DependentUpon>Initiate.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\MyProjects.aspx.cs">
+      <DependentUpon>MyProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\MyProjects.aspx.designer.cs">
+      <DependentUpon>MyProjects.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\oneshow.aspx.cs">
+      <DependentUpon>oneshow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\oneshow.aspx.designer.cs">
+      <DependentUpon>oneshow.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\PApprove.aspx.cs">
+      <DependentUpon>PApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\PApprove.aspx.designer.cs">
+      <DependentUpon>PApprove.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\PDetails.aspx.cs">
+      <DependentUpon>PDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\PDetails.aspx.designer.cs">
+      <DependentUpon>PDetails.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\PManage.aspx.cs">
+      <DependentUpon>PManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\PManage.aspx.designer.cs">
+      <DependentUpon>PManage.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\ProAllowMatch.aspx.cs">
+      <DependentUpon>ProAllowMatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\ProAllowMatch.aspx.designer.cs">
+      <DependentUpon>ProAllowMatch.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\ProjectsPartition.aspx.cs">
+      <DependentUpon>ProjectsPartition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\ProjectsPartition.aspx.designer.cs">
+      <DependentUpon>ProjectsPartition.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\ProjectToExpert.aspx.cs">
+      <DependentUpon>ProjectToExpert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\ProjectToExpert.aspx.designer.cs">
+      <DependentUpon>ProjectToExpert.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\ProjTopMan.aspx.cs">
+      <DependentUpon>ProjTopMan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\ProjTopMan.aspx.designer.cs">
+      <DependentUpon>ProjTopMan.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\PStart.aspx.cs">
+      <DependentUpon>PStart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\PStart.aspx.designer.cs">
+      <DependentUpon>PStart.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\PublishProject.aspx.cs">
+      <DependentUpon>PublishProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\PublishProject.aspx.designer.cs">
+      <DependentUpon>PublishProject.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\RoleApprove.aspx.cs">
+      <DependentUpon>RoleApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\RoleApprove.aspx.designer.cs">
+      <DependentUpon>RoleApprove.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Project\TopMember.aspx.cs">
+      <DependentUpon>TopMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Project\TopMember.aspx.designer.cs">
+      <DependentUpon>TopMember.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e4ea4a67-f373-493d-a3f1-98b65068cb67}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{e6cce6b2-689e-469a-b383-d8087c7738dd}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Layouts\Project\Pub\css\onlinebusinesshall\newexpand\image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\Project\css\common.css" />
+    <Content Include="Layouts\Project\css\detail.css" />
+    <Content Include="Layouts\Project\css\tianchi.css" />
+    <Content Include="Layouts\Project\css\tiles.css" />
+    <Content Include="Layouts\Project\Hot.aspx" />
+    <Content Include="Layouts\Project\images\delete.png" />
+    <Content Include="Layouts\Project\images\demo02.png" />
+    <Content Include="Layouts\Project\images\hot.png" />
+    <Content Include="Layouts\Project\images\hotp.png" />
+    <Content Include="Layouts\Project\images\ok.gif" />
+    <Content Include="Layouts\Project\images\rating-icons.png" />
+    <Content Include="Layouts\Project\images\science-honor.png" />
+    <Content Include="Layouts\Project\images\science_banner.JPG" />
+    <Content Include="Layouts\Project\js\jquery-1.8.3.min.js" />
+    <Content Include="Layouts\Project\js\tiles.js" />
+    <Content Include="Layouts\Project\MemberDetail.aspx" />
+    <Content Include="Layouts\Project\MemberShow.aspx" />
+    <Content Include="Layouts\Project\MyProjectsMatch.aspx" />
+    <Content Include="Layouts\Project\AllProjects.aspx" />
+    <Content Include="Layouts\Project\css\base.css" />
+    <Content Include="Layouts\Project\css\Combox.css" />
+    <Content Include="Layouts\Project\css\keyboard.css" />
+    <Content Include="Layouts\Project\css\page.css" />
+    <Content Include="Layouts\Project\GenerateCheckCode.aspx" />
+    <Content Include="Layouts\Project\images\bar1.jpg" />
+    <Content Include="Layouts\Project\images\bar2.jpg" />
+    <Content Include="Layouts\Project\images\bar3.jpg" />
+    <Content Include="Layouts\Project\images\bg_login_wrong.gif" />
+    <Content Include="Layouts\Project\images\bjddd.jpg" />
+    <Content Include="Layouts\Project\images\bjj.jpg" />
+    <Content Include="Layouts\Project\images\bjj1.gif" />
+    <Content Include="Layouts\Project\images\bjj1.jpg" />
+    <Content Include="Layouts\Project\images\bjtu.jpg" />
+    <Content Include="Layouts\Project\images\bjtu1.jpg" />
+    <Content Include="Layouts\Project\images\ButtonBg.gif" />
+    <Content Include="Layouts\Project\images\ButtonGg.gif" />
+    <Content Include="Layouts\Project\images\bxxx.jpg" />
+    <Content Include="Layouts\Project\images\Calendar_scheduleHS.png" />
+    <Content Include="Layouts\Project\images\cuo.png" />
+    <Content Include="Layouts\Project\images\dback.gif" />
+    <Content Include="Layouts\Project\images\dlist.gif" />
+    <Content Include="Layouts\Project\images\dui.png" />
+    <Content Include="Layouts\Project\images\fen30.gif" />
+    <Content Include="Layouts\Project\images\fen40.gif" />
+    <Content Include="Layouts\Project\images\floatbg.jpg" />
+    <Content Include="Layouts\Project\images\floatng.gif" />
+    <Content Include="Layouts\Project\images\headgif.gif" />
+    <Content Include="Layouts\Project\images\htpf.jpg" />
+    <Content Include="Layouts\Project\images\keyboard.png" />
+    <Content Include="Layouts\Project\images\ml-open-demo.png" />
+    <Content Include="Layouts\Project\images\nav-close.png" />
+    <Content Include="Layouts\Project\images\score30.gif" />
+    <Content Include="Layouts\Project\images\score40.gif" />
+    <Content Include="Layouts\Project\images\select.jpg" />
+    <Content Include="Layouts\Project\images\shipin.jpg" />
+    <Content Include="Layouts\Project\images\star_gray.gif" />
+    <Content Include="Layouts\Project\images\star_red.gif" />
+    <Content Include="Layouts\Project\images\star_red2.gif" />
+    <Content Include="Layouts\Project\images\titlebg.gif" />
+    <Content Include="Layouts\Project\images\titlebga.gif" />
+    <Content Include="Layouts\Project\images\Triangle.gif" />
+    <Content Include="Layouts\Project\images\type.gif" />
+    <Content Include="Layouts\Project\images\warn.gif" />
+    <Content Include="Layouts\Project\images\yinpin.jpg" />
+    <Content Include="Layouts\Project\images\zhengque.gif" />
+    <Content Include="Layouts\Project\Initiate.aspx" />
+    <Content Include="Layouts\Project\js\Combox.js" />
+    <Content Include="Layouts\Project\js\cuo.png" />
+    <Content Include="Layouts\Project\js\dui.png" />
+    <Content Include="Layouts\Project\js\FaceJScript.js" />
+    <Content Include="Layouts\Project\js\jquery-1.9.1.min.js" />
+    <Content Include="Layouts\Project\js\jquery.js" />
+    <Content Include="Layouts\Project\js\kefu.js" />
+    <Content Include="Layouts\Project\js\keyboard.js" />
+    <Content Include="Layouts\Project\js\s.js" />
+    <Content Include="Layouts\Project\js\star_gray.gif" />
+    <Content Include="Layouts\Project\js\star_red.gif" />
+    <Content Include="Layouts\Project\js\star_red2.gif" />
+    <Content Include="Layouts\Project\js\Validate.js" />
+    <Content Include="Layouts\Project\MyProjects.aspx" />
+    <Content Include="Layouts\Project\oneshow.aspx" />
+    <Content Include="Layouts\Project\PApprove.aspx" />
+    <Content Include="Layouts\Project\PDetails.aspx" />
+    <Content Include="Layouts\Project\PManage.aspx" />
+    <Content Include="Layouts\Project\ProAllowMatch.aspx" />
+    <Content Include="Layouts\Project\Projects.aspx" />
+    <Content Include="Layouts\Project\ProjectsPartition.aspx" />
+    <Content Include="Layouts\Project\ProjectToExpert.aspx" />
+    <Content Include="Layouts\Project\ProjTopMan.aspx" />
+    <Content Include="Layouts\Project\PStart.aspx" />
+    <Content Include="Layouts\Project\PublishProject.aspx" />
+    <Content Include="Layouts\Project\Pub\css\index.css" />
+    <Content Include="Layouts\Project\Pub\css\onlinebusinesshall\newexpand\css\index-debug.css" />
+    <Content Include="Layouts\Project\Pub\images\btn-bg-active.jpg" />
+    <Content Include="Layouts\Project\Pub\images\btn-bg.jpg" />
+    <Content Include="Layouts\Project\Pub\images\circle-active.png" />
+    <Content Include="Layouts\Project\Pub\images\circle.png" />
+    <Content Include="Layouts\Project\Pub\images\ling-bg.jpg" />
+    <Content Include="Layouts\Project\Pub\images\success.png" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery-step\css\jquery.step.css" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery-step\images\bar-bg-active.png" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery-step\images\bar-bg.png" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery-step\images\cell-active.png" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery-step\images\cell.png" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery-step\js\jquery.step.js" />
+    <Content Include="Layouts\Project\Pub\static\lib\jquery\1.8\jquery.min.js" />
+    <Content Include="Layouts\Project\RoleApprove.aspx" />
+    <Content Include="Layouts\Project\Test.aspx" />
+    <Content Include="Layouts\Project\TopMember.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectDll\ProjectDll.csproj">
+      <Project>{d49c4d5c-efef-4061-9289-f55bbc4d7f92}</Project>
+      <Name>ProjectDll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

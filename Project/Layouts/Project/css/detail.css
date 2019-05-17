@@ -1,0 +1,893 @@
+﻿
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2015-03-09 18:36:17
+ * @version $Id$
+ */
+
+/* detail */
+.btn-blue{background: #2d78f5;color: #fff;border: none;}
+.btn-blue:hover{
+    background: #52b4f8;
+     -webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s; 
+}
+.btn-blue:active {background: #2068e0}
+.btn-disabled{background: #cccccc}
+
+
+
+.tips-warn,.tips-success,.tisp-fail{display: inline-block; *display: inline; *zoom:1; vertical-align: middle;
+background: url(../images/icon-tips.png) no-repeat; 
+}
+.tips-warn{width: 32px;height: 32px;background-position: 0 0; margin-right: 10px;}
+.tips-success{width: 20px;height: 20px;background-position: -32px 0}
+.tisp-fail{width: 20px;height: 20px;background-position: -52px 0}
+
+
+.data-none{ text-align: center; color: #333333; font-size: 14px; line-height: 132px; }
+.data-none img{ display: inline; vertical-align: middle; margin-right: 10px; }
+
+
+/*比赛detail*/
+.row-6{ width: 50%; }
+.d-row{ width: 1200px; margin: 0 auto; }
+.detail-bg { width: 100%; background: #f2f5fa; padding-bottom: 100px; }
+.crumbs_patch{padding-top: 20px;padding-bottom: 20px;line-height: 16px;color: #666666;font-size: 14px;}
+.crumbs_patch span{color: #999999}
+.crumbs_patch a{color: #666666}
+.crumbs_patch a:hover{text-decoration: underline;}
+/*左侧导航 begin*/
+.detail-tab li{ height: 48px; line-height: 48px; overflow: hidden; font-size: 14px; }
+.detail-tab li a, .submenu a{ display: block; width: 100%; height: 100%; text-decoration: none; color: #666666; text-indent: 28px; }
+.detail-tab li a:hover, .submenu a:hover{ color: #333; background: #e8ebef; -webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s; }
+.detail-tab li.current a{ background: #fff; color: #333; }
+.detail-tab.dashed{ border-top: 1px dashed #e1e6eb; border-bottom: 1px dashed #e1e6eb;}
+.detail-tab.dashed li{border-left: 4px #d1d8e2 solid;}
+.detail-tab.dashed li a{ text-indent: 24px;}
+.detail-tab.dashed li.current{border-color: #e9eef4}
+.detail-tab li img {vertical-align: middle;margin-left: 4px;}
+/*左侧导航 end*/
+/*--比赛报名列表 模块 begin--*/
+.competition-list{ padding-top:8px; overflow: hidden;}
+.competition-list li{ margin-bottom: 20px; height: 115px; }
+.competition-list li .list-main{ background: #fff; margin-right: 10px; float: left; width:1065px; height: 115px; position: relative; }
+.competition-list li .mark{ position: absolute; display: block; width: 35px; height: 44px; left: -1px; top: -8px; background: url(../images/hot.png) no-repeat; }
+.competition-list li.item-gold  .mark{ background-position:  0 0; }
+.competition-list li.item-blue  .mark{ background-position:  -35px 0; }
+.competition-list li.item-green .mark{ background-position: -70px 0; }
+.competition-list li .main-title{ height: 50px; border-bottom: 1px solid #e1e6eb; }
+.competition-list li .main-cont{ height: 64px; }
+.competition-list li .list-main .main-title span,.competition-list li .list-main .main-cont span{ display: block; float: left; }
+.competition-list li .main-title span{ height: 48px; padding-top: 2px; line-height: 48px; color: #666666; font-size: 14px; }
+.competition-list li .main-cont span{ height:64px; line-height:64px; color: #333333; font-size: 22px; overflow: hidden; }
+.competition-list li .list-main .span-1{ padding-left:29px; width: 335px; }
+.competition-list li .list-main .span-1 p{ width: 264px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.competition-list-en li .list-main .span-1 p{ width: auto;}
+.competition-list-en li .main-cont span{ font-size: 18px;}
+.competition-list li .list-main .span-2{ width: 111px; }
+.competition-list li .list-main .span-3{ width: 182px; }
+.competition-list li .list-main .span-3 img{ display: inline-block; *display: inline; *zoom:1;vertical-align: middle; max-width: 150px; max-height: 64px; }
+.competition-list li .list-main .span-4{ width: 175px; }
+.competition-list li .list-main .span-5{ width: 125px; }
+.competition-list li .list-main .span-6{ width: 108px; }
+.competition-list li .list-main .status-on{ color: #339900; }
+.competition-list li .list-main .status-over{ color: #f50213; }
+.competition-list li .main-cont span a{ color: #333333; }
+.competition-list li .list-btn{ background: #2d78f5; display: block; float: left; width: 125px; height: 115px; }
+.competition-list li .list-btn:hover{ background: #2068e0; -webkit-transition: all .3s; -moz-transition: all .3s; -ms-transition: all .3s; -o-transition: all .3s; text-decoration: none; }
+.competition-list li .list-btn span{ display: block; width: 42px; height: 40px; margin-left: 45px; margin-top: 24px; background: url(../images/competition-btn.png) no-repeat; }
+.competition-list li .list-btn p{ text-align: center; color: #fefefe; font-size: 16px; padding-top: 10px; line-height: 20px; }
+.competition-list li.item-normal .list-main{ width:100%; margin-right: 0; } 
+.competition-list li.item-normal .list-btn{ display: none; }
+.competition-list li.item-normal .list-main .span-1{ width: 354px; }
+.competition-list li.item-normal .list-main .span-2{ width: 138px; }
+.competition-list li.item-normal .list-main .span-3{ width: 190px; }
+.competition-list li.item-normal .list-main .span-4{ width: 188px; }
+.competition-list li.item-normal .list-main .span-5{ width: 145px; }
+.competition-list li.item-normal .list-main .span-6{ width: 108px; }
+/*--比赛报名列表 模块 end--*/
+
+
+.detail-content{ background: #f8fafe; overflow: hidden; }
+.detail-left{ width: 222px; float: left; }
+.detail-right{ margin-left: 222px; background: #fff; width: 918px; padding: 40px 30px 30px 30px; }
+.detail-right h2{ color: #333333; font-size: 26px; font-weight: normal; height:28px; line-height: 26px; }
+.box-info { padding-top: 40px; }
+.box-info p{ line-height: 24px; font-size: 14px; color: #333333; padding-bottom: 24px; }
+.box-desc{ padding: 22px 0 3px 0; }
+/*数据描述*/
+.box-desc dl{ border: 1px solid #e1e6eb;font-size: 12px; }
+.box-desc dl dt{ background: #f2f5fa; line-height: 38px; color: #666666; overflow: hidden;}
+.box-desc dl dd{ line-height: 42px; border-top: 1px solid #e1e6eb; overflow: hidden; color: #666; }
+.box-desc dl dt p,.box-desc dl dd p{ float: left; }
+.box-desc dl dt .file-name{ text-indent: 8px; }
+.box-desc dl dd .file-name{ text-indent:10px; }
+.box-desc dl .file-down{ color: #2d78f5; font-family: "Arial"; }
+.box-desc dl dd span{ display: inline-block; *display: inline; *zoom:1;vertical-align: middle; width: 15px; height: 16px; background: url(../images/f-down.png) no-repeat; position: relative; top: -3px; }
+.box-desc dl .file-down-no{ color: #999; }
+.box-desc dl .file-down-no span{background-position: -15px 0;}
+/*赛季排行榜*/
+.box-rank{ border: 1px solid #e1e6eb; min-height: 619px; margin-top: 22px; }
+.rank-nav { height: 46px; background: #f2f5fa; font-size: 0; white-space:nowrap; border-bottom: 1px solid #e1e6eb; }
+.rank-nav li{ font-size: 14px; width:20%; text-align: center; line-height: 46px; cursor: pointer; display: inline-block; *display: inline; *zoom:1; vertical-align: top; }
+.rank-nav li a { display: block; border-right: 1px solid #e1e6eb; color: #999999; text-decoration: none; }
+.rank-nav li a:hover{ background: #fff; color: #666666; }
+.rank-nav li.current a{ background: #ffffff; height: 46px; position: relative; z-index: 2; top: -1px; line-height: 44px; color: #000000; }
+.rank-nav .current.cur-gold a{ border-top: 2px solid #fcc936; }
+.rank-nav .current.cur-blue a{ border-top: 2px solid #00bff3; }
+.rank-nav .current.cur-green a{ border-top: 2px solid #71cd81; }
+.rank-title { padding-top: 20px; }
+.rank-normal .list-title{ height: 38px; line-height: 38px; font-size: 12px; color: #666; }
+.rank-normal .list-item{ height: 42px; line-height: 42px; border-top: 1px solid #e1e6eb; font-size: 14px; color: #666; }
+.rank-normal li>div{ float: left; }
+.rank-normal .ranking { width: 105px; }
+.rank-normal .ranking  p{ padding-left: 40px; }
+.rank-normal .member{ width: 185px; position: relative; }
+.rank-normal .team{ /*width: 205px;*/ width: 250px; }
+.rank-normal .score{ width: 105px; }
+.rank-normal .rate-accuracy{ width: 105px; }
+.rank-normal .rate-recall { width:80px; }
+.rank-normal .best-time{width: 145px;}
+
+.rank-list .ranking  p{ overflow: hidden; height: 42px; }
+.rank-list .list-item .ranking  p{ overflow: hidden; height: 42px; }
+.rank-list .ranking .up,.rank-list .ranking .down{ font-size: 12px; margin-left: 9px; height: 16px; position: relative; top: -2px; }
+.rank-list .ranking .up i,.rank-list .ranking .down i{ display: inline-block; *display: inline; *zoom:1; vertical-align: middle; background:url(../images/rank-icon.png) no-repeat; width: 7px; height: 12px; }
+.rank-list .ranking .up{ color: #47ca00; }
+.rank-list .ranking .up i{ background-position: -26px 0; }
+.rank-list .ranking .down{ color: #f72506; }
+.rank-list .ranking .down i{ background-position: -16px 0; }
+.rank-list .ranking .rank-y{ color: #fcc936; font-size: 18px; }
+.rank-list .ranking .rank-y span{ margin-left: 7px; }
+.rank-list .member-box{ position: relative;display: inline-block; *display: inline; *zoom:1; vertical-align: middle; *display: inline; *zoom:1; *vertical-align: top; *top: 11px; height: 20px; line-height: 20px; }
+.rank-list .member-box i{ background:url(../images/rank-icon.png) no-repeat; display: inline-block; *display: inline; *zoom:1; vertical-align: middle; width: 14px; height: 13px; margin-right: 2px; }
+.rank-list .member-box .num2{ background-position: 0 0; margin-left: 7px; }
+
+.rank-list .member-box p{ max-width: 140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display: inline-block; *display: inline; *zoom:1; vertical-align: middle; }
+.rank-list .member .member-info{ display: none; bottom: 20px; left:50%; margin-left: -110px; position: absolute; z-index: 2; width: 220px; }
+.rank-list .member-box:hover .member-info{ display: block; text-align: center; font-size: 0; }
+.rank-list .member .info-cont{ border: 1px solid #bbbbbb; background: #ffffff; border-radius: 1px; display: inline-block; *display: inline; *zoom:1; vertical-align: top; font-size: 12px; color:#333333; padding: 9px 14px; line-height: 18px; text-align: left;min-width: 80px; }
+.rank-list .member .mark{ width: 10px; height: 6px; display: block; margin: 0 auto; position: relative; top: -1px; background:url(../images/rank-icon.png) no-repeat; background-position: -36px 0; line-height: 0; z-index: 9; }
+
+.rank-list .team-box{ position: relative;display: inline-block; *display: inline; *zoom:1; vertical-align: middle; *display: inline; *zoom:1; *vertical-align: top; *top: 11px; height: 20px; line-height: 20px; }
+.rank-list .team-box p{ max-width: 215px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display: inline-block; *display: inline; *zoom:1; vertical-align: middle; }
+.rank-list .team .team-info{ display: none; bottom: 20px; left:50%; margin-left: -110px; position: absolute; z-index: 2; width: 220px; }
+.rank-list .team-box:hover .team-info{ display: block; text-align: center; font-size: 0; }
+.rank-list .team .info-cont{ border: 1px solid #bbbbbb; background: #ffffff; border-radius: 1px; display: inline-block; *display: inline; *zoom:1; vertical-align: top; font-size: 12px; color:#333333; padding: 9px 14px; line-height: 18px; text-align: left;min-width: 80px; }
+.rank-list .team .mark{ width: 10px; height: 6px; display: block; margin: 0 auto; position: relative; top: -1px; background:url(../images/rank-icon.png) no-repeat; background-position: -36px 0; line-height: 0; z-index: 9; }
+.rank-page{ padding: 20px 15px 17px 0; background: #f2f5fa; }
+
+
+/*我的成绩*/
+.box-result{/*min-height: 670px;*/}
+.box-result .data-none{line-height: 160px;}
+.box-result dl{padding-top: 22px;}
+.box-result dl .span-1{width: 291px;}
+.box-result dl .span-2{width: 150px;}
+.box-result dl .span-3{width: 174px;}
+.box-result dl .span-4{width: 170px;}
+.box-result dl .span-5{width: 130px;}
+.box-result dl dt,.box-result dl dd{font-size: 14px;}
+.box-result dl dt>div,.box-result dl dd>div{float: left;}
+.box-result dt{color: #666666;height:18px; padding: 16px 0;line-height: 18px}
+.box-result dd{color: #c1e4fc;font-family: "Tahoma";font-size: 22px;height: 26px;padding: 18px 0;line-height: 26px;}
+.box-result dl dd .span-1{font-size: 14px;position: relative;z-index: 1;}
+.box-result dl dd .span-1 .mark{display: block;position: absolute;left: 202px;top: -46px;
+    height:68px;width: 17px;z-index: 2;
+    background:url(../images/icon-result.png) no-repeat;background-position: 0 -18px;}
+.box-result dl dd .good{display: inline-block;*display: inline;*zoom:1;vertical-align: top;
+    background:url(../images/icon-result.png) no-repeat;background-position: -17px 0;
+    width: 15px;height: 20px;margin-left: 5px;
+}
+.box-result dl .result-first {padding: 23px 0;color: #52b4f8}
+.box-result dl .result-first .span-1 .mark{top:5px;height: 16px;z-index: 3;
+    background:url(../images/icon-result.png) no-repeat;background-position: 0 0;}
+.box-result dd .span-2,.box-result dd .span-3,.box-result dd .span-4,.box-result dd .span-5{font-size: 22px;}
+.box-result dd{cursor: pointer;z-index: 2;position: relative;}
+.box-result dd:hover{color: #52b4f8;z-index: 3}
+.box-result dl dd:hover .span-1 .mark{background-position: 0 -89px;z-index: 2}
+.box-result dl .result-first:hover .span-1 .mark{background-position: 0 0;}
+
+.my-best{float: right;height: 28px;}
+.best-rank{background:#fccd13 url(//gtms04.alicdn.com/tps/i4/TB1WdDFHpXXXXXHXFXXi6KGFpXX-18-27.png) no-repeat left;float: left;height: 27px;padding-left: 20px;margin-right: 14px;color: #fff;line-height: 26px;padding-right: 9px;font-size: 16px}
+.best-result{background:#52b4f8 url(//gtms01.alicdn.com/tps/i1/TB17HzDHpXXXXXxXVXXi6KGFpXX-18-27.png) no-repeat right;float: left;height: 27px;padding-right: 20px;color: #fff;line-height: 26px;padding-left: 9px;
+font-size: 16px
+}
+.best-first, .best-second{float: left;height: 27px;padding-left: 20px;margin-right: 14px;color: #999;line-height: 26px;padding-right: 9px;font-size: 14px;}
+.best-first span, .best-second span{font-size:24px; color:#333;}
+/*提交结果*/
+
+
+.box-submit .submit-btn{height: 37px;}
+.box-submit .submit-text{display: block;float: left;border: #bbbbbb 1px solid;padding: 0 4px;width: 450px;
+font-size: 14px;border-radius: 0;color: #999999;height: 35px;}
+.box-submit .submit-file-show{display: block;float: left;position: relative;width: 88px;height: 37px;line-height: 36px;
+    color: #ffffff;font-size: 14px;text-align: center;text-decoration: none;cursor: pointer;
+}
+.box-submit .submit-file{position: absolute;left: 0;top: 0;width: 100%;height: 100%;padding: 0;margin: 0;border: none;
+    opacity: 0;filter: alpha(opacity=0);cursor: pointer;
+}
+.box-submit .submit-tip{padding-left: 20px;height: 37px;line-height: 36px;display: none;float: left;font-size: 14px;color: #666666}
+.box-submit .status-success{font-size: 14px;height: 38px;line-height: 38px;padding-left: 10px;
+    color: #336600;background: #f2ffea;border: 1px solid #c7ddb9;margin-bottom: 20px;display: none;}
+.box-submit .status-fail{font-size: 14px;height: 38px;line-height: 38px;padding-left: 10px;
+    color: #ff2200;background: #fff6f2;border: 1px solid #f1acac;margin-bottom: 20px;display: none;}
+.box-submit .submit-in .submit-file-show{color: #cccccc;background: #f7f7f7;border: 1px solid #e9e9e9;width: 88px;height: 35px;line-height: 35px;cursor: default;}
+.box-submit .submit-in .submit-file{display: none;}
+.box-submit .submit-in .submit-tip{display: block;}
+.box-submit .submit-success .status-success{display: block;font-size: 0}
+.box-submit .submit-success .status-success span{font-size: 14px;
+display: inline-block; *display: inline; *zoom:1;vertical-align: middle;
+}
+.box-submit .submit-success .status-success i{margin-right: 8px;}
+.box-submit .submit-fail .status-fail{display: block;}
+.box-submit .submit-fail .status-fail span{font-size: 14px;
+    display: inline-block; *display: inline; *zoom:1;vertical-align: middle;
+}
+.box-submit .submit-fail .status-fail i{margin-right: 8px;}
+.box-submit .tips{color: #666666;font-size: 12px;padding:8px 0;line-height: 16px;}
+.box-submit-result{margin-top: 30px;}
+.box-submit-result dl{background: #ffffff}
+.box-submit-result dt,.box-submit-result dd{height: 38px;line-height: 38px;font-size: 14px;}
+.box-submit-result dt{background: #f2f5fa;color: #333333;border:1px solid #e1e6eb;
+    border-left:3px solid #c0c3c7;text-indent: 14px;}
+.box-submit-result dd{color: #999999;border:1px solid #e1e6eb;border-top: none;text-indent: 18px;}
+.box-submit-result dd a{color: #2d78f5}
+.box-submit-result dd a:hover{text-decoration: underline;}
+.box-submit-result .data-none{height: 132px;line-height: 132px;color: #333;}
+/*--------------------比赛列表页面---------------*/
+.competition-banner{ height:350px; background:#4688f1 url(../images/competition-banner.png) no-repeat center top; }
+.competition-banner h2,.competition-banner h3{ display:none; }
+.competition-box{ padding-top: 40px; }
+.competition-box .competition-list{ width: 1142px; margin: 0 auto; }
+.competition-box .competition-list li{ margin-bottom:30px; height: 210px; background: #fff; padding-bottom: 10px; }
+.competition-box .competition-list li.item-normal .list-btn{ display: none; }
+.competition-box .competition-list li.item-normal .list-main .span-1{ width: 354px; }
+.competition-box .competition-list li.item-normal .list-main .span-2{ width: 128px; }
+.competition-box .competition-list li.item-normal .list-main .span-3{ width: 185px; }
+.competition-box .competition-list li.item-normal .list-main .span-4{ width: 180px; }
+.competition-box .competition-list li.item-normal .list-main .span-5{ width: 145px; }
+.competition-box .competition-list li .list-info{ float: left; border-top: 1px solid #e1e6eb; padding-top: 20px; width: 100%; }
+.competition-box .competition-list li .list-info p{ color: #999999; padding:0 29px; line-height: 24px; max-height: 54px; overflow:hidden; }
+.competition-box .competition-list li .list-info span{ color: #666666; }
+.competition-box .competition-list li .list-info p a:hover{ text-decoration: underline; }
+.competition-box .competition-list li .list-info p a{ color: #999999; }
+.competition-box .competition-list li .list-info p a span{ color: #666666; }
+.competition-box .competition-list li .list-info p a.more{ color: #2d78f5; float: right; }
+.competition-box .competition-page{ padding: 10px 30px 50px 0; background: #f2f5fa; }
+
+
+.box-submit-result dd span{color: #2d78f5}
+
+
+/*-------------御膳房---------------*/
+.detail-centrality{padding-top: 27px;}
+.centrality-info {overflow: hidden;width: 956px}
+.centrality-info li{float: left;width: 440px;height: 183px;margin-right: 35px;border: 1px solid #e1e6eb;cursor:pointer;}
+.centrality-info li a h5{padding-left: 20px;font-size: 24px;color: #000000;font-weight: normal;padding-top: 49px;line-height: 52px;}
+.centrality-info li a p{color: #666666;font-size: 12px;line-height: 20px;padding-left: 20px;width: 290px;}
+.centrality-info li a{text-decoration: none;}
+.centrality-info li.first {background: url(/images/icon-ysf1.png) no-repeat;}
+.centrality-info li.first:hover {background: url(/images/icon-ysf1-h.png) no-repeat;}
+.centrality-info li.second {background: url(/images/icon-ysf2.png) no-repeat;}
+.centrality-info li.second:hover {background: url(/images/icon-ysf2-h.png) no-repeat;}
+.title-box{padding-top: 26px;height: 38px;}
+.title-line {height: 13px;border-bottom: 1px solid #e1e6eb;}
+.title-line h5{color: #333333;font-size: 16px;font-weight: normal;height: 26px;line-height: 26px;background: #fff;float: left;
+padding-right: 10px;}
+.title-line p{float: right;padding-left: 8px;background: #fff;font-size: 12px;line-height: 26px;}
+.title-line p a{color: #2d78f5}
+.megagame-strategy{border-top:1px solid #e1e6eb}
+.megagame-strategy li{height: 42px;line-height: 42px;padding-left: 13px;padding-right: 28px;color: #333333;font-size: 12px;border: 1px solid #e1e6eb;border-top: none;background: #fff;}
+.megagame-strategy li p{float: right;}
+.megagame-strategy li a{color: #333333;display: block;float: left;margin-right: 8px;max-width: 700px;overflow: hidden;
+  text-overflow: ellipsis;white-space: nowrap;}
+.megagame-strategy li img{vertical-align: middle;display: inline;}
+.megagame-strategy li a:hover{color: #2d78f5}
+.megagame-strategy li:nth-child(2n){background: #f9f9fa}
+.megagame-strategy li.change p,.megagame-strategy li.change a{color: #999999}
+.megagame-strategy li.change a:hover{color: #2d78f5}
+/*-------------御膳房 end-------------*/
+
+/*关于我们*/
+
+.about-box{padding:0 4px;padding-top: 18px; }
+.about-info {padding-bottom: 26px; }
+.about-info h3,.about-info h4{color: #333333;font-size: 22px;line-height: 26px;font-weight: normal;}
+.about-info h3{padding-bottom: 26px;}
+.about-info p{ line-height: 24px; font-size: 14px; color: #333;}
+.about-info .p-indent{text-indent: 28px;}
+.about-info .p-space{height: 24px;}
+.about-info .f-blue{color: #2d78f5}
+.about-info .f-red{color: #f50213}
+.about-info p img,.box-info p img{display: block;max-width: 918px;margin: 0 auto;}
+.d-row .detail-right.detail-bottom{padding-bottom: 80px;}
+
+.about-list-box{padding:0 4px;padding-top: 7px;padding-bottom: 270px; }
+.about-list-box ul li{color: #333333;font-size: 14px;line-height: 36px;}
+.about-list-box ul li a{color: #333333;}
+.about-list-box ul li a:hover{color: #333333;text-decoration: underline;}
+
+/*science*/
+
+.science-bannner{
+	height: 125px;
+	background: url("../images/science_banner.jpg") top center;
+}
+.science-info-box {
+	background: #f8fafe;
+}
+.science-portrait {
+	border: 5px solid #fff;
+	border-radius: 50%;
+}
+.portrait-default {
+	width:160px;
+	height:160px;
+	background: #fff;
+	border-radius:50%;
+	background: url("../images/default-potrait.png") no-repeat #fff center;
+}
+.portrait-default span {
+    width: 148px;
+    height: 148px;
+    margin: 5px;
+    border: 1px solid #EDEDED;
+    border-radius: 50%;
+    display: inline-block;
+	
+}
+.science-honor ul li {
+    float: left;
+    width: 42px;
+    height: 42px;
+    background-image: url("../images/science-honor.png");
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    line-height: 25px;
+    font-size: 15px;
+}
+.science-honor ul li.honor-first {
+	background-position:0 0;
+}
+.science-honor ul li.honor-second {
+	background-position:0 -42px;
+}
+.science-honor ul li.honor-third {
+	background-position:0 -84px;
+}
+.science-info-tags ul li {
+    float: left;
+    background: #fff;
+    border: 1px solid #ededed;
+	margin-top:2px;
+	margin-bottom: 2px;
+    margin-right: 10px;
+    position:relative;
+}
+.science-info-tags ul li strong{
+    padding: 3px 5px;
+	width:100%;
+	height:100%;
+	font-weight:normal;
+}
+#J_content {
+	height: 25px;
+	line-height:25px;
+}
+.add-tag-input-box {
+    width: 188px;
+    border: 1px solid #BBBBBB;
+	margin-left:-16px;
+	display:none;
+	background:#fff;
+}
+.add-tag-input {
+  	border: 1px solid transparent;
+    outline: none;
+    width: 170px;
+}
+.enter {
+    margin-top: 5px;
+}
+.science-info-tags ul li strong i {
+    vertical-align: top;
+}
+.science-more {
+	border: 0;
+    color: #4688f1;
+    background: transparent;
+    position: absolute;
+    right: -24px;
+    bottom: 4px;
+}
+.science-info-tags ul li.science-more strong {
+	font-weight:normal;
+}
+.science-info-tags ul li em.tag-delete {
+    background: url("../images/delete_tag_icon.png") no-repeat;
+        background-size: cover;
+}
+.science-info-tags ul li em.tag-praise {
+    background: url("../images/people-add-tag.png") no-repeat;
+        background-size: cover;
+}
+.science-info-tags ul li em {
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
+    font-size: 0;
+    line-height: 0;
+    display:none;
+}
+.science-info-tags ul li span {
+	color: #e91b1b;
+}
+.portrait-box {
+	float: left;
+    width: 160px;
+    margin-top: -80px;
+}
+.potrait-box-right {
+    float: left;
+    margin-top: -60px;
+    margin-left: 20px;
+    width: 960px;
+    padding-bottom: 10px;
+}
+.science-honor {
+	height:42px;
+}
+.science-honor-bottom {
+	position:relative;
+}
+.science-honor-bottom dt {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.science-position {
+	margin:12px 0;
+}
+.science-info-tags ul,.science-more {
+	float: left;
+	font-size: 12px;
+}
+.science-more a {
+	color:#4688f1;
+}
+.science-competition-list ul li {
+	border-bottom:1px solid #e1e6eb;
+}
+.science-competition-list ul li dt {
+    width: 171px;
+    float: left;
+    height: 99px;
+    position: relative;
+}
+.science-competition-list ul li dt img {
+	width: auto;
+    height: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width:171px;
+    max-height:99px;
+}
+.science-competition-list ul li dd {
+	width:85%;
+	float:left;
+}
+.science-competition-list ul li dd strong a{
+	color:#000;
+}
+.science-competition-date {
+	width: 210px;
+}
+.competition-info {
+    margin-top: 15px;
+    height: 23px;
+    line-height: 23px;
+}
+.competition-info span {
+	float:left;
+}
+.science-competition-title {
+	padding:20px 0;
+}
+.science-competition-title strong{
+	color:#000;
+	font-weight:normal
+}
+.science-competition-list .competition{float:left;min-width:210px;margin:-6px 0 0 60px;font-size:14px;vertical-align: bottom;}
+.cp-box{float: right;}
+.competition i{padding:0 2px;vertical-align: bottom;}
+.competition .rangking{color:#333;}
+.competition em{line-height:27px;font-size:24px;vertical-align: bottom;}
+.is-personal {
+	width:110px;
+}
+.science-ranking {
+	margin-left:50px;
+}
+.status-over {
+	color: #f50213;
+}
+.status-ing {
+	color: #339900;
+}
+.science-info-tags {
+    margin-top: 10px;
+    height: 26px;
+    position: relative;
+    overflow: hidden;
+}
+.add-tag {
+	width:16px;
+	height:16px;
+	display:inline-block;
+	background:url("../images/tag-plus.png") no-repeat;
+	cursor:pointer;
+	margin-bottom:-3px;
+}
+.science-competition-list-box .kg-tabs .tabs-content {
+    border-top: 1px solid #ddd;
+    margin-top: -1px;
+}
+.kg-tabs .tabs-nav li {
+    padding: 0 32px;
+    text-align: center;
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid #D4D8DD;
+    margin-right: -1px;
+    border-top: 1px solid #D4D8DD;
+    background:#F2F5FA;
+    border-bottom: 1px solid #d4d8dd;
+    position:relative;
+    float:left;
+}
+.science-competition-list-box .kg-tabs .tabs-nav li a {
+	padding: 0;
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+	height: 100%;
+}
+.kg-tabs .tabs-nav li:before {
+	content: "";
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #D4D8DD;
+    font-size: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+}
+.kg-tabs .tabs-nav li.selected:before {
+    border-top: 1px solid #fff;
+}
+.kg-tabs .tabs-nav li.selected {
+    background-color: #fff;
+    border-top: 1px solid #D4D8DD;
+    border-bottom:1px solid #fff;
+}
+.science-competition-list-box {
+	margin-top:20px;
+}
+.nick-name {
+	float:left;
+}
+.personal-rank {
+	float: left;
+	margin-top:5px;
+	margin-left: 15px;
+}
+
+
+/**********************天池科学家**************************/
+.science-row {
+	width: 1140px;
+	margin: 0 auto;
+}
+.science-list-box {
+	background:#F2F5FA;
+	padding-top:10px;
+}
+.science-list li{
+	float: left;
+    margin-top: 25px;
+    background: #fff;
+    margin-right: 20px;
+    padding: 10px;
+}
+.science-list li dt {
+    width: 180px;
+    height: 180px;
+    position: relative;
+}
+.science-list li dt img {
+	max-width: 180px;
+	max-height: 180px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.science-list li:nth-child(4n) {
+	margin-right:0;
+}
+.science-list-rank-text {
+	line-height:35px;
+}
+.science-list-rank-text a {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80px;
+    float:left;
+}
+.science-list-rank-text span {
+	width:80px;
+}
+.science-list-rank-text a{
+	color: #666;
+}
+.science-list-rank-text span {
+	font-size:12px;
+    float: right;
+}
+.science-list-rank-text em {
+	color: #F0BA0C;
+	font-size:14px;
+}
+
+.science-list li dd{
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    width: 180px;
+}
+.science-school {
+	font-size:12px;
+}
+
+/************************************弹框***************************************************/
+.ks-easydialog-overlay-mask {
+	background:#000;
+	opacity:0.56;
+}
+.ks-easydialog-dialog {
+	background:#fff;
+}
+.ks-easydialog-overlay-close {
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+    float: right;
+}
+.ks-easy-dialog-head {
+    background: #4688F1;
+	margin-top: -40px;
+    line-height: 40px;
+    height: 30px;
+    padding-left: 10px;
+    border-bottom: 1px dashed #eee;
+    color: #666;
+    padding-bottom: 10px;
+}
+.ks-easy-dialog-body {
+    margin-top: 40px;
+}
+.ks-easy-dialog-txt {
+    padding: 10px;
+    text-align: center;
+}
+.ks-easy-dialog-prompt-txt {
+    width: 80%;
+    height: 30px;
+    border: 1px solid #BFBFBF;
+    padding-left:10px;
+}
+.ks-easy-dialog-btn-content {
+	text-align: center;
+}
+.ks-easy-dialog-btn-content button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 0 20px;
+    background-image: none;
+    border: none;
+    line-height: 40px;
+    height: 40px;
+    margin: 24px 10px;
+    color: #fff;
+    width: 85px;
+}
+.ks-easy-dialog-yes {
+	background-color: #4688f1;
+    border-color: #ff944d;
+}
+.ks-easy-dialog-no {
+	background-color: #4688f1;
+    border-color: #ff944d;
+}
+.ks-easydialog-dialog-close-x {
+    background: url('../images/abc_ic_clear_normal.png') no-repeat;
+    font-size: 0;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    background-size: contain;
+}
+
+/******************************实验室**************************************/
+.science-lib-list {
+	margin-top: 10px;
+}
+.science-lib-list ul li {
+	width: 50%;
+	float: left;
+	margin: 10px 0;
+}
+.science-lib-list ul li dl {
+    border: 1px solid #D4D8DD;
+    padding: 20px 30px;
+}
+.science-lib-list ul li:nth-child(odd) dl {
+	margin-right: 20px;
+}
+.science-lib-title strong {
+    font-weight: normal;
+}
+.science-lib-title strong a{
+	color:#333;
+}
+.lib-info {
+	margin-top: 10px;
+}
+
+
+
+#tooltip
+{
+    text-align: center;
+    color: #000;
+    background: #fff;
+    position: absolute;
+    z-index: 100;
+    padding: 15px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.37);
+}
+ 
+#tooltip:after /* triangle decoration */
+{
+width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 0px solid transparent;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -10px;
+    -webkit-border-image: url(../../images/arrow-down.png);
+   border-image:url(../../images/arrow-down.png) no-repeat;
+}
+
+#tooltip.top:after
+{
+   border-top-color: transparent;
+   border-bottom: 10px solid #111;
+   top: -20px;
+   bottom: auto;
+}
+
+#tooltip.left:after
+{
+   left: 10px;
+   margin: 0;
+}
+
+#tooltip.right:after
+{
+   right: 10px;
+   left: auto;
+   margin: 0;
+}
+#toopTipBox abbr[title] {
+	border:none;
+}
+
+/*************视频教程**************/
+.video-tutorial-video {
+	margin: 45px 0 15px;
+}
+.video-tutorial-paragh p {
+	margin: 15px 0;
+}
+
+/*********************************比赛***************************/
+.is-personal.team-box {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    line-height: 20px;
+}
+.is-personal.team-box p {
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.is-personal.team-box:hover .team-info {
+    display: block;
+    text-align: center;
+    font-size: 0;
+}
+.is-personal.team-box .team-info {
+    display: none;
+    bottom: 22px;
+    left: 50%;
+    margin-left: -150px;
+    position: absolute;
+    z-index: 2;
+    width: 220px;
+}
+.is-personal.team-box .info-cont {
+    border: 1px solid #bbbbbb;
+    background: #ffffff;
+    border-radius: 1px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    color: #333333;
+    padding: 9px 14px;
+    line-height: 18px;
+    text-align: left;
+    min-width: 80px;
+}
+.is-personal.team-box .mark {
+    width: 10px;
+    height: 6px;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 100%;
+    margin-top: -1px;
+    background: url(../images/rank-icon.png) no-repeat;
+    background-position: -36px 0;
+    line-height: 0;
+    z-index: 99;
+    left: 50%;
+    margin-left: -5px;
+}

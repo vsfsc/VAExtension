@@ -1,0 +1,378 @@
+/* 作用：最基础的CSS 
+   作者：任萌
+   时间：2014/11/11
+    */
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+/*width style*/
+.wd350 {
+    width: 350px;
+}
+
+.wd400 {
+    width: 400px;
+}
+
+.wd600 {
+    width: 600px;
+}
+/*height style*/
+.hg150 {
+    height: 150px;
+}
+
+.hg100 {
+    height: 100px;
+}
+
+.hidden {
+    display: none;
+}
+/*border style*/
+.b0 {
+    border: 0;
+}
+/*margin style*/
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.ml25 {
+    margin-left: 25px;
+}
+
+
+.WorksMain {
+    background-color: #F0F0F0;
+    margin-left: 30px;
+    border: 1px solid #CCCCCC;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    width: 700px;
+}
+
+    .WorksMain p {
+        margin: 10px 0;
+    }
+
+    .WorksMain i {
+        margin: 0 5px;
+    }
+
+    .WorksMain label {
+        margin-right: 10px;
+    }
+
+.WorksVerification {
+    font-family: "微软雅黑";
+    color: #666666;
+    font-size: 14px;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.wbtn {
+    margin: 15px 0 0 85px;
+    background-color: #6bab5f;
+    color: White;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border: 0;
+}
+
+.txtdoenlist {
+    width: 90px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    padding: 3px;
+    border: 1px #bebee1 solid;
+    color: #494b4c;
+}
+
+.txtdoenlista {
+    width: 210px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    padding: 3px;
+    border: 1px #bebee1 solid;
+    color: #494b4c;
+}
+
+.cssDiv {
+    width: 800px;
+    font-size: 13px;
+    padding: 5px;
+    color: #414141;
+    border: 1px solid #c7c7c7;
+}
+
+.wt {
+    padding-right: 5px;
+    color: #4a4a4a;
+    font-size: 15px;
+    width: 120px;
+    float: left;
+    text-align: right;
+}
+
+.divm {
+    margin: 8px 0 0 50px;
+    padding: 0;
+    width: 800px;
+}
+
+.warn {
+    margin: 0;
+    text-align: left;
+    color: red;
+    font-size: 14px;
+    display: none;
+    width: 179px;
+    height: 27px;
+}
+
+.warna {
+    margin: 0;
+    color: red;
+    font-size: 14px;
+    display: inline;
+    padding: 3px;
+    width: 179px;
+    height: 27px;
+    text-align: center;
+    border: 1px solid red;
+}
+
+.Stepsheet {
+    width: 800px;
+    height: 34px;
+    background: url(images/bar1.jpg) no-repeat center center;
+}
+
+.Stepsheet2 {
+    width: 800px;
+    height: 34px;
+    background: url(images/bar2.jpg) no-repeat center center;
+}
+
+.Stepsheet3 {
+    width: 800px;
+    height: 34px;
+    background: url(images/bar3.jpg) no-repeat center center;
+}
+
+.Stepsheetword {
+    list-style: none;
+    height: 34px;
+    line-height: 34px;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+    .Stepsheetword li {
+        float: left;
+        padding: 0 30px;
+        font-size: 18px;
+        font-family: 微软雅黑;
+        color: #fff;
+    }
+
+.txtcss {
+    width: 200px;
+    border: 1px #bebee1 solid;
+    height: 25px;
+    vertical-align: middle;
+    line-height: 25px;
+    padding: 0 5px;
+    color: Black;
+}
+
+.wd350 {
+    width: 350px;
+}
+
+.GetNameDiv {
+    padding: 0;
+    margin-left: 180px;
+    margin-top: 12px;
+    border: 1px solid #cccc66;
+    width: 363px;
+    height: 53px;
+    background-color: #f4f1c6;
+    position: relative;
+    text-align: left;
+}
+
+.TriangleDiv {
+    width: 14px;
+    height: 12px;
+    background: url(images/Triangle.gif) no-repeat;
+    position: absolute;
+    left: 24px;
+    top: -12px;
+    z-index: 99;
+}
+
+.wtSpan {
+    padding: 5px;
+    color: #4a4a4a;
+    font-size: 14px;
+    width: 150px;
+    float: left;
+    text-align: left;
+}
+
+.GetWarnDiv {
+    padding: 0;
+    margin-left: 150px;
+    margin-top: 12px;
+    width: 500px;
+    height: 53px;
+    position: relative;
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+}
+
+.hg150 {
+    height: 150px;
+}
+
+.hg100 {
+    height: 100px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.GridViewStyle {
+    border-right: 2px solid #A7A6AA;
+    border-bottom: 2px solid #A7A6AA;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    padding: 4px;
+}
+
+    .GridViewStyle a {
+        color: #FFFFFF;
+    }
+
+.GridViewHeaderStyle th {
+    border-left: 1px solid #EBE9ED;
+    border-right: 1px solid #EBE9ED;
+}
+
+.GridViewHeaderStyle {
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewFooterStyle {
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewRowStyle {
+    background-color: #F7F6F3;
+    color: #333333;
+}
+
+.GridViewAlternatingRowStyle {
+    background-color: #FFFFFF;
+    color: #284775;
+}
+
+    .GridViewRowStyle td, .GridViewAlternatingRowStyle td {
+        border: 1px solid #EBE9ED;
+    }
+
+.GridViewSelectedRowStyle {
+    background-color: #E2DED6;
+    font-weight: bold;
+    color: #333333;
+}
+
+.GridViewPagerStyle {
+    background-color: #5D7B9D;
+    color: #EBE9ED;
+}
+
+    .GridViewPagerStyle a {
+        color: #FFFFFF;
+    }
+
+    .GridViewPagerStyle table /* to center the paging links*/ {
+        margin: 0 auto 0 auto;
+    }
+
+.fullh {
+    float: left;
+}
+
+.ms-long {
+    width: 90% !important;
+}
+
+.ms-longer {
+    width: 90% !important;
+}
+
+.ms-rtelong {
+    width: 90% !important;
+}
+
+.rounddiv {
+    background-color: #000;
+    border: 1px solid #000;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    color: #fff;
+}
+
+/*.ms-rtelonger {
+            width: 90% !important;
+        }*/

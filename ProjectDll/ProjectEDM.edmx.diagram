@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d91b70b487d42cbb51515daa6f1774d" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="91">
+        <EntityTypeShape EntityType="ProjectModel.Proj_Project" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Subject" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectModel.User" Width="1.5" PointX="4.75" PointY="3.625" />
+        <EntityTypeShape EntityType="ProjectModel.Area" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ProjectModel.Career" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectModel.Degree" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ProjectModel.School" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_State" Width="1.75" PointX="9.375" PointY="0.875" />
+        <AssociationConnector Association="ProjectModel.FK_School_Area" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_Project_Proj_State" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_Project_Subject" />
+        <AssociationConnector Association="ProjectModel.FK_User_School" />
+        <AssociationConnector Association="ProjectModel.UserProj_Project" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_ProjectState" Width="1.75" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_UserProject" Width="2.125" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_ProjectApprove" Width="2.125" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_ProjectsCreatedByUser" Width="2.25" PointX="4.75" PointY="10.5" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_ProjectsIAmINorOut" Width="2.375" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ProjectModel.proj_ProjectFile" Width="1.75" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_Match" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_ExpertProjects" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_ToExpertProj" Width="2.25" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_VExpert" Width="1.875" PointX="13.125" PointY="12.75" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_ExpertProjects_Proj_Project" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_ExpertProjects_User" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_Match_User" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_ProjectApprove_Proj_Project" />
+        <AssociationConnector Association="ProjectModel.FK_proj_ProjectFile_Proj_Project" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_Match_Proj_Project" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_MatchResult" Width="2.375" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_CountProjMember" Width="2.375" PointX="4.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_VUserWithRole" Width="2" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectModel.Role" Width="1.5" PointX="12.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ProjectModel.UserRole" Width="1.5" PointX="7.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_VUserRoles" Width="1.5" PointX="16.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_Member" Width="1.5" PointX="0.75" PointY="1.25" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_Member_Proj_Project" />
+        <AssociationConnector Association="ProjectModel.FK_Proj_Member_User" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_VUserScore" Width="1.5" PointX="9.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ProjectModel.Proj_Comments" Width="1.5" PointX="16.375" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="16d8b1e5-c987-48b3-b374-48e95492f180" solutionId="16d8b1e5-c987-48b3-b374-48e95492f180" resetWebServer="false" sharePointProductVersion="15.0" name="ContestWeb" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="e2ee6f33-4728-4246-a92c-37e090440f53" />
+  </projectItems>
+</package>

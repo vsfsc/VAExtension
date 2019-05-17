@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="64d9950e-9be5-413e-aca0-ef06a669af6e" solutionId="64d9950e-9be5-413e-aca0-ef06a669af6e" resetWebServer="false" sharePointProductVersion="15.0" name="SmoothNavigationMenu" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="9052eeac-a6ed-4887-aa20-1d79a45b09e8" />
+    <projectItemReference itemId="0a7f65a0-086e-4c67-95ee-01484e6169ab" />
+  </projectItems>
+</package>

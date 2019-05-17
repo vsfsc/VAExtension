@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{560F79EF-7BAA-4A93-91AA-72ACAA6B566B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lemmatizer</RootNamespace>
+    <AssemblyName>lemmatizer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AJAXExtensionsToolbox">
+      <HintPath>..\DLL\AJAXExtensionsToolbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\DLL\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Layouts\lemmatizer\LemmatizedFiles.aspx.cs">
+      <DependentUpon>LemmatizedFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\LemmatizedFiles.aspx.designer.cs">
+      <DependentUpon>LemmatizedFiles.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\test.aspx.designer.cs">
+      <DependentUpon>test.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\txtin.aspx.cs">
+      <DependentUpon>txtin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\txtin.aspx.designer.cs">
+      <DependentUpon>txtin.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\vblist.aspx.cs">
+      <DependentUpon>vblist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\vblist.aspx.designer.cs">
+      <DependentUpon>vblist.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\wlookup.aspx.cs">
+      <DependentUpon>wlookup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\lemmatizer\wlookup.aspx.designer.cs">
+      <DependentUpon>wlookup.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ccd10e3e-dc40-4f24-9554-fcfbdc6216b1}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{28ad024f-7936-4593-933b-d663eaaea15e}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{1df4e31a-2c51-4b9f-9bfa-5cab8b4bb633}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Images\lemmatizer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\AJAXExtensionsToolbox.dll" />
+    <Content Include="dll\Ionic.Zip.dll" />
+    <Content Include="Layouts\lemmatizer\CSS\style.css" />
+    <Content Include="Layouts\lemmatizer\CSS\superTables_Default.css" />
+    <Content Include="Layouts\lemmatizer\CSS\tableStyle.css" />
+    <Content Include="Layouts\lemmatizer\images\asc.gif" />
+    <Content Include="Layouts\lemmatizer\images\bg.gif" />
+    <Content Include="Layouts\lemmatizer\images\bg_tile.jpg" />
+    <Content Include="Layouts\lemmatizer\images\desc.gif" />
+    <Content Include="Layouts\lemmatizer\images\dialogclose.gif" />
+    <Content Include="Layouts\lemmatizer\images\first.gif" />
+    <Content Include="Layouts\lemmatizer\images\header-bg.gif" />
+    <Content Include="Layouts\lemmatizer\images\header-selected-bg.gif" />
+    <Content Include="Layouts\lemmatizer\images\header_tabs.png" />
+    <Content Include="Layouts\lemmatizer\images\last.gif" />
+    <Content Include="Layouts\lemmatizer\images\loading.gif" />
+    <Content Include="Layouts\lemmatizer\images\next.gif" />
+    <Content Include="Layouts\lemmatizer\images\open.png" />
+    <Content Include="Layouts\lemmatizer\images\previous.gif" />
+    <Content Include="Layouts\lemmatizer\images\sort.gif" />
+    <Content Include="Layouts\lemmatizer\images\tab_table_bg_gray.gif" />
+    <Content Include="Layouts\lemmatizer\images\url.htm" />
+    <Content Include="Layouts\lemmatizer\images\weaverstyle.css" />
+    <Content Include="Layouts\lemmatizer\JS\address.js" />
+    <Content Include="Layouts\lemmatizer\JS\fixdiv.js" />
+    <Content Include="Layouts\lemmatizer\JS\jquery-1.7.min.js" />
+    <Content Include="Layouts\lemmatizer\JS\superTables.js" />
+    <Content Include="Layouts\lemmatizer\JS\tablejs.js" />
+    <Content Include="Layouts\lemmatizer\JS\packed.js" />
+    <Content Include="Layouts\lemmatizer\JS\tanchuang.js" />
+    <Content Include="Layouts\lemmatizer\LemmatizedFiles.aspx" />
+    <Content Include="Layouts\lemmatizer\test.aspx" />
+    <Content Include="Layouts\lemmatizer\txtin.aspx" />
+    <Content Include="Layouts\lemmatizer\vblist.aspx" />
+    <Content Include="Layouts\lemmatizer\wlookup.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lemmatizerDLL\lemmatizerDLL.csproj">
+      <Project>{f94424a7-8a94-4cb5-8aec-be8fc774dbab}</Project>
+      <Name>lemmatizerDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

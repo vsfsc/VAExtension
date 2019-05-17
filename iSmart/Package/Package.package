@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="551bb7b7-2abb-4672-bb1d-0e447f3bbb06" solutionId="551bb7b7-2abb-4672-bb1d-0e447f3bbb06" resetWebServer="false" sharePointProductVersion="15.0" name="iSmart" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="05984603-50c3-40b9-ac5e-cd462a1df98f" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="4cb10166-07c1-4f58-89af-b70ccad5c7c3" />
+    <projectItemReference itemId="979bacb1-4ed9-4969-a6f3-5662add2bdee" />
+  </projectItems>
+</package>

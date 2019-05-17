@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cd8ed829c9243419cf34ed1e6b343ef" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="VAExtensionModel.Area" Width="1.5" PointX="10.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Career" Width="1.5" PointX="7.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.College" Width="1.5" PointX="13" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Course" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Degree" Width="1.5" PointX="12.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.ExpertGroupType" Width="1.5" PointX="12.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.ExpertWorksType" Width="1.5" PointX="14.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Periods" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.PeriodStandard" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.RatingDetails" Width="1.5" PointX="12.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.ResetPassword" Width="1.5" PointX="14.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Role" Width="1.5" PointX="5.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.School" Width="1.5" PointX="10.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.ScoreStandard" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Specialty" Width="1.5" PointX="15.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.State" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.User" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.UserRole" Width="1.5" PointX="15.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.UserWorks" Width="1.5" PointX="10.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.Works" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.WorksComments" Width="1.5" PointX="7.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.WorksExpert" Width="1.5" PointX="13.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.WorksFile" Width="1.5" PointX="10.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.WorksType" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.WorksTypeScoreStandard" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.UserState" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSPeriodScoreStandard" Width="1.5" PointX="2.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSPeriodsCourse" Width="1.5" PointX="16.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSPeriodsWorksType" Width="1.5" PointX="16.375" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSUserWorks" Width="1.5" PointX="17.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSWorksExpertUser" Width="1.5" PointX="17.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSWorksToEvaluate" Width="1.5" PointX="4.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSWorksTypeScoreStandard" Width="1.5" PointX="18.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSWorksWorksType" Width="1.5" PointX="9.75" PointY="20.625" IsExpanded="true" />
+        <AssociationConnector Association="VAExtensionModel.FK_College_School" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_Specialty_College" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_Periods_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_PeriodStandard_Periods" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_Works_Periods" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_PeriodStandard_ScoreStandard" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_PeriodStandard_WorksType" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_WorksTypeScoreStandard_ScoreStandard" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_Works_State" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_UserWorks_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_WorksExpert_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_UserWorks_Works" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_WorksExpert_Works" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_WorksFile_Works" ManuallyRouted="false" />
+        <AssociationConnector Association="VAExtensionModel.FK_WorksTypeScoreStandard_WorksType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSMyWorks" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="VAExtensionModel.FK_School_Area" />
+        <AssociationConnector Association="VAExtensionModel.FK_User_School" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSWorksPublic" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSVWorksForMe" Width="1.5" PointX="12.375" PointY="19.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.FileType" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSVUserSocre" Width="1.5" PointX="19.375" PointY="13.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.FinalsScoreStandard" Width="1.5" PointX="19.375" PointY="18.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSFinalsExpertGroup" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSFinalsExpertWillScore" Width="1.5" PointX="20.375" PointY="3.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSExpertWorksTypeDetail" Width="1.5" PointX="21.375" PointY="14.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSWorksPartition" Width="1.5" PointX="21.375" PointY="18.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSSchoolWorksNum" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VAExtensionModel.CSUserWithSchoolAndRole" Width="1.5" PointX="0.75" PointY="22.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

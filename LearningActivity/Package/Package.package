@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="6bcc94d4-a8fd-4a33-8399-2bc095a52617" solutionId="6bcc94d4-a8fd-4a33-8399-2bc095a52617" resetWebServer="false" sharePointProductVersion="15.0" name="LearningActivity" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="2723198a-eb56-4786-8620-d3f467fde12a" />
+  </projectItems>
+</package>

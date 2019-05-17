@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{46D5A336-14D7-4885-953C-CE6F874381B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ContestWeb</RootNamespace>
+    <AssemblyName>ContestWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Layouts\ContestWeb\MemberShow.aspx.cs">
+      <DependentUpon>MemberShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\MemberShow.aspx.designer.cs">
+      <DependentUpon>MemberShow.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\PDetails.aspx.cs">
+      <DependentUpon>PDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\PDetails.aspx.designer.cs">
+      <DependentUpon>PDetails.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\test.aspx.designer.cs">
+      <DependentUpon>test.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\TopUsers.aspx.cs">
+      <DependentUpon>TopUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\TopUsers.aspx.designer.cs">
+      <DependentUpon>TopUsers.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\UserShow.aspx.cs">
+      <DependentUpon>UserShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\ContestWeb\UserShow.aspx.designer.cs">
+      <DependentUpon>UserShow.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e2ee6f33-4728-4246-a92c-37e090440f53}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{16d8b1e5-c987-48b3-b374-48e95492f180}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\ContestWeb\AdminPage.aspx" />
+    <Content Include="Layouts\ContestWeb\Comments.aspx" />
+    <Content Include="Layouts\ContestWeb\Contests.aspx" />
+    <Content Include="Layouts\ContestWeb\css\base.css" />
+    <Content Include="Layouts\ContestWeb\css\Combox.css" />
+    <Content Include="Layouts\ContestWeb\css\common.css" />
+    <Content Include="Layouts\ContestWeb\css\detail.css" />
+    <Content Include="Layouts\ContestWeb\css\keyboard.css" />
+    <Content Include="Layouts\ContestWeb\css\kkPages.css" />
+    <Content Include="Layouts\ContestWeb\css\tablecloth.css" />
+    <Content Include="Layouts\ContestWeb\css\tianchi.css" />
+    <Content Include="Layouts\ContestWeb\GenerateCheckCode.aspx" />
+    <Content Include="Layouts\ContestWeb\images\bar1.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bar2.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bar3.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bg_login_wrong.gif" />
+    <Content Include="Layouts\ContestWeb\images\bjddd.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bjj.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bjj1.gif" />
+    <Content Include="Layouts\ContestWeb\images\bjj1.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bjtu.jpg" />
+    <Content Include="Layouts\ContestWeb\images\bjtu1.jpg" />
+    <Content Include="Layouts\ContestWeb\images\ButtonBg.gif" />
+    <Content Include="Layouts\ContestWeb\images\ButtonGg.gif" />
+    <Content Include="Layouts\ContestWeb\images\bxxx.jpg" />
+    <Content Include="Layouts\ContestWeb\images\Calendar_scheduleHS.png" />
+    <Content Include="Layouts\ContestWeb\images\cuo.png" />
+    <Content Include="Layouts\ContestWeb\images\dback.gif" />
+    <Content Include="Layouts\ContestWeb\images\dlist.gif" />
+    <Content Include="Layouts\ContestWeb\images\dui.png" />
+    <Content Include="Layouts\ContestWeb\images\fen30.gif" />
+    <Content Include="Layouts\ContestWeb\images\fen40.gif" />
+    <Content Include="Layouts\ContestWeb\images\floatbg.jpg" />
+    <Content Include="Layouts\ContestWeb\images\floatng.gif" />
+    <Content Include="Layouts\ContestWeb\images\headgif.gif" />
+    <Content Include="Layouts\ContestWeb\images\htpf.jpg" />
+    <Content Include="Layouts\ContestWeb\images\keyboard.png" />
+    <Content Include="Layouts\ContestWeb\images\ml-open-demo.png" />
+    <Content Include="Layouts\ContestWeb\images\nav-close.png" />
+    <Content Include="Layouts\ContestWeb\images\science_banner.JPG" />
+    <Content Include="Layouts\ContestWeb\images\score30.gif" />
+    <Content Include="Layouts\ContestWeb\images\score40.gif" />
+    <Content Include="Layouts\ContestWeb\images\select.jpg" />
+    <Content Include="Layouts\ContestWeb\images\shipin.jpg" />
+    <Content Include="Layouts\ContestWeb\images\sign-up.png" />
+    <Content Include="Layouts\ContestWeb\images\star_gray.gif" />
+    <Content Include="Layouts\ContestWeb\images\star_red.gif" />
+    <Content Include="Layouts\ContestWeb\images\star_red2.gif" />
+    <Content Include="Layouts\ContestWeb\images\titlebg.gif" />
+    <Content Include="Layouts\ContestWeb\images\titlebga.gif" />
+    <Content Include="Layouts\ContestWeb\images\Triangle.gif" />
+    <Content Include="Layouts\ContestWeb\images\tr_back.gif" />
+    <Content Include="Layouts\ContestWeb\images\type.gif" />
+    <Content Include="Layouts\ContestWeb\images\warn.gif" />
+    <Content Include="Layouts\ContestWeb\images\yinpin.jpg" />
+    <Content Include="Layouts\ContestWeb\images\zhengque.gif" />
+    <Content Include="Layouts\ContestWeb\js\Combox.js" />
+    <Content Include="Layouts\ContestWeb\js\cuo.png" />
+    <Content Include="Layouts\ContestWeb\js\dui.png" />
+    <Content Include="Layouts\ContestWeb\js\FaceJScript.js" />
+    <Content Include="Layouts\ContestWeb\js\jquery-1.9.1.min.js" />
+    <Content Include="Layouts\ContestWeb\js\jquery.js" />
+    <Content Include="Layouts\ContestWeb\js\jquery.kkPages.js" />
+    <Content Include="Layouts\ContestWeb\js\kefu.js" />
+    <Content Include="Layouts\ContestWeb\js\keyboard.js" />
+    <Content Include="Layouts\ContestWeb\css\page.css" />
+    <Content Include="Layouts\ContestWeb\js\s.js" />
+    <Content Include="Layouts\ContestWeb\js\star_gray.gif" />
+    <Content Include="Layouts\ContestWeb\js\star_red.gif" />
+    <Content Include="Layouts\ContestWeb\js\star_red2.gif" />
+    <Content Include="Layouts\ContestWeb\js\tablecloth.js" />
+    <Content Include="Layouts\ContestWeb\MediaPlayer.js" />
+    <Content Include="Layouts\ContestWeb\MemberShow.aspx" />
+    <Content Include="Layouts\ContestWeb\MyWorks.aspx" />
+    <Content Include="Layouts\ContestWeb\OnshowWorksSubmit.aspx" />
+    <Content Include="Layouts\ContestWeb\PDetails.aspx" />
+    <Content Include="Layouts\ContestWeb\PreliminaryEvaluate.aspx" />
+    <Content Include="Layouts\ContestWeb\PubContest.aspx" />
+    <Content Include="Layouts\ContestWeb\Public.aspx" />
+    <Content Include="Layouts\ContestWeb\UserInfo.aspx" />
+    <Content Include="Layouts\ContestWeb\js\Validate.js" />
+    <Content Include="Layouts\ContestWeb\Score.aspx" />
+    <Content Include="Layouts\ContestWeb\ScoreStandard.aspx" />
+    <Content Include="Layouts\ContestWeb\StudentScores.aspx" />
+    <Content Include="Layouts\ContestWeb\test.aspx" />
+    <Content Include="Layouts\ContestWeb\TopUsers.aspx" />
+    <Content Include="Layouts\ContestWeb\UserManagement.aspx" />
+    <Content Include="Layouts\ContestWeb\UserShow.aspx" />
+    <Content Include="Layouts\ContestWeb\Validate.js" />
+    <Content Include="Layouts\ContestWeb\OnlineEnroll.aspx" />
+    <Content Include="Layouts\ContestWeb\MyPeriods.aspx" />
+    <Content Include="Layouts\ContestWeb\WorksList.aspx" />
+    <Content Include="Layouts\ContestWeb\WorksPartition.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContestDll\ContestDll.csproj">
+      <Project>{82cd5bc5-f0b6-4099-bbda-9ba5a30b4026}</Project>
+      <Name>ContestDll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fe91d2ad-b345-4458-a3d2-25336140af9c" solutionId="fe91d2ad-b345-4458-a3d2-25336140af9c" resetWebServer="false" sharePointProductVersion="15.0" name="CourseChooseList" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="0a276df5-c1e8-4357-b738-d3355d6d43f0" />
+  </projectItems>
+</package>

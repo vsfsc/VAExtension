@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LAActivityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="ActivityTypeID" />
+          </Key>
+          <Property Name="ActivityTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Action" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="ParentID" Type="bigint" />
+          <Property Name="IsShare" Type="int" />
+          <Property Name="CreatBy" Type="bigint" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeID" />
+          </Key>
+          <Property Name="FileTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="10" />
+          <Property Name="ParentID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LearningActivity">
+          <Key>
+            <PropertyRef Name="LearningActivityID" />
+          </Key>
+          <Property Name="LearningActivityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="ActivityTypeID" Type="bigint" Nullable="false" />
+          <Property Name="LearningObjectID" Type="bigint" Nullable="false" />
+          <Property Name="Start" Type="datetime" />
+          <Property Name="During" Type="int" />
+          <Property Name="LocationID" Type="bigint" Nullable="false" />
+          <Property Name="WorksUrl" Type="varchar(max)" />
+          <Property Name="Others" Type="xml" />
+          <Property Name="CreatDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <EntityType Name="LearningObject">
+          <Key>
+            <PropertyRef Name="LearningObjectID" />
+          </Key>
+          <Property Name="LearningObjectID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CatalogID" Type="bigint" />
+          <Property Name="LOTypeID" Type="int" />
+          <Property Name="LearningContent" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsShare" Type="int" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="ParentID" Type="bigint" />
+          <Property Name="IsShare" Type="int" />
+          <Property Name="CreatBy" Type="bigint" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IDCard" Type="varchar" MaxLength="18" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Duty" Type="varchar" MaxLength="100" />
+          <Property Name="ProfessionalTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="Grade" Type="varchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="StateID" Type="int" />
+          <Property Name="ApprovedBy" Type="bigint" />
+          <Property Name="Approved" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodID" Type="bigint" />
+          <Property Name="WorksName" Type="varchar" MaxLength="100" />
+          <Property Name="TeamName" Type="varchar" MaxLength="100" />
+          <Property Name="WorksTypeID" Type="int" />
+          <Property Name="WorksCode" Type="varchar" MaxLength="50" />
+          <Property Name="OrgID" Type="int" />
+          <Property Name="IsSample" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="2000" />
+          <Property Name="Profile" Type="varchar" MaxLength="8000" />
+          <Property Name="SubmitProfile" Type="varchar" MaxLength="8000" />
+          <Property Name="Suggestion" Type="varchar" MaxLength="2000" />
+          <Property Name="InstallationGuide" Type="varchar" MaxLength="2000" />
+          <Property Name="DesignIdeas" Type="varchar(max)" />
+          <Property Name="KeyPoints" Type="varchar" MaxLength="2500" />
+          <Property Name="SelfAssessment" Type="varchar" MaxLength="2000" />
+          <Property Name="DemoURL" Type="varchar" MaxLength="2000" />
+          <Property Name="BackReason" Type="varchar" MaxLength="2000" />
+          <Property Name="Score" Type="real" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="AllotTimes" Type="int" />
+          <Property Name="WorksState" Type="int" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <EntityType Name="WorksFile">
+          <Key>
+            <PropertyRef Name="WorksFileID" />
+          </Key>
+          <Property Name="WorksFileID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorksID" Type="bigint" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" />
+          <Property Name="FilePath" Type="varchar" MaxLength="1000" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Flag" Type="bigint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.ActionTotalDuring”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ActionTotalDuring">
+          <Key>
+            <PropertyRef Name="Action" />
+          </Key>
+          <Property Name="Action" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="总时长" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CountLocation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CountLocation">
+          <Key>
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="总次数" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CountTypes”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CountTypes">
+          <Key>
+            <PropertyRef Name="Action" />
+          </Key>
+          <Property Name="Action" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="总次数" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.CovertStartToDay”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CovertStartToDay">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="Start" Type="varchar" MaxLength="10" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="During" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.laCountsbyUser”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="laCountsbyUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="counts" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.LocationTotalDuring”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="LocationTotalDuring">
+          <Key>
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="总时长" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“VAExtension.dbo.QuerylearningActivity”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="QuerylearningActivity">
+          <Key>
+            <PropertyRef Name="活动类型" />
+            <PropertyRef Name="对象描述" />
+            <PropertyRef Name="活动地点" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="LearningActivityID" />
+            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="ActivityTypeID" />
+          </Key>
+          <Property Name="开始时间" Type="datetime" />
+          <Property Name="开始日期" Type="varchar" MaxLength="10" />
+          <Property Name="开始时间点" Type="varchar" MaxLength="10" />
+          <Property Name="持续时长" Type="int" />
+          <Property Name="作品地址" Type="varchar(max)" />
+          <Property Name="活动描述" Type="xml" />
+          <Property Name="活动类型" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="学习对象" Type="varchar" MaxLength="50" />
+          <Property Name="对象描述" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="学习内容" Type="varchar(max)" />
+          <Property Name="活动地点" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="LearningActivityID" Type="bigint" Nullable="false" />
+          <Property Name="创建时间" Type="datetime" />
+          <Property Name="修改时间" Type="datetime" />
+          <Property Name="LocationID" Type="bigint" Nullable="false" />
+          <Property Name="ActivityTypeID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LearningActivity_ActivityType">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="ActivityTypeID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="ActivityTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningActivity_LearningObject">
+          <End Role="LearningObject" Type="Self.LearningObject" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningObject">
+              <PropertyRef Name="LearningObjectID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="LearningObjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningActivity_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningActivity_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningObject_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LearningObject" Type="Self.LearningObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="LearningObject">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksFile_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="1" />
+          <End Role="WorksFile" Type="Self.WorksFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="WorksFile">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="la_GetLongestActionsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="la_GetLongestActionsByUserIdBetweenTimeSpan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="la_GetLongestLocationsByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="la_GetMostLocationsByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="la_GetMostTypesByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="bigint" Mode="In" />
+        </Function>
+        <EntityContainer Name="LAActivityModelStoreContainer">
+          <EntitySet Name="ActivityType" EntityType="Self.ActivityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileType" EntityType="Self.FileType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearningActivity" EntityType="Self.LearningActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearningObject" EntityType="Self.LearningObject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorksFile" EntityType="Self.WorksFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActionTotalDuring" EntityType="Self.ActionTotalDuring" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ActionTotalDuring].[Action] AS [Action], 
+    [ActionTotalDuring].[总时长] AS [总时长]
+    FROM [dbo].[ActionTotalDuring] AS [ActionTotalDuring]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CountLocation" EntityType="Self.CountLocation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CountLocation].[Address] AS [Address], 
+    [CountLocation].[总次数] AS [总次数]
+    FROM [dbo].[CountLocation] AS [CountLocation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CountTypes" EntityType="Self.CountTypes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CountTypes].[Action] AS [Action], 
+    [CountTypes].[总次数] AS [总次数]
+    FROM [dbo].[CountTypes] AS [CountTypes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CovertStartToDay" EntityType="Self.CovertStartToDay" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CovertStartToDay].[Start] AS [Start], 
+    [CovertStartToDay].[UserID] AS [UserID], 
+    [CovertStartToDay].[During] AS [During]
+    FROM [dbo].[CovertStartToDay] AS [CovertStartToDay]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="laCountsbyUser" EntityType="Self.laCountsbyUser" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [laCountsbyUser].[Name] AS [Name], 
+    [laCountsbyUser].[UserID] AS [UserID], 
+    [laCountsbyUser].[counts] AS [counts]
+    FROM [dbo].[laCountsbyUser] AS [laCountsbyUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LocationTotalDuring" EntityType="Self.LocationTotalDuring" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LocationTotalDuring].[Address] AS [Address], 
+    [LocationTotalDuring].[总时长] AS [总时长]
+    FROM [dbo].[LocationTotalDuring] AS [LocationTotalDuring]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="QuerylearningActivity" EntityType="Self.QuerylearningActivity" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [QuerylearningActivity].[开始时间] AS [开始时间], 
+    [QuerylearningActivity].[开始日期] AS [开始日期], 
+    [QuerylearningActivity].[开始时间点] AS [开始时间点], 
+    [QuerylearningActivity].[持续时长] AS [持续时长], 
+    [QuerylearningActivity].[作品地址] AS [作品地址], 
+    [QuerylearningActivity].[活动描述] AS [活动描述], 
+    [QuerylearningActivity].[活动类型] AS [活动类型], 
+    [QuerylearningActivity].[学习对象] AS [学习对象], 
+    [QuerylearningActivity].[对象描述] AS [对象描述], 
+    [QuerylearningActivity].[学习内容] AS [学习内容], 
+    [QuerylearningActivity].[活动地点] AS [活动地点], 
+    [QuerylearningActivity].[UserID] AS [UserID], 
+    [QuerylearningActivity].[LearningActivityID] AS [LearningActivityID], 
+    [QuerylearningActivity].[创建时间] AS [创建时间], 
+    [QuerylearningActivity].[修改时间] AS [修改时间], 
+    [QuerylearningActivity].[LocationID] AS [LocationID], 
+    [QuerylearningActivity].[ActivityTypeID] AS [ActivityTypeID]
+    FROM [dbo].[QuerylearningActivity] AS [QuerylearningActivity]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_LearningActivity_ActivityType" Association="Self.FK_LearningActivity_ActivityType">
+            <End Role="ActivityType" EntitySet="ActivityType" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningActivity_LearningObject" Association="Self.FK_LearningActivity_LearningObject">
+            <End Role="LearningObject" EntitySet="LearningObject" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningActivity_Location" Association="Self.FK_LearningActivity_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningActivity_User" Association="Self.FK_LearningActivity_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningObject_User" Association="Self.FK_LearningObject_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LearningObject" EntitySet="LearningObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksFile_Works" Association="Self.FK_WorksFile_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorksFile" EntitySet="WorksFile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LAActivityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="ActivityTypeID" />
+          </Key>
+          <Property Name="ActivityTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int64" />
+          <Property Name="IsShare" Type="Int32" />
+          <Property Name="CreatBy" Type="Int64" />
+          <NavigationProperty Name="LearningActivity" Relationship="Self.FK_LearningActivity_ActivityType" FromRole="ActivityType" ToRole="LearningActivity" />
+        </EntityType>
+        <EntityType Name="LearningActivity">
+          <Key>
+            <PropertyRef Name="LearningActivityID" />
+          </Key>
+          <Property Name="LearningActivityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="ActivityTypeID" Type="Int64" Nullable="false" />
+          <Property Name="LearningObjectID" Type="Int64" Nullable="false" />
+          <Property Name="Start" Type="DateTime" Precision="3" />
+          <Property Name="During" Type="Int32" />
+          <Property Name="LocationID" Type="Int64" Nullable="false" />
+          <Property Name="WorksUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Others" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <NavigationProperty Name="ActivityType" Relationship="Self.FK_LearningActivity_ActivityType" FromRole="LearningActivity" ToRole="ActivityType" />
+          <NavigationProperty Name="LearningObject" Relationship="Self.FK_LearningActivity_LearningObject" FromRole="LearningActivity" ToRole="LearningObject" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_LearningActivity_Location" FromRole="LearningActivity" ToRole="Location" />
+          <NavigationProperty Name="User" Relationship="LAActivityModel.FK_LearningActivity_User" FromRole="LearningActivity" ToRole="User" />
+        </EntityType>
+        <EntityType Name="LearningObject">
+          <Key>
+            <PropertyRef Name="LearningObjectID" />
+          </Key>
+          <Property Name="LearningObjectID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CatalogID" Type="Int64" />
+          <Property Name="LOTypeID" Type="Int32" />
+          <Property Name="LearningContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsShare" Type="Int32" />
+          <NavigationProperty Name="LearningActivity" Relationship="Self.FK_LearningActivity_LearningObject" FromRole="LearningObject" ToRole="LearningActivity" />
+          <NavigationProperty Name="User" Relationship="LAActivityModel.FK_LearningObject_User" FromRole="LearningObject" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int64" />
+          <Property Name="IsShare" Type="Int32" />
+          <Property Name="CreatBy" Type="Int64" />
+          <NavigationProperty Name="LearningActivity" Relationship="Self.FK_LearningActivity_Location" FromRole="Location" ToRole="LearningActivity" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="WorksID" />
+          </Key>
+          <Property Name="WorksID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodID" Type="Int64" />
+          <Property Name="WorksName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TeamName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorksTypeID" Type="Int32" />
+          <Property Name="WorksCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgID" Type="Int32" />
+          <Property Name="IsSample" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Profile" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="SubmitProfile" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Suggestion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="InstallationGuide" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DesignIdeas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KeyPoints" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="SelfAssessment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DemoURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="BackReason" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Single" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="AllotTimes" Type="Int32" />
+          <Property Name="WorksState" Type="Int32" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="WorksFile" Relationship="Self.FK_WorksFile_Works" FromRole="Works" ToRole="WorksFile" />
+        </EntityType>
+        <EntityType Name="WorksFile">
+          <Key>
+            <PropertyRef Name="WorksFileID" />
+          </Key>
+          <Property Name="WorksFileID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorksID" Type="Int64" Nullable="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorksFile_Works" FromRole="WorksFile" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="ActionTotalDuring">
+          <Key>
+            <PropertyRef Name="Action" />
+          </Key>
+          <Property Name="Action" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="总时长" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CountLocation">
+          <Key>
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="总次数" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CountTypes">
+          <Key>
+            <PropertyRef Name="Action" />
+          </Key>
+          <Property Name="Action" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="总次数" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CovertStartToDay">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="Start" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="During" Type="Int32" />
+        </EntityType>
+        <EntityType Name="laCountsbyUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="counts" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LocationTotalDuring">
+          <Key>
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="总时长" Type="Int32" />
+        </EntityType>
+        <EntityType Name="QuerylearningActivity">
+          <Key>
+            <PropertyRef Name="活动类型" />
+            <PropertyRef Name="对象描述" />
+            <PropertyRef Name="活动地点" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="LearningActivityID" />
+            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="ActivityTypeID" />
+          </Key>
+          <Property Name="开始时间" Type="DateTime" Precision="3" />
+          <Property Name="开始日期" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="开始时间点" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="持续时长" Type="Int32" />
+          <Property Name="作品地址" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="活动描述" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="活动类型" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="学习对象" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="对象描述" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="学习内容" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="活动地点" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="LearningActivityID" Type="Int64" Nullable="false" />
+          <Property Name="创建时间" Type="DateTime" Precision="3" />
+          <Property Name="修改时间" Type="DateTime" Precision="3" />
+          <Property Name="LocationID" Type="Int64" Nullable="false" />
+          <Property Name="ActivityTypeID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LearningActivity_ActivityType">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="ActivityTypeID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="ActivityTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningActivity_LearningObject">
+          <End Role="LearningObject" Type="Self.LearningObject" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningObject">
+              <PropertyRef Name="LearningObjectID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="LearningObjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningActivity_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="LearningActivity" Type="Self.LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorksFile_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="1" />
+          <End Role="WorksFile" Type="Self.WorksFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="WorksID" />
+            </Principal>
+            <Dependent Role="WorksFile">
+              <PropertyRef Name="WorksID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LAActivityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityType" EntityType="Self.ActivityType" />
+          <EntitySet Name="LearningActivity" EntityType="Self.LearningActivity" />
+          <EntitySet Name="LearningObject" EntityType="Self.LearningObject" />
+          <EntitySet Name="Location" EntityType="Self.Location" />
+          <EntitySet Name="Works" EntityType="Self.Works" />
+          <EntitySet Name="WorksFile" EntityType="Self.WorksFile" />
+          <EntitySet Name="ActionTotalDuring" EntityType="Self.ActionTotalDuring" />
+          <EntitySet Name="CountLocation" EntityType="Self.CountLocation" />
+          <EntitySet Name="CountTypes" EntityType="Self.CountTypes" />
+          <EntitySet Name="CovertStartToDay" EntityType="Self.CovertStartToDay" />
+          <EntitySet Name="laCountsbyUser" EntityType="Self.laCountsbyUser" />
+          <EntitySet Name="LocationTotalDuring" EntityType="Self.LocationTotalDuring" />
+          <EntitySet Name="QuerylearningActivity" EntityType="Self.QuerylearningActivity" />
+          <AssociationSet Name="FK_LearningActivity_ActivityType" Association="Self.FK_LearningActivity_ActivityType">
+            <End Role="ActivityType" EntitySet="ActivityType" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningActivity_LearningObject" Association="Self.FK_LearningActivity_LearningObject">
+            <End Role="LearningObject" EntitySet="LearningObject" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningActivity_Location" Association="Self.FK_LearningActivity_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorksFile_Works" Association="Self.FK_WorksFile_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorksFile" EntitySet="WorksFile" />
+          </AssociationSet>
+          <FunctionImport Name="la_GetLongestActionsByUserID" ReturnType="Collection(LAActivityModel.la_GetLongestActionsByUserID_Result)">
+          <Parameter Name="uid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="la_GetLongestActionsByUserIdBetweenTimeSpan" ReturnType="Collection(LAActivityModel.la_GetLongestActionsByUserIdBetweenTimeSpan_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int64" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="la_GetLongestLocationsByUserId" ReturnType="Collection(LAActivityModel.la_GetLongestLocationsByUserId_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="la_GetMostLocationsByUserId" ReturnType="Collection(LAActivityModel.la_GetMostLocationsByUserId_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="la_GetMostTypesByUserId" ReturnType="Collection(LAActivityModel.la_GetMostTypesByUserId_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="FileType" EntityType="LAActivityModel.FileType" />
+          <EntitySet Name="User" EntityType="LAActivityModel.User" />
+          <AssociationSet Name="FK_LearningActivity_User" Association="LAActivityModel.FK_LearningActivity_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LearningActivity" EntitySet="LearningActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningObject_User" Association="LAActivityModel.FK_LearningObject_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LearningObject" EntitySet="LearningObject" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="la_GetLongestActionsByUserID_Result">
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="总时长" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="la_GetLongestActionsByUserIdBetweenTimeSpan_Result">
+          <Property Type="Int32" Name="时长" Nullable="true" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="la_GetLongestLocationsByUserId_Result">
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="总时长" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="la_GetMostLocationsByUserId_Result">
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="总次数" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="la_GetMostTypesByUserId_Result">
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="总次数" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeID" />
+          </Key>
+          <Property Name="FileTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Duty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="SchoolID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="StateID" Type="Int32" />
+          <Property Name="ApprovedBy" Type="Int64" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int64" />
+          <NavigationProperty Name="LearningActivity" Relationship="LAActivityModel.FK_LearningActivity_User" FromRole="User" ToRole="LearningActivity" />
+          <NavigationProperty Name="LearningObject" Relationship="LAActivityModel.FK_LearningObject_User" FromRole="User" ToRole="LearningObject" />
+        </EntityType>
+        <Association Name="FK_LearningActivity_User">
+          <End Type="LAActivityModel.User" Role="User" Multiplicity="1" />
+          <End Type="LAActivityModel.LearningActivity" Role="LearningActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="LearningActivity">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningObject_User">
+          <End Type="LAActivityModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="LAActivityModel.LearningObject" Role="LearningObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="LearningObject">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LAActivityModelStoreContainer" CdmEntityContainer="LAActivityEntities">
+          <EntitySetMapping Name="ActivityType">
+            <EntityTypeMapping TypeName="LAActivityModel.ActivityType">
+              <MappingFragment StoreEntitySet="ActivityType">
+                <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsShare" ColumnName="IsShare" />
+                <ScalarProperty Name="CreatBy" ColumnName="CreatBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LearningActivity">
+            <EntityTypeMapping TypeName="LAActivityModel.LearningActivity">
+              <MappingFragment StoreEntitySet="LearningActivity">
+                <ScalarProperty Name="LearningActivityID" ColumnName="LearningActivityID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+                <ScalarProperty Name="LearningObjectID" ColumnName="LearningObjectID" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="During" ColumnName="During" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="WorksUrl" ColumnName="WorksUrl" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LearningObject">
+            <EntityTypeMapping TypeName="LAActivityModel.LearningObject">
+              <MappingFragment StoreEntitySet="LearningObject">
+                <ScalarProperty Name="LearningObjectID" ColumnName="LearningObjectID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+                <ScalarProperty Name="LOTypeID" ColumnName="LOTypeID" />
+                <ScalarProperty Name="LearningContent" ColumnName="LearningContent" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsShare" ColumnName="IsShare" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Location">
+            <EntityTypeMapping TypeName="LAActivityModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsShare" ColumnName="IsShare" />
+                <ScalarProperty Name="CreatBy" ColumnName="CreatBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Works">
+            <EntityTypeMapping TypeName="LAActivityModel.Works">
+              <MappingFragment StoreEntitySet="Works">
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="WorksName" ColumnName="WorksName" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="WorksTypeID" ColumnName="WorksTypeID" />
+                <ScalarProperty Name="WorksCode" ColumnName="WorksCode" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="IsSample" ColumnName="IsSample" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="SubmitProfile" ColumnName="SubmitProfile" />
+                <ScalarProperty Name="Suggestion" ColumnName="Suggestion" />
+                <ScalarProperty Name="InstallationGuide" ColumnName="InstallationGuide" />
+                <ScalarProperty Name="DesignIdeas" ColumnName="DesignIdeas" />
+                <ScalarProperty Name="KeyPoints" ColumnName="KeyPoints" />
+                <ScalarProperty Name="SelfAssessment" ColumnName="SelfAssessment" />
+                <ScalarProperty Name="DemoURL" ColumnName="DemoURL" />
+                <ScalarProperty Name="BackReason" ColumnName="BackReason" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="AllotTimes" ColumnName="AllotTimes" />
+                <ScalarProperty Name="WorksState" ColumnName="WorksState" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorksFile">
+            <EntityTypeMapping TypeName="LAActivityModel.WorksFile">
+              <MappingFragment StoreEntitySet="WorksFile">
+                <ScalarProperty Name="WorksFileID" ColumnName="WorksFileID" />
+                <ScalarProperty Name="WorksID" ColumnName="WorksID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionTotalDuring">
+            <EntityTypeMapping TypeName="LAActivityModel.ActionTotalDuring">
+              <MappingFragment StoreEntitySet="ActionTotalDuring">
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="总时长" ColumnName="总时长" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountLocation">
+            <EntityTypeMapping TypeName="LAActivityModel.CountLocation">
+              <MappingFragment StoreEntitySet="CountLocation">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="总次数" ColumnName="总次数" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountTypes">
+            <EntityTypeMapping TypeName="LAActivityModel.CountTypes">
+              <MappingFragment StoreEntitySet="CountTypes">
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="总次数" ColumnName="总次数" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CovertStartToDay">
+            <EntityTypeMapping TypeName="LAActivityModel.CovertStartToDay">
+              <MappingFragment StoreEntitySet="CovertStartToDay">
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="During" ColumnName="During" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="laCountsbyUser">
+            <EntityTypeMapping TypeName="LAActivityModel.laCountsbyUser">
+              <MappingFragment StoreEntitySet="laCountsbyUser">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="counts" ColumnName="counts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationTotalDuring">
+            <EntityTypeMapping TypeName="LAActivityModel.LocationTotalDuring">
+              <MappingFragment StoreEntitySet="LocationTotalDuring">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="总时长" ColumnName="总时长" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuerylearningActivity">
+            <EntityTypeMapping TypeName="LAActivityModel.QuerylearningActivity">
+              <MappingFragment StoreEntitySet="QuerylearningActivity">
+                <ScalarProperty Name="开始时间" ColumnName="开始时间" />
+                <ScalarProperty Name="开始日期" ColumnName="开始日期" />
+                <ScalarProperty Name="开始时间点" ColumnName="开始时间点" />
+                <ScalarProperty Name="持续时长" ColumnName="持续时长" />
+                <ScalarProperty Name="作品地址" ColumnName="作品地址" />
+                <ScalarProperty Name="活动描述" ColumnName="活动描述" />
+                <ScalarProperty Name="活动类型" ColumnName="活动类型" />
+                <ScalarProperty Name="学习对象" ColumnName="学习对象" />
+                <ScalarProperty Name="对象描述" ColumnName="对象描述" />
+                <ScalarProperty Name="学习内容" ColumnName="学习内容" />
+                <ScalarProperty Name="活动地点" ColumnName="活动地点" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LearningActivityID" ColumnName="LearningActivityID" />
+                <ScalarProperty Name="创建时间" ColumnName="创建时间" />
+                <ScalarProperty Name="修改时间" ColumnName="修改时间" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ActivityTypeID" ColumnName="ActivityTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="la_GetLongestActionsByUserID" FunctionName="LAActivityModel.Store.la_GetLongestActionsByUserID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LAActivityModel.la_GetLongestActionsByUserID_Result">
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="总时长" ColumnName="总时长" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="la_GetLongestActionsByUserIdBetweenTimeSpan" FunctionName="LAActivityModel.Store.la_GetLongestActionsByUserIdBetweenTimeSpan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LAActivityModel.la_GetLongestActionsByUserIdBetweenTimeSpan_Result">
+                <ScalarProperty Name="时长" ColumnName="时长" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="la_GetLongestLocationsByUserId" FunctionName="LAActivityModel.Store.la_GetLongestLocationsByUserId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LAActivityModel.la_GetLongestLocationsByUserId_Result">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="总时长" ColumnName="总时长" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="la_GetMostLocationsByUserId" FunctionName="LAActivityModel.Store.la_GetMostLocationsByUserId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LAActivityModel.la_GetMostLocationsByUserId_Result">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="总次数" ColumnName="总次数" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="la_GetMostTypesByUserId" FunctionName="LAActivityModel.Store.la_GetMostTypesByUserId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LAActivityModel.la_GetMostTypesByUserId_Result">
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="总次数" ColumnName="总次数" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="FileType">
+            <EntityTypeMapping TypeName="LAActivityModel.FileType">
+              <MappingFragment StoreEntitySet="FileType">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="FileTypeID" ColumnName="FileTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="LAActivityModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ProfessionalTitle" ColumnName="ProfessionalTitle" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

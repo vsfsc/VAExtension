@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ContestDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{5f255a6e-bc49-477d-88ef-2bcaf1d9229d}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ContestDB</RootNamespace>
+    <AssemblyName>ContestDB</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <Containment>None</Containment>
+    <IsNestedTriggersOn>True</IsNestedTriggersOn>
+    <IsTransformNoiseWordsOn>False</IsTransformNoiseWordsOn>
+    <TwoDigitYearCutoff>2049</TwoDigitYearCutoff>
+    <NonTransactedFileStreamAccess>OFF</NonTransactedFileStreamAccess>
+    <TargetRecoveryTimePeriod>0</TargetRecoveryTimePeriod>
+    <TargetRecoveryTimeUnit>SECONDS</TargetRecoveryTimeUnit>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>110</CompatibilityMode>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\LearningObject.sql" />
+    <Build Include="dbo\Tables\UserWorks.sql" />
+    <Build Include="dbo\Tables\Location.sql" />
+    <Build Include="dbo\Tables\Works.sql" />
+    <Build Include="dbo\Tables\Course.sql" />
+    <Build Include="dbo\Tables\Organization.sql" />
+    <Build Include="dbo\Tables\Periods.sql" />
+    <Build Include="dbo\Tables\WorksFile.sql" />
+    <Build Include="dbo\Tables\State.sql" />
+    <Build Include="dbo\Tables\RatingDetails.sql" />
+    <Build Include="dbo\Tables\Area.sql" />
+    <Build Include="dbo\Tables\Email.sql" />
+    <Build Include="dbo\Tables\EmailDetail.sql" />
+    <Build Include="dbo\Tables\College.sql" />
+    <Build Include="dbo\Tables\ActivityType.sql" />
+    <Build Include="dbo\Tables\ExpertGroupType.sql" />
+    <Build Include="dbo\Tables\WorksExpert.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\ExpertWorksType.sql" />
+    <Build Include="dbo\Tables\WorksType.sql" />
+    <Build Include="dbo\Tables\Specialty.sql" />
+    <Build Include="dbo\Tables\PaperGrades.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\EssayInfo.sql" />
+    <Build Include="dbo\Tables\PeriodStandard.sql" />
+    <Build Include="dbo\Tables\UserRole.sql" />
+    <Build Include="dbo\Tables\ResetPassword.sql" />
+    <Build Include="dbo\Tables\WorksComments.sql" />
+    <Build Include="dbo\Tables\FileType.sql" />
+    <Build Include="dbo\Tables\School.sql" />
+    <Build Include="dbo\Tables\LearningActivity.sql" />
+    <Build Include="dbo\Tables\WorksTypeScoreStandard.sql" />
+    <Build Include="dbo\Tables\ScoreStandard.sql" />
+    <Build Include="dbo\Views\QuerylearningActivity.sql" />
+    <Build Include="dbo\Views\ActionTotalDuring.sql" />
+    <Build Include="dbo\Views\LocationTotalDuring.sql" />
+    <Build Include="dbo\Views\CountTypes.sql" />
+    <Build Include="dbo\Views\CountLocation.sql" />
+    <Build Include="Security\CCC_Administrator.sql" />
+    <Build Include="Security\CCC_Administrator_1.sql" />
+    <Build Include="Security\CCC-VA-DB_Administrator.sql" />
+    <Build Include="Security\CCC-VA-DB_Administrator_1.sql" />
+    <Build Include="dbo\Stored Procedures\InsertExpertWorksType.sql" />
+    <Build Include="dbo\Stored Procedures\la_GetMostLocationsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\InsertRatingDetails.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksTypeScoreStandardByTypeID.sql" />
+    <Build Include="dbo\Stored Procedures\la_GetMostTypesByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\InsertSchool.sql" />
+    <Build Include="dbo\Stored Procedures\InsertUser.sql" />
+    <Build Include="dbo\Stored Procedures\GetSampleWorksByPeriodID.sql" />
+    <Build Include="dbo\Stored Procedures\la_GetLongestLocationsByUserId.sql" />
+    <Build Include="dbo\Stored Procedures\InsertUserRole.sql" />
+    <Build Include="dbo\Stored Procedures\la_GetLongestActionsByUserIdBetweenTimeSpan.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorksComments.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksToEvaluate.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorksExpert.sql" />
+    <Build Include="dbo\Stored Procedures\GetCourses.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorksImages.sql" />
+    <Build Include="dbo\Stored Procedures\GetPeriods.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateRatingDetails.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorksSubmit.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorksType.sql" />
+    <Build Include="dbo\Stored Procedures\JudgeWorksSubmit.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateExpertWorksType.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateSchool.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksByPeriodID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateUser.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksSubmit.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateUserRole.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksForMeByPeriodID.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksCommentsByWorksID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksCheck.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksExpert.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksFile.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksImages.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksType.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksExpertByWorksID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksTypeForSubmit.sql" />
+    <Build Include="dbo\Stored Procedures\GetPeriodsByID.sql" />
+    <Build Include="dbo\Stored Procedures\ScoreStatistics.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserByUserID.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllSchool.sql" />
+    <Build Include="dbo\Stored Procedures\GetCollegeBySchoolID.sql" />
+    <Build Include="dbo\Stored Procedures\GetSpecialtyByCollegeID.sql" />
+    <Build Include="dbo\Stored Procedures\GetCourseByName.sql" />
+    <Build Include="dbo\Stored Procedures\GetPeriodByCourseID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksAllotTimes.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorks.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksAllotTimesByWorsID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksCode.sql" />
+    <Build Include="dbo\Stored Procedures\GetPeriodByUserID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPeriods.sql" />
+    <Build Include="dbo\Stored Procedures\GetPaperGradesByCreatedBy.sql" />
+    <Build Include="dbo\Stored Procedures\GetPaperGradesByStudentID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPaperGrades.sql" />
+    <Build Include="dbo\Stored Procedures\GetSpecialtyInfo.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePaperGradesByID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateEssayInfo.sql" />
+    <Build Include="dbo\Stored Procedures\InsertEssayInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksByAccount.sql" />
+    <Build Include="dbo\Stored Procedures\GetEssayInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePeriodsByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetEssayInfoByDate.sql" />
+    <Build Include="dbo\Stored Procedures\DelPeriodsByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksIDByUserAccountAndPeriodTitle.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksNumByPeriodID.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserByWorksID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateUserWorks.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePeriodStandard.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPeriodStandard.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksForMeToScore.sql" />
+    <Build Include="dbo\Stored Procedures\InsertUserWorks.sql" />
+    <Build Include="dbo\Stored Procedures\GetCity.sql" />
+    <Build Include="dbo\Stored Procedures\GetResetPasswordByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetRole.sql" />
+    <Build Include="dbo\Stored Procedures\InsertResetPassword.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateResetPassword.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksFileForSize.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksByWorksID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksInfo.sql" />
+    <Build Include="dbo\Stored Procedures\GetMyWorks.sql" />
+    <Build Include="dbo\Stored Procedures\GetSchool.sql" />
+    <Build Include="dbo\Stored Procedures\GetExpertWorksTypeDetail.sql" />
+    <Build Include="dbo\Stored Procedures\GetRatingDetailsByWorksExpertID.sql" />
+    <Build Include="dbo\Stored Procedures\GetScoreStandardByWorksType.sql" />
+    <Build Include="dbo\Stored Procedures\GetScoreStandardSubLevel.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserByAccount.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserByIDCard.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserBySchoolandRole.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserIdWorksIdByPeriodId.sql" />
+    <Build Include="dbo\Stored Procedures\GetUsersIDByPeriodID.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksIDByPeriodIDAndUserID.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserRoleByUserID.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksCheck.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksEvaluated.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksExpertByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksFile.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksForCheck.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksForSummary.sql" />
+    <Build Include="dbo\Stored Procedures\InsertWorksTypeScoreStandard.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksPublic.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksSubmitByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksType.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksTypeByUserID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateWorksTypeScoreStandard.sql" />
+    <Build Include="dbo\Stored Procedures\GetWorksTypeForEnroll.sql" />
+    <Build Include="dbo\Stored Procedures\la_GetLongestActionsByUserID.sql" />
+    <Build Include="Security\Permissions.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,220 @@
+/* Custom Stylesheet */
+body, html {
+    height: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    background: rgba(153, 153, 153, 0.00);
+    font-family: helvetica;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+   
+}
+
+/* Tabs Demo 1 */
+.tabs input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.tabs {
+    /*width: 1200px;*/
+    width: 100%;
+    float: none;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0px auto;
+}
+
+    .tabs li {
+        float: left;
+    }
+
+    .tabs label {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 2px 5px 0 0;
+        border: 1px solid #cccccc;
+        color: #08C;
+        font-size: 24px;
+        font-weight: normal;
+        font-family: 'Roboto', helveti;
+        background: white;
+        cursor: pointer;
+        position: relative;
+        top: 3px;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .tabs label:hover {
+            background: #08c;
+            color: white;
+            top: 0;
+        }
+
+[id^=tab]:checked + label {
+    background: #08c;
+    color: white;
+    top: 0;
+}
+
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+
+.tab-content {
+    z-index: 2;
+    display: none;
+    text-align: left;
+    width: 100%;
+    font-size: 20px;
+    line-height: 140%;
+    padding-top: 10px;
+    background-color: white;
+    border: 2px solid #cccccc;
+    padding: 30px;
+    color: #110e0e;
+    /*border-color: #08C;*/
+    position: absolute;
+    top: 53px;
+    left: 0;
+    box-sizing: border-box;
+    -webkit-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.tab-button {
+    font-family: Arial;
+    border: 1px solid #379082;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #999999;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: blue;
+    float: left;
+}
+
+.divSingleTop {
+    background-color:#F5FFFA ;
+    margin: 5px 5px 0px 10px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid #CCCCCC;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-bottom-color:rgba(204, 204, 204, 0.00);
+    
+}
+ .divSingleTop:hover {
+        border: #379082 solid 1px;
+        color:white;
+        background-color:#08C;
+    }
+.divSingle {
+    background-color: #F5FFFA;
+    margin: 0px 5px 5px 10px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #CCCCCC;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-top-color:rgba(204, 204, 204, 0.00);
+}
+
+   
+
+.divDoubleTop {   
+    background-color: #CAE1FF;
+    margin: 5px 5px 0px 10px;
+    padding: 5px 5px 5px 5px;
+    border-radius:10px 10px 0px 0px;
+    border: 1px solid #CCCCCC;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-bottom-color:rgba(204, 204, 204, 0.00);
+}
+.divDoubleTop:hover {
+        border: #379082 solid 1px;
+        color:white;
+        background-color:#08C;
+    }
+.divDouble {
+    background-color: #CAE1FF;
+    margin: 0px 5px 5px 10px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #CCCCCC;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-top-color:rgba(204, 204, 204, 0.00);
+}
+
+    
+
+.myspan1 {
+    padding-left: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial;
+    display: -moz-inline-box;
+    display: inline-block;    
+}
+
+.myspan2 {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    display: -moz-inline-box;
+    display: inline-block;    
+}
+.wt{
+    word-break: break-all;
+    word-wrap:break-word;   
+    font-size: 15px;
+    color:#110e0e;
+    font-family:宋体;
+}
+.btn{
+    float: right;
+    margin:0px 10px 0px 10px;
+}
+.float_left_btn{
+    float: left;
+    margin:5px 10px 0px 10px;
+}
+/*固定位子的按钮*/
+#fixed_div {
+    position: fixed;
+    bottom: 10px;
+    left: 220px;
+}
+#topDivID {
+    background: #D0D0D0;
+    height:45px; 
+    border: 1px solid #0094ff;
+    z-index:9999;
+}
+/*#timect {
+    position: fixed;
+    bottom: 200px;
+    left: 220px;
+    z-index:2000;
+}*/
+
+.imageBtn:hover{
+    background:#08C;
+}

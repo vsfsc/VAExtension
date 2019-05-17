@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FE79865-4984-428A-959F-5C7D20468A86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearningActivity</RootNamespace>
+    <AssemblyName>LearningActivity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\ActivityTypeDAL.cs" />
+    <Compile Include="DAL\ADHelper.cs" />
+    <Compile Include="DAL\Common.cs" />
+    <Compile Include="DAL\DrawingChart.cs" />
+    <Compile Include="DAL\FileTypeDAL.cs" />
+    <Compile Include="DAL\LearningActivity.cs" />
+    <Compile Include="DAL\LObjectDAL.cs" />
+    <Compile Include="DAL\LocationDAL.cs" />
+    <Compile Include="DAL\PieData.cs" />
+    <Compile Include="DAL\Statistics.cs" />
+    <Compile Include="DAL\User.cs" />
+    <Compile Include="DAL\WorksDAL.cs" />
+    <Compile Include="Layouts\EchartDemo\ShowEcharts.aspx.cs">
+      <DependentUpon>ShowEcharts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\EchartDemo\ShowEcharts.aspx.designer.cs">
+      <DependentUpon>ShowEcharts.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\EchartDemo\testnav.aspx.cs">
+      <DependentUpon>testnav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\EchartDemo\testnav.aspx.designer.cs">
+      <DependentUpon>testnav.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Activity.aspx.cs">
+      <DependentUpon>LA_Activity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Activity.aspx.designer.cs">
+      <DependentUpon>LA_Activity.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Details.aspx.cs">
+      <DependentUpon>LA_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Details.aspx.designer.cs">
+      <DependentUpon>LA_Details.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Main.aspx.cs">
+      <DependentUpon>LA_Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Main.aspx.designer.cs">
+      <DependentUpon>LA_Main.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_My.aspx.cs">
+      <DependentUpon>LA_My.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_My.aspx.designer.cs">
+      <DependentUpon>LA_My.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_MyMainPage.aspx.cs">
+      <DependentUpon>LA_MyMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_MyMainPage.aspx.designer.cs">
+      <DependentUpon>LA_MyMainPage.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Public.aspx.cs">
+      <DependentUpon>LA_Public.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\LA_Public.aspx.designer.cs">
+      <DependentUpon>LA_Public.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\LearningActivity\Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="key.snk" />
+    <None Include="Layouts\LearningActivity\fonts\oxp-demo.eot" />
+    <None Include="Layouts\LearningActivity\fonts\oxp-demo.ttf" />
+    <None Include="Layouts\LearningActivity\fonts\oxp-demo.woff" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2723198a-eb56-4786-8620-d3f467fde12a}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{6bcc94d4-a8fd-4a33-8399-2bc095a52617}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BLL\" />
+    <Folder Include="Features\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\EchartDemo\ShowEcharts.aspx" />
+    <Content Include="Layouts\EchartDemo\testnav.aspx" />
+    <Content Include="Layouts\LearningActivity\CSS\animate.min.css" />
+    <Content Include="Layouts\LearningActivity\CSS\base.css" />
+    <Content Include="Layouts\LearningActivity\CSS\component.css" />
+    <Content Include="Layouts\LearningActivity\CSS\dateRange.css" />
+    <Content Include="Layouts\LearningActivity\CSS\default.css" />
+    <Content Include="Layouts\LearningActivity\CSS\default2.css" />
+    <Content Include="Layouts\LearningActivity\CSS\jquery-ui.min.css" />
+    <Content Include="Layouts\LearningActivity\CSS\jquery.ui.selectmenu.css" />
+    <Content Include="Layouts\LearningActivity\CSS\page.css" />
+    <Content Include="Layouts\LearningActivity\CSS\style.css" />
+    <Content Include="Layouts\LearningActivity\CSS\style2.css" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\bar.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\chord.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\eventRiver.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\force.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\funnel.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\gauge.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\k.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\line.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\map.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\pie.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\radar.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\chart\scatter.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\echarts.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\echarts.min.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\echarts\theme\macarons.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\js\echarts.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\MyJSForEcharts\DrawEChart.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\MyJSForEcharts\DrawEcharts3.0.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\MyJSForEcharts\jquery.min.js" />
+    <Content Include="Layouts\LearningActivity\fonts\oxp-demo.svg" />
+    <Content Include="Layouts\LearningActivity\images\arrow_down.png" />
+    <Content Include="Layouts\LearningActivity\images\arrow_up.png" />
+    <Content Include="Layouts\LearningActivity\images\calendar_all.png" />
+    <Content Include="Layouts\LearningActivity\images\circle_plus.png" />
+    <Content Include="Layouts\LearningActivity\images\delete.png" />
+    <Content Include="Layouts\LearningActivity\images\edit.png" />
+    <Content Include="Layouts\LearningActivity\images\ha-down.gif" />
+    <Content Include="Layouts\LearningActivity\images\ha-footer.jpg" />
+    <Content Include="Layouts\LearningActivity\images\ha-header-active.jpg" />
+    <Content Include="Layouts\LearningActivity\images\ha-header-first-active.jpg" />
+    <Content Include="Layouts\LearningActivity\images\ha-header-first.jpg" />
+    <Content Include="Layouts\LearningActivity\images\ha-header-last.jpg" />
+    <Content Include="Layouts\LearningActivity\images\ha-header.jpg" />
+    <Content Include="Layouts\LearningActivity\images\ha-up.gif" />
+    <Content Include="Layouts\LearningActivity\images\icon_date.png" />
+    <Content Include="Layouts\LearningActivity\images\new.gif" />
+    <Content Include="Layouts\LearningActivity\images\new.png" />
+    <Content Include="Layouts\LearningActivity\images\newadd.png" />
+    <Content Include="Layouts\LearningActivity\images\newEdit.png" />
+    <Content Include="Layouts\LearningActivity\images\page.png" />
+    <Content Include="Layouts\LearningActivity\images\product_info_icon.png" />
+    <Content Include="Layouts\LearningActivity\images\px.png" />
+    <Content Include="Layouts\LearningActivity\images\service_status.png" />
+    <Content Include="Layouts\LearningActivity\JS\CalDate\jedate.js" />
+    <Content Include="Layouts\LearningActivity\JS\CalDate\jedate.min.js" />
+    <Content Include="Layouts\LearningActivity\JS\CalDate\skin\gray.css" />
+    <Content Include="Layouts\LearningActivity\JS\CalDate\skin\green.css" />
+    <Content Include="Layouts\LearningActivity\JS\CalDate\skin\jedate.css" />
+    <Content Include="Layouts\LearningActivity\JS\CalDate\skin\red.css" />
+    <Content Include="Layouts\LearningActivity\JS\dateRange.js" />
+    <Content Include="Layouts\LearningActivity\JS\FaceJScript.js" />
+    <Content Include="Layouts\LearningActivity\JS\index.js" />
+    <Content Include="Layouts\LearningActivity\JS\jquery-1.9.1.js" />
+    <Content Include="Layouts\LearningActivity\JS\jquery-ui.min.js" />
+    <Content Include="Layouts\LearningActivity\JS\jquery.js" />
+    <Content Include="Layouts\LearningActivity\JS\jquery.min.js" />
+    <Content Include="Layouts\LearningActivity\JS\modernizr.custom.js" />
+    <Content Include="Layouts\LearningActivity\JS\modernizr.js" />
+    <Content Include="Layouts\LearningActivity\JS\posfixed.js" />
+    <Content Include="Layouts\LearningActivity\LA_Activity.aspx" />
+    <Content Include="Layouts\LearningActivity\LA_Details.aspx" />
+    <Content Include="Layouts\LearningActivity\LA_Main.aspx" />
+    <Content Include="Layouts\LearningActivity\LA_My.aspx" />
+    <Content Include="Layouts\LearningActivity\Echarts\css\jquery.ui.selectmenu.css" />
+    <Content Include="Layouts\LearningActivity\Echarts\css\styles.css" />
+    <Content Include="Layouts\LearningActivity\Echarts\img\product_info_icon.png" />
+    <Content Include="Layouts\LearningActivity\Echarts\img\service_status.png" />
+    <Content Include="Layouts\LearningActivity\Echarts\js\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\js\jquery.min.js" />
+    <Content Include="Layouts\LearningActivity\Echarts\js\scripts.js" />
+    <Content Include="Layouts\LearningActivity\LA_MyMainPage.aspx" />
+    <Content Include="Layouts\LearningActivity\LA_Public.aspx" />
+    <Content Include="Layouts\LearningActivity\Statistics.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LADLL\LADLL.csproj">
+      <Project>{74eac28d-5800-43cd-ba0b-d7cf7598795b}</Project>
+      <Name>LADLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

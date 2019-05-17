@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="1df4e31a-2c51-4b9f-9bfa-5cab8b4bb633" solutionId="1df4e31a-2c51-4b9f-9bfa-5cab8b4bb633" resetWebServer="false" sharePointProductVersion="15.0" name="lemmatizer" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="28ad024f-7936-4593-933b-d663eaaea15e" />
+    <projectItemReference itemId="ccd10e3e-dc40-4f24-9554-fcfbdc6216b1" />
+  </projectItems>
+</package>

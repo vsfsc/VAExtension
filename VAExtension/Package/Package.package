@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="6288b9d2-b96d-4794-9bbd-0f3111e409af" 
+        solutionId="6288b9d2-b96d-4794-9bbd-0f3111e409af" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="VAExtension"
+        sharePointProductVersion="15.0">
+</package>

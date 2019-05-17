@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="lemmatizerDLL.ExportToExcel">
+    <Position X="7" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEAAAACQAAAAAAIAAAEAAAAAAARAAAAA=</HashCode>
+      <FileName>ExportToExcel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lemmatizerDLL.OutputResult">
+    <Position X="19.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACABEAEAAAgAAAACAAQAAgAAAAgAAAAAApAAAAAA=</HashCode>
+      <FileName>OutputResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="21.25" Y="3.75" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="lemmatizerDLL.DAL.DataProvider">
+    <Position X="10" Y="6.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQgAAAAAAAAAAAAAIAAAACAAAAAQAAA=</HashCode>
+      <FileName>DataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lemmatizerDLL.DAL.SqlHelper">
+    <Position X="13.75" Y="6.75" Width="4.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="lemmatizerDLL.DAL.SqlHelper.SqlConnectionOwnership">
+        <TypeIdentifier>
+          <NewMemberFileName>SqlHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACCIAAiAAAAAACAkABAEBECAgAAAAAABAAAAAAIICIA=</HashCode>
+      <FileName>SqlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lemmatizerDLL.DAL.SqlHelperParameterCache">
+    <Position X="22.25" Y="6.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAEECAAIAAAAAAAARAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SqlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lemmatizerDLL.TextInput">
+    <Position X="26.5" Y="6.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACgAQAgAAAAAAAEAAEAAAEAAAAAAAAgAAAACAQA=</HashCode>
+      <FileName>TextInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lemmatizerDLL.WordBLL">
+    <Position X="30" Y="6.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBEAAAAABAAAAAAQEAQAACAAAAAAAQAAAEAAAAAAA=</HashCode>
+      <FileName>WordBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lemmatizerDLL.DAL.WordDAL">
+    <Position X="34.25" Y="6.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAQAAAAAQAASEAAAAAAAAAAEAAAAAQCAA=</HashCode>
+      <FileName>WordDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

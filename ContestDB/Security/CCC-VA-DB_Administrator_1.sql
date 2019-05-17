@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [CCC-VA-DB\Administrator]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [简体中文];
+
